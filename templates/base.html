@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}" />
+  <meta name="author" content="{{ site_meta.author }}" />
+  <link rel="canonical" href="{{ page.filename }}" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="{{ page.slug }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="brand-area">
+      <a class="brand" href="index.html">CJ Li</a>
+      <p class="sr-only">Use tab to navigate the main menu.</p>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <ul class="nav-groups">
+        {% for group in nav_structure %}
+        <li class="nav-group" data-target="{{ group.slug }}">
+          {% set group_active = page.slug in group.all_slugs %}
+          <div class="nav-group-header">
+            <a class="nav-link {% if group_active %}is-active{% endif %}" href="{{ group.href }}">{{ group.label }}</a>
+            <button class="submenu-toggle" aria-expanded="false" aria-controls="submenu-{{ group.slug }}">
+              <span class="sr-only">Toggle {{ group.label }} menu</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+          </div>
+          <ul id="submenu-{{ group.slug }}" class="submenu">
+            {% for item in group["items"] %}
+            <li>
+              <a class="submenu-link {% if page.slug == item.slug %}is-active{% endif %}" href="{{ item.href }}">{{ item.label }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="page-content">
+    <section class="hero hero--{{ page.hero.align }}">
+      {% if page.hero.kicker %}<p class="hero__kicker">{{ page.hero.kicker }}</p>{% endif %}
+      <h1 class="hero__title">{{ page.hero.title }}</h1>
+      {% if page.hero.subtitle %}<p class="hero__subtitle">{{ page.hero.subtitle }}</p>{% endif %}
+    </section>
+
+    {% if page.sections %}
+    <div class="content-blocks">
+      {% for section in page.sections %}
+      <section class="content-block content-block--{{ section.kind }} {% if section.layout %}content-block--{{ section.layout }}{% endif %} {% if section.style %}content-block--{{ section.style }}{% endif %}">
+        {% if section.title %}<h2>{{ section.title }}</h2>{% endif %}
+        {% if section.kind == 'text' %}
+          {% for paragraph in section.paragraphs %}
+            <p>{{ paragraph }}</p>
+          {% endfor %}
+        {% elif section.kind == 'list' %}
+          {% if section.ordered %}
+            <ol class="content-list">
+              {% for item in section["items"] %}
+              <li>
+                <span class="item-label">{{ item.label }}</span>
+                {% if item.description %}<span class="item-description">{{ item.description }}</span>{% endif %}
+              </li>
+              {% endfor %}
+            </ol>
+          {% else %}
+            <ul class="content-list">
+              {% for item in section["items"] %}
+              <li>
+                <span class="item-label">{{ item.label }}</span>
+                {% if item.description %}<span class="item-description">{{ item.description }}</span>{% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endif %}
+      </section>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </main>
+
+  <footer class="site-footer">
+    <p>© {{ current_year }} CJ Li. Structure referenced from maiwenting.com and rebuilt for Unit research.</p>
+  </footer>
+
+  <script src="assets/script.js" defer></script>
+</body>
+</html>
