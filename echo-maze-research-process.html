@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echo Maze | Research Process</title>
+  <style>
+    :root {
+      font-family: 'Courier New', Courier, monospace;
+      color: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: url('images/DSCF1118.JPG') center/cover fixed;
+      font-family: inherit;
+      color: inherit;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    main {
+      width: min(1100px, 100%);
+      padding: clamp(1.5rem, 3vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    header {
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    a.back-link {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a.back-link:hover,
+    a.back-link:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .copy {
+      max-width: 760px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      line-height: 1.7;
+    }
+
+    h2 {
+      margin: 1.5rem 0 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 24px 65px rgba(0, 0, 0, 0.45);
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Echo Maze — Research Process</h1>
+      <a class="back-link" href="unit-1.html">Back to Echo Maze</a>
+    </header>
+
+    <div class="copy">
+      <p>The initial inspiration stemmed from Lacan’s mirror stage and Sherry Turkle’s notion of relational artifacts. Both suggest that technology doesn’t just reflect identity—it reconstructs it. In Echo Maze, mirrors stand for the algorithmic self, endlessly echoing yet never truly knowing.</p>
+
+      <div>
+        <h2>Design Process</h2>
+        <p>The installation is built from reflective acrylic walls, DMX-controlled RGB lasers, and LED light strips that pulse between orange (emotion) and teal (reason). Hand gestures captured by camera input in TouchDesigner manipulate fragmented facial images projected within the maze, creating a visual feedback loop between audience and algorithm.</p>
+      </div>
+
+      <div>
+        <h2>Media Experiments</h2>
+        <p>Media Experiment I: explored facial recognition datasets and distortion mapping to test how “AI empathy” fails when faces blur into data.</p>
+        <p>Media Experiment II: developed hand-tracking controls that simulate scrolling motions—translating habitual gestures into visual disintegration.</p>
+      </div>
+    </div>
+
+    <div class="gallery" aria-label="Research imagery">
+      <img src="images/IMG_4446 copy.JPG" alt="Research snapshot 1" />
+      <img src="images/IMG_4447 copy.JPG" alt="Research snapshot 2" />
+      <img src="images/IMG_4444.JPG" alt="Research snapshot 3" />
+    </div>
+  </main>
+</body>
+</html>

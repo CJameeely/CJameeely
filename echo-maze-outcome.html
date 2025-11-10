@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echo Maze | Outcome</title>
+  <style>
+    :root {
+      font-family: 'Courier New', Courier, monospace;
+      color: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: url('images/DSCF1118.JPG') center/cover fixed;
+      font-family: inherit;
+      color: inherit;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    main {
+      width: min(1100px, 100%);
+      padding: clamp(1.5rem, 3vw, 3rem);
+      display: grid;
+      grid-template-columns: minmax(320px, 1fr) minmax(280px, 0.9fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    a.back-link {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a.back-link:hover,
+    a.back-link:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      line-height: 1.8;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    figure {
+      margin: 0;
+      justify-self: center;
+      width: min(420px, 80vw);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 820px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Echo Maze — Outcome</h1>
+      <a class="back-link" href="unit-1.html">Back to Echo Maze</a>
+    </header>
+
+    <div class="description">
+      <p>The final maze operates as both a physical and emotional architecture.</p>
+      <p>Each gesture, reflection, and flicker of light becomes a negotiation between human subjectivity and machinic empathy—a dance between recognition and loss.</p>
+    </div>
+
+    <figure aria-hidden="true">
+      <img src="images/IMG_4450.JPG" alt="Echo Maze final installation" />
+    </figure>
+  </main>
+</body>
+</html>

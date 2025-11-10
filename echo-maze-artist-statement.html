@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echo Maze | Artist Statement</title>
+  <style>
+    :root {
+      font-family: 'Courier New', Courier, monospace;
+      color: #f4f4f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: url('images/DSCF1118.JPG') center/cover fixed;
+      font-family: inherit;
+      color: inherit;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    main {
+      width: min(960px, 100%);
+      background: transparent;
+      border-radius: 28px;
+      padding: clamp(1.5rem, 3vw, 3rem);
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-image {
+      width: min(360px, 70vw);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      margin: 0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    a.back-link {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a.back-link:hover,
+    a.back-link:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    section + section {
+      margin-top: 2rem;
+      }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="hero-image" aria-hidden="true">
+      <img src="images/IMG_4476.JPG" alt="Echo Maze detail" />
+    </div>
+    <header>
+      <h1>Echo Maze — Artist Statement</h1>
+      <a class="back-link" href="unit-1.html">Back to Echo Maze</a>
+    </header>
+
+    <section>
+      <h2>Concept</h2>
+      <p>Echo Maze is an interactive installation that mirrors the fractured self in the age of algorithmic empathy. It transforms artificial “understanding” into an architecture of reflection—literally and metaphorically. Viewers step into a space where light, gaze, and digital mimicry loop infinitely, confronting a version of themselves filtered through data and desire.</p>
+    </section>
+
+    <section>
+      <h2>Intention</h2>
+      <p>The work questions what happens when empathy is simulated rather than felt. In an age where AI can mimic warmth, language, and emotional tone, what remains authentically human?</p>
+      <p>By spatializing pseudo-empathy through mirrors, LEDs, and fragmented imagery, the piece seeks to visualize the dissonance between recognition and alienation.</p>
+    </section>
+  </main>
+</body>
+</html>

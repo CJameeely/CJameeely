@@ -8,7 +8,7 @@ SITE_META = {
 
 NAV_STRUCTURE = [
     {
-        "label": "Unit 1",
+        "label": "Echo Maze",
         "href": "about-3.html",
         "slug": "about-3",
         "items": [
@@ -19,7 +19,7 @@ NAV_STRUCTURE = [
         ],
     },
     {
-        "label": "Unit 2",
+        "label": "Self.exe",
         "href": "about-3-1.html",
         "slug": "about-3-1",
         "items": [
@@ -71,10 +71,10 @@ PAGES = [
     {
         "slug": "about-3",
         "filename": "about-3.html",
-        "title": "Unit 1 | CJ Li",
-        "description": "Unit 1 overview for CJ Li's MA Drawing journey.",
+        "title": "Echo Maze | CJ Li",
+        "description": "Echo Maze overview for CJ Li's MA Drawing journey.",
         "hero": {
-            "kicker": "Unit 1",
+            "kicker": "Echo Maze",
             "title": "Foundation",
             "subtitle": "Mapping the first term outcomes",
             "align": "left",
@@ -82,7 +82,7 @@ PAGES = [
         "sections": [
             {
                 "kind": "list",
-                "title": "Unit 1 deliverables",
+                "title": "Echo Maze deliverables",
                 "layout": "cards",
                 "items": [
                     {"label": "Artist Statement", "description": "Positioning memory as a spatial material."},
@@ -97,9 +97,9 @@ PAGES = [
         "slug": "about",
         "filename": "about.html",
         "title": "Artist Statement | CJ Li",
-        "description": "CJ Li's Unit 1 artist statement.",
+        "description": "CJ Li's Echo Maze artist statement.",
         "hero": {
-            "kicker": "Unit 1",
+            "kicker": "Echo Maze",
             "title": "Artist Statement",
             "subtitle": "Drawing as a container for shoreline memory",
             "align": "left",
@@ -118,10 +118,10 @@ PAGES = [
     {
         "slug": "critical-reflection",
         "filename": "critical-reflection.html",
-        "title": "Critical Reflection | Unit 1",
-        "description": "Key lines of inquiry for Unit 1.",
+        "title": "Critical Reflection | Echo Maze",
+        "description": "Key lines of inquiry for Echo Maze.",
         "hero": {
-            "kicker": "Unit 1",
+            "kicker": "Echo Maze",
             "title": "Critical Reflection",
             "subtitle": "Anchor points for the first term",
             "align": "left",
@@ -141,10 +141,10 @@ PAGES = [
     {
         "slug": "contexts",
         "filename": "contexts.html",
-        "title": "Contexts | Unit 1",
-        "description": "Workshops and references for Unit 1.",
+        "title": "Contexts | Echo Maze",
+        "description": "Workshops and references for Echo Maze.",
         "hero": {
-            "kicker": "Unit 1",
+            "kicker": "Echo Maze",
             "title": "Contexts",
             "subtitle": "External inputs and research",
             "align": "left",
@@ -164,10 +164,10 @@ PAGES = [
     {
         "slug": "work-and-process",
         "filename": "work-and-process.html",
-        "title": "Works and Processes | Unit 1",
-        "description": "Key works from Unit 1.",
+        "title": "Works and Processes | Echo Maze",
+        "description": "Key works from Echo Maze.",
         "hero": {
-            "kicker": "Unit 1",
+            "kicker": "Echo Maze",
             "title": "Works and Processes",
             "subtitle": "Selected drawings",
             "align": "left",
@@ -188,10 +188,10 @@ PAGES = [
     {
         "slug": "about-3-1",
         "filename": "about-3-1.html",
-        "title": "Unit 2 | CJ Li",
-        "description": "Unit 2 overview.",
+        "title": "Self.exe | CJ Li",
+        "description": "Self.exe overview.",
         "hero": {
-            "kicker": "Unit 2",
+            "kicker": "Self.exe",
             "title": "Expansion",
             "subtitle": "Deepening method and production",
             "align": "left",
@@ -199,7 +199,7 @@ PAGES = [
         "sections": [
             {
                 "kind": "list",
-                "title": "Unit 2 checkpoints",
+                "title": "Self.exe checkpoints",
                 "layout": "cards",
                 "items": [
                     {"label": "Statement", "description": "Refining the voice of the project."},
@@ -215,10 +215,10 @@ PAGES = [
     {
         "slug": "crirical-reflection",
         "filename": "crirical-reflection.html",
-        "title": "Critical Reflection | Unit 2",
-        "description": "Process reflection for Unit 2.",
+        "title": "Critical Reflection | Self.exe",
+        "description": "Process reflection for Self.exe.",
         "hero": {
-            "kicker": "Unit 2",
+            "kicker": "Self.exe",
             "title": "Critical Reflection",
             "subtitle": "Breaking, reorganizing, reinterpreting",
             "align": "left",
@@ -238,10 +238,10 @@ PAGES = [
     {
         "slug": "professional-skills",
         "filename": "professional-skills.html",
-        "title": "Professional Skills | Unit 2",
+        "title": "Professional Skills | Self.exe",
         "description": "Expanded professional toolkit.",
         "hero": {
-            "kicker": "Unit 2",
+            "kicker": "Self.exe",
             "title": "Professional Skills",
             "subtitle": "Practical capacities behind the work",
             "align": "left",
@@ -262,10 +262,10 @@ PAGES = [
     {
         "slug": "contexts-1",
         "filename": "contexts-1.html",
-        "title": "Contexts | Unit 2",
-        "description": "References feeding Unit 2.",
+        "title": "Contexts | Self.exe",
+        "description": "References feeding Self.exe.",
         "hero": {
-            "kicker": "Unit 2",
+            "kicker": "Self.exe",
             "title": "Contexts",
             "subtitle": "Reading and viewing log",
             "align": "left",
@@ -284,10 +284,10 @@ PAGES = [
     {
         "slug": "proposal",
         "filename": "proposal.html",
-        "title": "Proposal | Unit 2",
+        "title": "Proposal | Self.exe",
         "description": "Installation proposal for Unit 3.",
         "hero": {
-            "kicker": "Unit 2",
+            "kicker": "Self.exe",
             "title": "Proposal",
             "subtitle": "Sketch for the Unit 3 presentation",
             "align": "left",
@@ -305,10 +305,10 @@ PAGES = [
     {
         "slug": "statement",
         "filename": "statement.html",
-        "title": "Statement | Unit 2",
-        "description": "Unit 2 artist statement for CJ Li.",
+        "title": "Statement | Self.exe",
+        "description": "Self.exe artist statement for CJ Li.",
         "hero": {
-            "kicker": "Unit 2",
+            "kicker": "Self.exe",
             "title": "Statement",
             "subtitle": "Fragments, gaps, and provisional space",
             "align": "left",
@@ -327,10 +327,10 @@ PAGES = [
     {
         "slug": "document-your-current-art-practice",
         "filename": "document-your-current-art-practice.html",
-        "title": "Work and Process | Unit 2",
+        "title": "Work and Process | Self.exe",
         "description": "Documentation of current art practice.",
         "hero": {
-            "kicker": "Unit 2",
+            "kicker": "Self.exe",
             "title": "Work and Process",
             "subtitle": "Current studio strands",
             "align": "left",
