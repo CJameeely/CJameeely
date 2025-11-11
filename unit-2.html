@@ -7,7 +7,7 @@
   <style>
     :root {
       font-family: 'Courier New', Courier, monospace;
-      color: #f7f7f7;
+      color: #111;
     }
 
     * {
@@ -17,102 +17,98 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.7)), url('images/Screenshot 2025-06-21 at 15.29.33 copy.png') center/cover fixed;
+      background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('images/Screenshot 2025-06-21 at 15.29.33 copy.png') center/cover fixed;
       color: inherit;
       font-family: inherit;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
       display: flex;
-      flex-direction: column;
       align-items: center;
-      padding: 3rem 1.5rem 4rem;
-      gap: 2.5rem;
+      justify-content: center;
+      padding: 3rem 2rem;
     }
 
-    header {
-      text-align: center;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
+    .self-wrap {
+      width: min(680px, 100%);
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
     }
 
-    .content {
-      width: min(960px, 100%);
+    nav {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 0.75rem;
+      font-size: 1.05rem;
     }
 
-    section {
-      background: rgba(10, 10, 10, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 18px;
-      padding: clamp(1.5rem, 4vw, 2.75rem);
-      line-height: 1.7;
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      width: fit-content;
+      transition: border-color 0.2s ease;
     }
 
-    h2 {
-      margin: 0 0 1rem;
-      font-size: 1.2rem;
-      letter-spacing: 0.25em;
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: currentColor;
+    }
+
+    .self-back {
       text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      width: fit-content;
+      padding-bottom: 0.2rem;
     }
 
-    h3 {
-      margin: 1.5rem 0 0.5rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-size: 1rem;
+    .self-image img {
+      width: 100%;
+      border-radius: 26px;
+      display: block;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
     }
 
-    p {
-      margin: 0 0 0.85rem;
-      font-size: 1rem;
-    }
-
-    @media (max-width: 640px) {
+    @media (max-width: 720px) {
       body {
         padding: 2rem 1rem 3rem;
       }
 
-      section {
-        padding: 1.25rem;
+      .self-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .self-text {
+        text-align: center;
+        align-items: center;
+      }
+
+      nav a,
+      .self-back {
+        margin: 0 auto;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Self.exe</h1>
-    <p>concept · inspiration · process · outcome</p>
-  </header>
-
-  <div class="content">
-    <section>
-      <h2>Concept</h2>
-      <p>Self.exe explores how identity dissolves when intimacy is mediated by automation. The installation imagines the browser window as a psyche—tabs of memory, cached feelings, and cookies of surveillance—all running in parallel. Participants confront a mirrored interface that outputs a live, algorithmic “reading” of their emotional trace.</p>
+  <div class="self-wrap">
+    <section class="self-text" aria-label="Self.exe navigation">
+      <h1>Self.exe</h1>
+      <nav>
+        <a href="self-exe-concept.html">Concept</a>
+        <a href="self-exe-inspiration.html">Inspiration</a>
+        <a href="self-exe-process.html">Process</a>
+        <a href="self-exe-outcome.html">Outcome</a>
+      </nav>
+      <a class="self-back" href="index.html">← Back to Home</a>
     </section>
 
-    <section>
-      <h2>Inspiration</h2>
-      <p>The work draws from speculative HCI research, vaporwave UI aesthetics, and online confession boards. The aesthetic references the sterile warmth of customer-support chatbots—spaces that promise care yet never fully feel human.</p>
-    </section>
-
-    <section>
-      <h2>Process</h2>
-      <h3>Background & Artistic Research</h3>
-      <p>I studied affective computing case-studies and media art precedents where empathy is outsourced to code. Journaling exercises mapped personal encounters with automated advice systems, helping me frame the installation as both critique and tender offering.</p>
-      <h3>Design Process</h3>
-      <p>Wireframes were prototyped in Figma to choreograph the UI-as-stage. TouchDesigner handled sensor data and generative typography, while Max/MSP processed whispers and micro-vocalizations into glitchy sonic textures. Iterative user tests fine-tuned how long the system should “listen” before responding.</p>
-    </section>
-
-    <section>
-      <h2>Outcome</h2>
-      <p>The final experience acts like a therapeutic interface that never quite resolves—visitors leave with a speculative “diagnostic” file echoing their gestures and hesitations. Self.exe ultimately surfaces how our emotions are formatted, parsed, and archived by the platforms we rely on.</p>
-    </section>
   </div>
 </body>
 </html>
