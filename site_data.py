@@ -32,7 +32,7 @@ NAV_STRUCTURE = [
         ],
     },
     {
-        "label": "Unit 3",
+        "label": "The Silence Between Words",
         "href": "about-3-2.html",
         "slug": "about-3-2",
         "items": [
@@ -207,7 +207,7 @@ PAGES = [
                     {"label": "Critical Reflection", "description": "Testing whether incompleteness can be a method."},
                     {"label": "Contexts", "description": "Reading groups and site visits."},
                     {"label": "Professional Skills", "description": "Installing, budgeting, and collaboration."},
-                    {"label": "Proposal for Unit 3", "description": "Draft plan for the final presentation."},
+                    {"label": "Proposal for The Silence Between Words", "description": "Draft plan for the final presentation."},
                 ],
             }
         ],
@@ -285,11 +285,11 @@ PAGES = [
         "slug": "proposal",
         "filename": "proposal.html",
         "title": "Proposal | Self.exe",
-        "description": "Installation proposal for Unit 3.",
+        "description": "Installation proposal for The Silence Between Words.",
         "hero": {
             "kicker": "Self.exe",
             "title": "Proposal",
-            "subtitle": "Sketch for the Unit 3 presentation",
+            "subtitle": "Sketch for the The Silence Between Words presentation",
             "align": "left",
         },
         "sections": [
@@ -350,10 +350,10 @@ PAGES = [
     {
         "slug": "about-3-2",
         "filename": "about-3-2.html",
-        "title": "Unit 3 | CJ Li",
-        "description": "Unit 3 overview.",
+        "title": "The Silence Between Words | CJ Li",
+        "description": "The Silence Between Words overview.",
         "hero": {
-            "kicker": "Unit 3",
+            "kicker": "The Silence Between Words",
             "title": "Resolution",
             "subtitle": "Research threads converging",
             "align": "left",
@@ -375,10 +375,10 @@ PAGES = [
     {
         "slug": "critical-reflection-1",
         "filename": "critical-reflection-1.html",
-        "title": "Artist Statement | Unit 3",
-        "description": "Unit 3 artist statement.",
+        "title": "Artist Statement | The Silence Between Words",
+        "description": "The Silence Between Words artist statement.",
         "hero": {
-            "kicker": "Unit 3",
+            "kicker": "The Silence Between Words",
             "title": "Artist Statement",
             "subtitle": "Working through incompleteness",
             "align": "left",
@@ -387,7 +387,7 @@ PAGES = [
             {
                 "kind": "text",
                 "paragraphs": [
-                    "Throughout Unit 3 I questioned the assumption that memories can be neatly reconstructed. I began removing sections of drawings, allowing bleach and sandpaper to erase lines I had labored over. The residue left behind felt more honest than the completed image.",
+                    "Throughout The Silence Between Words I questioned the assumption that memories can be neatly reconstructed. I began removing sections of drawings, allowing bleach and sandpaper to erase lines I had labored over. The residue left behind felt more honest than the completed image.",
                     "Materials now oscillate between presence and disappearance: dusty charcoal held beside translucent fabric, video projections that dissolve when someone steps too close. I want the work to hover, always on the edge of becoming.",
                     "By foregrounding incompleteness, I hand agency to the viewer. They decide how to navigate the missing pieces, making their own bridges across the gaps.",
                 ],
@@ -400,7 +400,7 @@ PAGES = [
         "title": "Research Festival | CJ Li",
         "description": "Memoir zine for the research festival.",
         "hero": {
-            "kicker": "Unit 3",
+            "kicker": "The Silence Between Words",
             "title": "Research Festival",
             "subtitle": "Memoir zine",
             "align": "left",
@@ -421,7 +421,7 @@ PAGES = [
         "title": "Critical Reflection Essay | CJ Li",
         "description": "Extended writing on incompleteness as method.",
         "hero": {
-            "kicker": "Unit 3",
+            "kicker": "The Silence Between Words",
             "title": "Critical Reflection",
             "subtitle": "Incompleteness as method",
             "align": "left",
@@ -459,7 +459,7 @@ PAGES = [
                 "kind": "text",
                 "title": "IV. Repositioning the Practice",
                 "paragraphs": [
-                    "Unit 3 solidified an expanded field for drawing: part installation, part choreography. Incompleteness is no longer a flaw but a strategy that keeps the work open, generous, and alive to change.",
+                    "The Silence Between Words solidified an expanded field for drawing: part installation, part choreography. Incompleteness is no longer a flaw but a strategy that keeps the work open, generous, and alive to change.",
                 ],
             },
         ],
@@ -467,10 +467,10 @@ PAGES = [
     {
         "slug": "works-and-processes",
         "filename": "works-and-processes.html",
-        "title": "Works and Processes | Unit 3",
-        "description": "Final works for Unit 3.",
+        "title": "Works and Processes | The Silence Between Words",
+        "description": "Final works for The Silence Between Words.",
         "hero": {
-            "kicker": "Unit 3",
+            "kicker": "The Silence Between Words",
             "title": "Works and Processes",
             "subtitle": "Installation components",
             "align": "left",
@@ -490,10 +490,10 @@ PAGES = [
     {
         "slug": "contexts-2",
         "filename": "contexts-2.html",
-        "title": "Contexts | Unit 3",
+        "title": "Contexts | The Silence Between Words",
         "description": "Final unit contexts.",
         "hero": {
-            "kicker": "Unit 3",
+            "kicker": "The Silence Between Words",
             "title": "Contexts",
             "subtitle": "Community and references",
             "align": "left",
