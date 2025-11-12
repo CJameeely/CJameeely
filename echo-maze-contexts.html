@@ -24,7 +24,32 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1.5rem 3rem;
+      padding: 6rem 1.5rem 3rem;
+    }
+
+    .micro-nav {
+      position: fixed;
+      top: 1.25rem;
+      left: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .micro-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.15rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .micro-nav a:hover,
+    .micro-nav a:focus-visible {
+      border-color: currentColor;
     }
 
     main {
@@ -98,6 +123,12 @@
   </style>
 </head>
 <body>
+  <nav class="micro-nav" aria-label="Site navigation">
+    <a href="index.html">CJ Li</a>
+    <a href="unit-1.html">Echo Maze</a>
+    <a href="unit-2.html">Self.exe</a>
+    <a href="home.html">More</a>
+  </nav>
   <main>
     <header>
       <h1>Echo Maze — Contexts</h1>
