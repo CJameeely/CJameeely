@@ -290,6 +290,136 @@
     }
   }
 </style>
+<style id="unit1-mobile-readability">
+  @media (max-width: 900px) {
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(246, 244, 240, 0.5) 0%, rgba(233, 238, 241, 0.4) 100%);
+      z-index: 0;
+    }
+
+    .echo-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .echo-text {
+      background: rgba(248, 246, 242, 0.72);
+      border: 1px solid rgba(118, 128, 136, 0.26);
+      border-radius: 16px;
+      padding: 1rem 0.9rem;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 10px 25px rgba(26, 32, 36, 0.14);
+    }
+
+    .echo-text h1,
+    .echo-text a,
+    .echo-back {
+      color: #243845;
+      text-shadow: none;
+    }
+
+    .echo-text nav {
+      font-size: 1.04rem;
+      gap: 0.7rem;
+    }
+
+    .echo-text a {
+      border-bottom-color: rgba(36, 56, 69, 0.26);
+    }
+
+    .echo-images img {
+      box-shadow: 0 16px 38px rgba(17, 22, 26, 0.24);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .echo-text {
+      padding: 0.9rem 0.75rem;
+      gap: 1rem;
+    }
+
+    .echo-text nav {
+      font-size: 1rem;
+    }
+  }
+</style>
+<style id="global-mobile-readable-layout">
+  @media (max-width: 900px) {
+    main,
+    article,
+    .echo-wrap,
+    .self-wrap,
+    .video-wrap,
+    .overview-card,
+    .process-card,
+    .echo-text,
+    .self-text,
+    .soulmate-text {
+      width: min(100%, 740px) !important;
+      max-width: 740px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    main,
+    .echo-wrap,
+    .self-wrap,
+    .video-wrap {
+      grid-template-columns: 1fr !important;
+    }
+
+    .echo-images,
+    .self-images,
+    .concept-refs-grid {
+      grid-template-columns: 1fr !important;
+      justify-items: center !important;
+    }
+
+    .echo-images img,
+    .self-images img,
+    .video-wrap img,
+    article img,
+    main img {
+      display: block;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      object-position: center center;
+    }
+
+    main p,
+    main li,
+    article p,
+    article li,
+    .echo-text p,
+    .self-text p,
+    .soulmate-text p {
+      max-width: none !important;
+      width: 100% !important;
+      text-align: left !important;
+    }
+  }
+
+  @media (max-width: 720px) {
+    main,
+    article,
+    .echo-wrap,
+    .self-wrap,
+    .video-wrap,
+    .overview-card,
+    .process-card,
+    .echo-text,
+    .self-text,
+    .soulmate-text {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
 </head>
 <body>
   <nav class="micro-nav" aria-label="Site navigation">

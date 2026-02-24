@@ -309,6 +309,78 @@
     }
   }
 </style>
+<style id="global-mobile-readable-layout">
+  @media (max-width: 900px) {
+    main,
+    article,
+    .echo-wrap,
+    .self-wrap,
+    .video-wrap,
+    .overview-card,
+    .process-card,
+    .echo-text,
+    .self-text,
+    .soulmate-text {
+      width: min(100%, 740px) !important;
+      max-width: 740px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    main,
+    .echo-wrap,
+    .self-wrap,
+    .video-wrap {
+      grid-template-columns: 1fr !important;
+    }
+
+    .echo-images,
+    .self-images,
+    .concept-refs-grid {
+      grid-template-columns: 1fr !important;
+      justify-items: center !important;
+    }
+
+    .echo-images img,
+    .self-images img,
+    .video-wrap img,
+    article img,
+    main img {
+      display: block;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      object-position: center center;
+    }
+
+    main p,
+    main li,
+    article p,
+    article li,
+    .echo-text p,
+    .self-text p,
+    .soulmate-text p {
+      max-width: none !important;
+      width: 100% !important;
+      text-align: left !important;
+    }
+  }
+
+  @media (max-width: 720px) {
+    main,
+    article,
+    .echo-wrap,
+    .self-wrap,
+    .video-wrap,
+    .overview-card,
+    .process-card,
+    .echo-text,
+    .self-text,
+    .soulmate-text {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
 </head>
 <body>
   <nav class="micro-nav" aria-label="Site navigation">
