@@ -223,6 +223,135 @@
   }
 </style>
 
+
+
+
+
+
+
+<style id="responsive-baseline">
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, li, a, span {
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+  }
+</style>
+<style id="responsive-handmade-override">
+  @media (max-width: 900px) {
+    body {
+      background-attachment: scroll !important;
+      padding-inline: clamp(0.75rem, 2.5vw, 1.25rem);
+    }
+
+    .micro-nav,
+    .site-nav {
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      width: 100%;
+      flex-wrap: wrap !important;
+      gap: clamp(0.5rem, 2vw, 0.9rem) clamp(0.75rem, 2.4vw, 1.25rem) !important;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 0.6rem;
+      z-index: auto;
+    }
+
+    .micro-nav a,
+    .site-nav a {
+      display: inline-block;
+      padding: 0.2rem 0.25rem;
+      line-height: 1.35;
+    }
+
+    main,
+    .echo-wrap,
+    .self-wrap,
+    .video-wrap,
+    .overview-card,
+    .process-card,
+    .soulmate-text,
+    article,
+    section {
+      width: min(100%, 100%) !important;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 720px) {
+    body {
+      padding-inline: 0.85rem;
+    }
+
+    h1 { font-size: clamp(1.85rem, 7.6vw, 2.8rem) !important; }
+    h2 { font-size: clamp(1.35rem, 5.4vw, 2rem) !important; }
+    p, li { font-size: clamp(0.95rem, 3.8vw, 1rem); line-height: 1.6; }
+  }
+
+  @media (max-width: 480px) {
+    .micro-nav,
+    .site-nav {
+      gap: 0.45rem 0.7rem !important;
+    }
+
+    .micro-nav a,
+    .site-nav a {
+      padding: 0.15rem 0.2rem;
+      font-size: clamp(0.95rem, 4vw, 1.05rem);
+    }
+  }
+</style>
+<style id="soulmate-responsive-tune">
+  @media (max-width: 900px) {
+    body {
+      display: block;
+      padding: 1rem 1rem 2rem;
+    }
+
+    .micro-nav {
+      position: static !important;
+      margin-bottom: 1rem;
+    }
+
+    .video-wrap,
+    .soulmate-text {
+      width: min(100%, 100%);
+      margin-inline: auto;
+    }
+
+    .video-wrap h1 {
+      letter-spacing: 0.18em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .video-wrap h1 {
+      letter-spacing: 0.12em;
+    }
+  }
+</style>
 </head>
 <body>
   <nav class="micro-nav" aria-label="Site navigation">
