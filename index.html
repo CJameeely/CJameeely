@@ -260,6 +260,7 @@
       .contact-icons {
         gap: 0.5rem;
         padding: 0.7rem 0.75rem;
+        width: min(100%, 360px);
       }
 
       .icon-link,
@@ -268,8 +269,20 @@
         height: 50px;
       }
 
+      .contact-actions {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
       .email-display {
         font-size: 0.88rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .email-display.is-visible {
+        max-width: 100%;
+        margin-left: 0;
       }
     }
   </style>
