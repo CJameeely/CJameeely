@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deformable Glyphs | Play</title>
+  <style>
+    @font-face {
+      font-family: "CjGlyphCormorant";
+      src: url("fonts/cormorantgaramond.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    :root {
+      --accent: #7f92a6;
+      --text: #3d3a35;
+      --glass: rgba(245, 241, 232, 0.82);
+      --glass-border: rgba(140, 123, 96, 0.35);
+      --display-font: "CjGlyphCormorant", "Cormorant Garamond", "Times New Roman", serif;
+      --body-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Baskerville", Georgia, serif;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #f5f1e8;
+      width: 100%;
+      height: 100%;
+      font-family: var(--body-font);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    canvas {
+      display: block;
+      background-color: transparent;
+      touch-action: none;
+    }
+
+    #back-link {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 11;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-family: var(--display-font);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      backdrop-filter: blur(5px);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    #toolbar {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      z-index: 10;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      max-width: min(92vw, 980px);
+    }
+
+    #capture-btn,
+    #save-btn {
+      position: static;
+      padding: 10px 20px;
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--display-font);
+      cursor: pointer;
+      background-color: var(--glass);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      z-index: 10;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      white-space: nowrap;
+      backdrop-filter: blur(5px);
+    }
+
+    #toolbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background-color: var(--glass);
+      border: 1px solid var(--glass-border);
+      font-family: var(--display-font);
+      color: var(--text);
+      flex-wrap: wrap;
+      backdrop-filter: blur(5px);
+    }
+
+    #toolbar-controls label {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    #fill-color,
+    #fill-opacity,
+    #stroke-color {
+      border: none;
+      border-radius: 50%;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    #fill-color,
+    #stroke-color {
+      width: 36px;
+      height: 36px;
+    }
+
+    #fill-opacity {
+      width: 140px;
+      border-radius: 999px;
+      background-color: rgba(180, 168, 148, 0.35);
+      accent-color: var(--accent);
+    }
+
+    #back-link:hover,
+    #back-link:focus-visible,
+    #capture-btn:hover,
+    #save-btn:hover:enabled {
+      background-color: rgba(229, 219, 200, 0.94);
+      transform: scale(1.03);
+    }
+
+    #save-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      #back-link {
+        top: 10px;
+        left: 10px;
+      }
+
+      #toolbar {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      #toolbar-controls {
+        width: 100%;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+
+      #capture-btn,
+      #save-btn {
+        font-size: 15px;
+        padding: 9px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a id="back-link" href="typography.html">Back</a>
+  <canvas id="canvas"></canvas>
+  <div id="toolbar" aria-label="Typography controls">
+    <div id="toolbar-controls">
+      <label for="fill-color">fill</label>
+      <input type="color" id="fill-color" value="#7F92A6" aria-label="Fill color" />
+      <label for="fill-opacity">opacity</label>
+      <input type="range" id="fill-opacity" min="0.1" max="1" step="0.05" value="1" aria-label="Fill opacity" />
+      <label for="stroke-color">stroke</label>
+      <input type="color" id="stroke-color" value="#B7A07B" aria-label="Stroke color" />
+    </div>
+    <button id="save-btn" disabled>save</button>
+    <button id="capture-btn">screenshot</button>
+  </div>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      let width = 0;
+      let height = 0;
+
+      const GRID_SIZE = 16;
+      const POINT_RADIUS = 16;
+      const SIMULATION_ITERATIONS = 5;
+      const SHRINK_STRENGTH = 0.5;
+      const TARGET_DIST = 4;
+      const MAX_DIST = 15;
+      const MIN_DIST = 8;
+
+      const captureBtn = document.getElementById("capture-btn");
+      const saveBtn = document.getElementById("save-btn");
+      const fillColorInput = document.getElementById("fill-color");
+      const fillOpacityInput = document.getElementById("fill-opacity");
+      const strokeColorInput = document.getElementById("stroke-color");
+
+      let points = [];
+      let particles = [];
+      let historyStack = [];
+      const savedShapes = [];
+      let fillColor = fillColorInput.value || "#7F92A6";
+      let fillOpacity = parseFloat(fillOpacityInput.value) || 1;
+      let strokeColor = strokeColorInput.value || "#B7A07B";
+
+      let isDragging = false;
+      let draggedPoint = null;
+
+      function snapToGrid(pos) {
+        return Math.round(pos / GRID_SIZE) * GRID_SIZE;
+      }
+
+      function hexToRgba(hex, alpha) {
+        let parsedHex = hex.replace("#", "");
+        if (parsedHex.length === 3) {
+          parsedHex = parsedHex
+            .split("")
+            .map((ch) => ch + ch)
+            .join("");
+        }
+        if (parsedHex.length !== 6) {
+          return "rgba(127, 146, 166, " + alpha + ")";
+        }
+        const r = parseInt(parsedHex.substring(0, 2), 16);
+        const g = parseInt(parsedHex.substring(2, 4), 16);
+        const b = parseInt(parsedHex.substring(4, 6), 16);
+        return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+      }
+
+      function clampCoord(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function getEventPos(evt) {
+        const rect = canvas.getBoundingClientRect();
+        const x = evt.clientX - rect.left;
+        const y = evt.clientY - rect.top;
+
+        const minX = POINT_RADIUS;
+        const maxX = Math.max(minX, width - POINT_RADIUS);
+        const minY = POINT_RADIUS;
+        const maxY = Math.max(minY, height - POINT_RADIUS);
+
+        return {
+          x: clampCoord(snapToGrid(x), minX, maxX),
+          y: clampCoord(snapToGrid(y), minY, maxY),
+        };
+      }
+
+      function getPointAt(pos) {
+        for (let i = points.length - 1; i >= 0; i--) {
+          const p = points[i];
+          const dx = p.x - pos.x;
+          const dy = p.y - pos.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < p.radius * p.radius) {
+            return p;
+          }
+        }
+        return null;
+      }
+
+      function drawBackground(targetCtx) {
+        targetCtx.fillStyle = "#f5f1e8";
+        targetCtx.fillRect(0, 0, width, height);
+      }
+
+      function isPointInPolygon(point, vs) {
+        const x = point.x;
+        const y = point.y;
+        let inside = false;
+        for (let i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+          const xi = vs[i].x;
+          const yi = vs[i].y;
+          const xj = vs[j].x;
+          const yj = vs[j].y;
+          const intersect = yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi;
+          if (intersect) inside = !inside;
+        }
+        return inside;
+      }
+
+      function isInsideAnyShape(pos) {
+        if (particles.length >= 3 && isPointInPolygon(pos, particles)) {
+          return true;
+        }
+        for (const shape of savedShapes) {
+          if (shape.particles && shape.particles.length >= 3 && isPointInPolygon(pos, shape.particles)) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      function updateActionStates() {
+        saveBtn.disabled = particles.length < 3;
+      }
+
+      function clearActiveShape() {
+        points = [];
+        particles = [];
+        historyStack = [];
+        isDragging = false;
+        draggedPoint = null;
+        updateActionStates();
+      }
+
+      function reset() {
+        clearActiveShape();
+        savedShapes.length = 0;
+      }
+
+      function undo() {
+        if (historyStack.length === 0) return;
+        const pointToRemove = historyStack.pop();
+        points = points.filter((p) => p !== pointToRemove);
+
+        const anchors = points.filter((p) => p.type === "anchor");
+        if (anchors.length < 3 && particles.length > 0) {
+          particles = [];
+        }
+        updateActionStates();
+      }
+
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      function checkAndBuildRope() {
+        const anchors = points.filter((p) => p.type === "anchor");
+        if (anchors.length < 3 || particles.length > 0) {
+          updateActionStates();
+          return;
+        }
+
+        let cx = 0;
+        let cy = 0;
+        anchors.forEach((p) => {
+          cx += p.x;
+          cy += p.y;
+        });
+        cx /= anchors.length;
+        cy /= anchors.length;
+
+        let maxR = 0;
+        anchors.forEach((p) => {
+          const dx = p.x - cx;
+          const dy = p.y - cy;
+          maxR = Math.max(maxR, dx * dx + dy * dy);
+        });
+        maxR = Math.sqrt(maxR);
+
+        const initRadius = maxR + 150;
+        const circumference = 2 * Math.PI * initRadius;
+        const numParticles = Math.max(24, Math.floor(circumference / ((MAX_DIST + MIN_DIST) / 2)));
+
+        for (let i = 0; i < numParticles; i++) {
+          const angle = (i / numParticles) * 2 * Math.PI;
+          const x = cx + Math.cos(angle) * initRadius;
+          const y = cy + Math.sin(angle) * initRadius;
+          particles.push({ x: x, y: y, oldX: x, oldY: y });
+        }
+        updateActionStates();
+      }
+
+      function onPointerDown(evt) {
+        evt.preventDefault();
+        canvas.setPointerCapture(evt.pointerId);
+        const pos = getEventPos(evt);
+        const clickedPoint = getPointAt(pos);
+
+        if (clickedPoint) {
+          isDragging = true;
+          draggedPoint = clickedPoint;
+          return;
+        }
+
+        isDragging = false;
+        const type = evt.button === 2 ? "control" : "anchor";
+        if (type === "control" && isInsideAnyShape(pos)) {
+          return;
+        }
+
+        const newPoint = { x: pos.x, y: pos.y, radius: POINT_RADIUS, type: type };
+        points.push(newPoint);
+        historyStack.push(newPoint);
+        if (type === "anchor") checkAndBuildRope();
+      }
+
+      function onPointerMove(evt) {
+        evt.preventDefault();
+        if (!isDragging || !draggedPoint) return;
+        const pos = getEventPos(evt);
+        if (draggedPoint.type === "control" && particles.length > 0 && isPointInPolygon(pos, particles)) {
+          return;
+        }
+        draggedPoint.x = pos.x;
+        draggedPoint.y = pos.y;
+      }
+
+      function onPointerUp(evt) {
+        evt.preventDefault();
+        if (canvas.hasPointerCapture(evt.pointerId)) {
+          canvas.releasePointerCapture(evt.pointerId);
+        }
+        isDragging = false;
+        draggedPoint = null;
+      }
+
+      function onKeyDown(evt) {
+        if (evt.key.toUpperCase() === "R") reset();
+        if (evt.key.toUpperCase() === "Z") undo();
+      }
+
+      function updateParticles() {
+        for (const p of particles) {
+          const vx = p.x - p.oldX;
+          const vy = p.y - p.oldY;
+          p.oldX = p.x;
+          p.oldY = p.y;
+          p.x += vx;
+          p.y += vy;
+        }
+      }
+
+      function applyConstraints() {
+        const n = particles.length;
+        if (n === 0) return;
+
+        for (let i = 0; i < n; i++) {
+          const p1 = particles[i];
+          const p2 = particles[(i + 1) % n];
+
+          const dx = p2.x - p1.x;
+          const dy = p2.y - p1.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist === 0) continue;
+
+          const diff = (dist - TARGET_DIST) / dist;
+          const offsetX = dx * 0.5 * diff * SHRINK_STRENGTH;
+          const offsetY = dy * 0.5 * diff * SHRINK_STRENGTH;
+
+          p1.x += offsetX;
+          p1.y += offsetY;
+          p2.x -= offsetX;
+          p2.y -= offsetY;
+        }
+      }
+
+      function handleCollisions() {
+        const particleStrokeOffset = 2;
+        for (const p of particles) {
+          for (const pillar of points) {
+            const collisionRadius = pillar.radius + particleStrokeOffset;
+            const dx = p.x - pillar.x;
+            const dy = p.y - pillar.y;
+            const distSq = dx * dx + dy * dy;
+
+            if (distSq < collisionRadius * collisionRadius) {
+              const dist = Math.sqrt(distSq);
+              if (dist === 0) {
+                p.x += 0.5;
+                p.y += 0.5;
+                continue;
+              }
+              const overlap = collisionRadius - dist;
+              const normalX = dx / dist;
+              const normalY = dy / dist;
+              p.x += normalX * overlap;
+              p.y += normalY * overlap;
+            }
+          }
+        }
+      }
+
+      function dynamicRemesh() {
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p1 = particles[i];
+          const p2 = particles[(i + 1) % particles.length];
+          const dx = p2.x - p1.x;
+          const dy = p2.y - p1.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist > MAX_DIST) {
+            const midX = (p1.x + p2.x) / 2;
+            const midY = (p1.y + p2.y) / 2;
+            particles.splice(i + 1, 0, { x: midX, y: midY, oldX: midX, oldY: midY });
+          } else if (dist < MIN_DIST && particles.length > 3) {
+            particles.splice(i, 1);
+          }
+        }
+      }
+
+      function update() {
+        if (particles.length === 0) return;
+        updateParticles();
+        for (let i = 0; i < SIMULATION_ITERATIONS; i++) {
+          applyConstraints();
+          handleCollisions();
+        }
+        dynamicRemesh();
+      }
+
+      function drawGrid(targetCtx) {
+        targetCtx.strokeStyle = "rgba(133, 124, 110, 0.16)";
+        targetCtx.lineWidth = 1;
+        targetCtx.beginPath();
+        for (let x = 0; x <= width; x += GRID_SIZE) {
+          targetCtx.moveTo(x + 0.5, 0);
+          targetCtx.lineTo(x + 0.5, height);
+        }
+        for (let y = 0; y <= height; y += GRID_SIZE) {
+          targetCtx.moveTo(0, y + 0.5);
+          targetCtx.lineTo(width, y + 0.5);
+        }
+        targetCtx.stroke();
+      }
+
+      function drawShape(targetCtx, particleSet, color, opacity, stroke) {
+        if (!particleSet || particleSet.length < 3) return;
+        targetCtx.fillStyle = hexToRgba(color, opacity);
+        targetCtx.strokeStyle = stroke;
+        targetCtx.lineWidth = 4;
+        targetCtx.lineJoin = "round";
+        targetCtx.beginPath();
+        targetCtx.moveTo(particleSet[0].x, particleSet[0].y);
+        for (let i = 1; i < particleSet.length; i++) {
+          targetCtx.lineTo(particleSet[i].x, particleSet[i].y);
+        }
+        targetCtx.closePath();
+        targetCtx.fill();
+        targetCtx.stroke();
+      }
+
+      function drawPoints(targetCtx) {
+        for (const p of points) {
+          targetCtx.fillStyle = "#FFFFFF";
+          if (p.type === "control") {
+            targetCtx.strokeStyle = "#000000";
+            targetCtx.lineWidth = 4;
+          }
+          targetCtx.beginPath();
+          targetCtx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+          targetCtx.fill();
+          if (p.type === "control") targetCtx.stroke();
+        }
+      }
+
+      function drawSavedShapes(targetCtx) {
+        for (const shape of savedShapes) {
+          drawShape(
+                    targetCtx,
+                    shape.particles,
+                    shape.color || "#7F92A6",
+                    typeof shape.opacity === "number" ? shape.opacity : 1,
+                    shape.stroke || "#B7A07B"
+                  );
+        }
+      }
+
+      function drawScene(targetCtx, options) {
+        const showPoints = options && options.showPoints;
+        targetCtx.clearRect(0, 0, width, height);
+        drawBackground(targetCtx);
+        drawGrid(targetCtx);
+        drawSavedShapes(targetCtx);
+        drawShape(targetCtx, particles, fillColor, fillOpacity, strokeColor);
+        if (showPoints) drawPoints(targetCtx);
+      }
+
+      function draw() {
+        drawScene(ctx, { showPoints: true });
+      }
+
+      function animate() {
+        update();
+        draw();
+        requestAnimationFrame(animate);
+      }
+
+      function downloadBlob(blob, fileName) {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = fileName;
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function renderSceneToBlob(options) {
+        const showPoints = options && options.showPoints;
+        const offscreen = document.createElement("canvas");
+        offscreen.width = width;
+        offscreen.height = height;
+        const offCtx = offscreen.getContext("2d");
+        drawScene(offCtx, { showPoints: showPoints });
+
+        return new Promise((resolve) => {
+          offscreen.toBlob((blob) => resolve(blob));
+        });
+      }
+
+      async function captureScreenshot() {
+        const blob = await renderSceneToBlob({ showPoints: false });
+        downloadBlob(blob, "kinetic-typo-" + Date.now() + ".png");
+      }
+
+      function saveCurrentShape() {
+        if (particles.length < 3) return;
+        const snapshotParticles = particles.map((p) => ({ x: p.x, y: p.y }));
+        savedShapes.push({
+          particles: snapshotParticles,
+          color: fillColor,
+          opacity: fillOpacity,
+          stroke: strokeColor,
+        });
+        clearActiveShape();
+      }
+
+      window.addEventListener("resize", resizeCanvas);
+      canvas.addEventListener("pointerdown", onPointerDown);
+      canvas.addEventListener("pointermove", onPointerMove);
+      canvas.addEventListener("pointerup", onPointerUp);
+      canvas.addEventListener("pointercancel", onPointerUp);
+      canvas.addEventListener("contextmenu", (evt) => evt.preventDefault());
+      window.addEventListener("keydown", onKeyDown);
+
+      captureBtn.addEventListener("click", captureScreenshot);
+      saveBtn.addEventListener("click", saveCurrentShape);
+      fillColorInput.addEventListener("input", (evt) => {
+        fillColor = evt.target.value || "#7F92A6";
+      });
+      fillOpacityInput.addEventListener("input", (evt) => {
+        const parsed = parseFloat(evt.target.value);
+        fillOpacity = Number.isNaN(parsed) ? 1 : parsed;
+      });
+      strokeColorInput.addEventListener("input", (evt) => {
+        strokeColor = evt.target.value || "#B7A07B";
+      });
+
+      resizeCanvas();
+      reset();
+      animate();
+    })();
+  </script>
+</body>
+</html>
