@@ -125,12 +125,67 @@
       display: block;
     }
   </style>
+<style id="global-nav-style">
+  @font-face {
+    font-family: "CjNavCormorant";
+    src: url("fonts/cormorantgaramond.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  :root {
+    --nav-font-family: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --nav-font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.9rem);
+    --nav-letter-spacing: 0.08em;
+    --nav-color: #f3e4c7;
+    --nav-hover-color: #fff6e4;
+    --nav-shadow: 0 1px 6px rgba(0, 0, 0, 0.58);
+    --nav-hover-shadow: 0 2px 12px rgba(0, 0, 0, 0.72);
+  }
+
+  .micro-nav,
+  .site-nav {
+    font-family: var(--nav-font-family);
+    font-size: var(--nav-font-size);
+    letter-spacing: var(--nav-letter-spacing);
+    font-weight: 600;
+  }
+
+  .micro-nav a,
+  .site-nav a {
+    color: var(--nav-color) !important;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.18em;
+    text-shadow: var(--nav-shadow);
+    transition: color 0.25s ease, text-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .micro-nav a:hover,
+  .micro-nav a:focus-visible,
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: var(--nav-hover-color) !important;
+    text-shadow: var(--nav-hover-shadow);
+  }
+
+  @media (max-width: 900px) {
+    .micro-nav,
+    .site-nav {
+      font-size: clamp(1rem, 0.95rem + 0.45vw, 1.25rem);
+      letter-spacing: 0.06em;
+    }
+  }
+</style>
+
 </head>
 <body>
   <nav class="micro-nav" aria-label="Site navigation">
     <a href="index.html">CJ Li</a>
     <a href="unit-1.html">Echo Maze</a>
     <a href="unit-2.html">Self.exe</a>
+    <a href="soulmate.html">Soulmate</a>
     <a href="home.html">More</a>
   </nav>
   <main>
