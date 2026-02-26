@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bloom | Small Experiment</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+  <style>
+    @font-face {
+      font-family: "CjNavCormorant";
+      src: url("fonts/cormorantgaramond.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    :root {
+      --display: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(190, 230, 220, 0.24), transparent 40%),
+        radial-gradient(circle at 82% 76%, rgba(118, 180, 165, 0.2), transparent 42%),
+        #07100f;
+      color: #f0ece2;
+      font-family: var(--display);
+      padding: 4.5rem 1rem 1rem;
+      display: grid;
+      place-items: center;
+      gap: 0.8rem;
+    }
+
+    .micro-nav {
+      position: fixed;
+      top: 1.1rem;
+      left: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .micro-nav a {
+      color: #f0e2c6;
+      text-decoration: none;
+    }
+
+    h1 {
+      margin: 0;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.5rem);
+    }
+
+    #canvas-shell {
+      width: min(980px, 100%);
+      background: rgba(8, 14, 14, 0.66);
+      border-radius: 18px;
+      padding: 0.9rem;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.5);
+      display: grid;
+      justify-items: center;
+    }
+
+    #canvas-shell canvas {
+      max-width: 100%;
+      height: auto !important;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .hint {
+      margin: 0;
+      color: #dde3dc;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="micro-nav" aria-label="Site navigation">
+    <a href="index.html">CJ Li</a>
+    <a href="small-experiment.html">Small Experiment</a>
+    <a href="nature-of-code.html">Nature of Code</a>
+  </nav>
+
+  <h1>bloom</h1>
+  <div id="canvas-shell"></div>
+  <p class="hint">Move to attract, hold press to plant more flowers.</p>
+
+  <script>
+    let flowers = [];
+    let MAX_FLOWERS = 32;
+
+    let MAX_SPEED = 2.1;
+    let MAX_FORCE = 0.075;
+    let SLOW_RADIUS = 320;
+
+    let PULSE_RATE = 0.015;
+
+    let REPEL_BASE = 0.06;
+
+    function setup() {
+      const canvas = createCanvas(windowWidth, windowHeight);
+      canvas.parent("canvas-shell");
+      angleMode(RADIANS);
+
+      for (let i = 0; i < 22; i++) {
+        let s = random(48, 96);
+        let f = new Flower(random(width), random(height), s);
+        f.vel = p5.Vector.random2D().mult(random(0.1, 0.4));
+        flowers.push(f);
+      }
+    }
+
+    function draw() {
+      drawMintBackground();
+
+      let t = frameCount * PULSE_RATE;
+      let breathe = 0.5 + 0.5 * sin(t);
+      let attractMult = lerp(0.6, 1.15, breathe);
+      let repelMult = lerp(1.4, 0.75, breathe);
+
+      let target = createVector(mouseX, mouseY);
+
+      for (let i = 0; i < flowers.length; i++) {
+        let a = flowers[i];
+
+        a.applyForce(seekForce(a, target, attractMult));
+        a.applyForce(a.wanderForce());
+
+        for (let j = i + 1; j < flowers.length; j++) {
+          let b = flowers[j];
+          let dir = p5.Vector.sub(a.pos, b.pos);
+          let d = dir.mag();
+          let minD = a.size * 0.65 + b.size * 0.65;
+
+          if (d > 0.01 && d < minD) {
+            dir.normalize();
+            let push = (minD - d) * REPEL_BASE * repelMult;
+            a.applyForce(dir.copy().mult(push));
+            b.applyForce(dir.copy().mult(-push));
+          }
+        }
+      }
+
+      if (mouseIsPressed && frameCount % 2 === 0) {
+        let s = random(48, 96);
+        let f = new Flower(mouseX, mouseY, s);
+        f.vel = p5.Vector.random2D().mult(random(0.1, 0.25));
+        flowers.push(f);
+      }
+
+      while (flowers.length > MAX_FLOWERS) {
+        flowers.splice(0, 1);
+      }
+
+      for (let f of flowers) {
+        f.update();
+        f.wrapEdges();
+        f.display();
+      }
+
+      fill(230, 230, 240, 140);
+      textSize(12);
+      text("move: attract | hold: add flowers", 16, 26);
+    }
+
+    function seekForce(f, target, mult) {
+      let desired = p5.Vector.sub(target, f.pos);
+      let d = desired.mag();
+      if (d < 0.001) return createVector(0, 0);
+
+      let sp = MAX_SPEED;
+      if (d < SLOW_RADIUS) sp = map(d, 0, SLOW_RADIUS, 0, MAX_SPEED);
+      desired.setMag(sp);
+
+      let steer = p5.Vector.sub(desired, f.vel);
+      steer.limit(MAX_FORCE * mult);
+
+      return steer.mult(f.mass);
+    }
+
+    function drawMintBackground() {
+      for (let y = 0; y < height; y++) {
+        let t = y / height;
+        let r = lerp(120, 92, t);
+        let g = lerp(190, 150, t);
+        let b = lerp(175, 142, t);
+        stroke(r, g, b);
+        line(0, y, width, y);
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
+    class Flower {
+      constructor(x, y, size) {
+        this.pos = createVector(x, y);
+        this.vel = createVector(0, 0);
+        this.acc = createVector(0, 0);
+
+        this.size = size;
+        this.mass = size * 0.03;
+
+        this.rot = random(TAU);
+        this.spin = random(-0.004, 0.004);
+        this.phase = random(TAU);
+
+        this.petalCount = floor(random(6, 9));
+        this.coldShift = random(0.2, 1.0);
+      }
+
+      applyForce(f) {
+        this.acc.add(p5.Vector.div(f, this.mass));
+      }
+
+      wanderForce() {
+        let a = noise(this.pos.x * 0.0016, this.pos.y * 0.0016, frameCount * 0.0028) * TAU;
+        let dir = p5.Vector.fromAngle(a);
+        dir.mult(0.02 * this.mass);
+        return dir;
+      }
+
+      update() {
+        this.vel.add(this.acc);
+        this.vel.limit(MAX_SPEED);
+        this.pos.add(this.vel);
+        this.acc.mult(0);
+        this.vel.mult(0.995);
+        this.rot += this.spin;
+      }
+
+      wrapEdges() {
+        let m = this.size * 0.7;
+        if (this.pos.x < -m) this.pos.x = width + m;
+        if (this.pos.x > width + m) this.pos.x = -m;
+        if (this.pos.y < -m) this.pos.y = height + m;
+        if (this.pos.y > height + m) this.pos.y = -m;
+      }
+
+      display() {
+        push();
+        translate(this.pos.x, this.pos.y);
+        rotate(this.rot);
+
+        let pulse = 0.6 + 0.4 * sin(frameCount * 0.02 + this.phase);
+        let s = this.size;
+
+        let blue = { r: 210, g: 245, b: 255 };
+        let white = { r: 255, g: 255, b: 255 };
+        let rr = lerp(blue.r, white.r, this.coldShift);
+        let gg = lerp(blue.g, white.g, this.coldShift);
+        let bb = lerp(blue.b, white.b, this.coldShift);
+
+        noStroke();
+
+        for (let i = 0; i < this.petalCount; i++) {
+          let ang = (TAU / this.petalCount) * i;
+          push();
+          rotate(ang);
+          fill(rr, gg, bb, 220 * pulse);
+          ellipse(s * 0.32, 0, s * 0.86, s * 0.42);
+          pop();
+        }
+
+        fill(235, 250, 255, 190 * pulse);
+        circle(0, 0, s * 0.22);
+
+        fill(170, 230, 255, 220 * pulse);
+        circle(0, 0, s * 0.12);
+
+        pop();
+      }
+    }
+  </script>
+</body>
+</html>
