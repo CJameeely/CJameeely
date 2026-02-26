@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nature of Code</title>
+  <style>
+    @font-face {
+      font-family: "CjNavCormorant";
+      src: url("fonts/cormorantgaramond.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    :root {
+      --display: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", serif;
+      --body: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --text: #edf0ea;
+      --accent: #d7c8a7;
+      --accent-2: #b8cad6;
+      --panel: rgba(12, 16, 20, 0.58);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(10, 14, 18, 0.52), rgba(10, 14, 18, 0.68)),
+        radial-gradient(circle at 20% 18%, rgba(184, 202, 214, 0.28), transparent 48%),
+        url("images/Screenshot 2026-01-25 at 21.42.07 copy.png") center/cover no-repeat fixed;
+      color: var(--text);
+      font-family: var(--body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 1rem 2rem;
+    }
+
+    .micro-nav {
+      position: fixed;
+      top: 1.2rem;
+      left: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 1.02rem;
+      font-family: var(--display);
+    }
+
+    .micro-nav a {
+      color: #f1e7d3;
+      text-decoration: none;
+      padding-bottom: 0;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .micro-nav a:hover,
+    .micro-nav a:focus-visible {
+      opacity: 0.86;
+    }
+
+    main {
+      width: min(900px, 100%);
+      background: var(--panel);
+      border: none;
+      border-radius: 24px;
+      padding: clamp(1.25rem, 3vw, 2.3rem);
+      box-shadow: 0 26px 64px rgba(5, 8, 10, 0.45);
+      backdrop-filter: blur(3px);
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(2rem, 1.55rem + 2.7vw, 3.4rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: var(--display);
+      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .intro {
+      margin: 0 0 1.3rem;
+      color: #d9e2e7;
+      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.14rem);
+      line-height: 1.62;
+      max-width: 66ch;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-item {
+      display: block;
+      color: #eef2f4;
+      border: none;
+      border-radius: 14px;
+      padding: 1rem 1rem 1.1rem;
+      font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem);
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+      background:
+        linear-gradient(150deg, rgba(14, 18, 22, 0.72), rgba(20, 28, 34, 0.62));
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      font-family: var(--display);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .project-item:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(150deg, rgba(24, 31, 38, 0.82), rgba(29, 37, 44, 0.74));
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding-top: 1rem;
+        background-attachment: scroll;
+      }
+
+      .micro-nav {
+        position: static;
+        width: min(900px, 100%);
+        margin: 0 auto 0.8rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .project-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        border-radius: 16px;
+        padding: 1rem 0.85rem 1.15rem;
+      }
+
+      .micro-nav {
+        gap: 0.55rem 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="micro-nav" aria-label="Site navigation">
+    <a href="index.html">CJ Li</a>
+    <a href="unit-1.html">Echo Maze</a>
+    <a href="unit-2.html">Self.exe</a>
+    <a href="soulmate.html">Soulmate</a>
+    <a href="index.html">More</a>
+  </nav>
+
+  <main>
+    <h1>Nature of Code</h1>
+    <p class="intro">The following projects were created in Nature of Code, an elective course in the Interactive Media Arts (IMA) program at NYU Shanghai. The course investigates how natural systems—physics, collective behavior, neural networks—can be modeled and reinterpreted through JavaScript (p5.js) and Processing. By merging algorithmic thinking with artistic exploration, it treats code not only as a tool, but as a creative material.</p>
+    <div class="project-list" aria-label="Nature of Code projects">
+      <a class="project-item" href="small-experiment.html">Small Experiment</a>
+      <div class="project-item">Project 1</div>
+      <div class="project-item">Project 2</div>
+    </div>
+  </main>
+</body>
+</html>
