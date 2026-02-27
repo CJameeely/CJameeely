@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Silence Between Words | Sketches</title>
+  <style>
+    @font-face {
+      font-family: "CjNavCormorant";
+      src: url("fonts/cormorantgaramond.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    :root {
+      --display: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", serif;
+      --text: #eceff1;
+      --accent: #f1e2c4;
+      --panel: rgba(16, 22, 28, 0.66);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: var(--display);
+      background:
+        linear-gradient(rgba(10, 16, 24, 0.5), rgba(10, 16, 24, 0.62)),
+        url("images/ChatGPT Image 2025年11月20日 16_49_47 copy.png") center/cover no-repeat fixed;
+      padding: 5rem 1rem 2rem;
+      display: grid;
+      place-items: center;
+    }
+
+    .micro-nav {
+      position: fixed;
+      top: 1.2rem;
+      left: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .micro-nav a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    main {
+      width: min(1000px, 100%);
+      background: var(--panel);
+      border-radius: 18px;
+      padding: clamp(1.1rem, 3vw, 2rem);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-size: clamp(1.8rem, 1.4rem + 1.8vw, 2.8rem);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.34);
+    }
+
+    .single {
+      margin-top: 1rem;
+    }
+
+    .single img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.34);
+    }
+
+    @media (max-width: 900px) {
+      body { padding-top: 1rem; background-attachment: scroll; }
+      .micro-nav { position: static; margin-bottom: 0.8rem; flex-wrap: wrap; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="micro-nav" aria-label="Site navigation">
+    <a href="index.html">CJ Li</a>
+    <a href="unit-3.html">The Silence Between Words</a>
+    <a href="unit-3-process.html">Process</a>
+  </nav>
+
+  <main>
+    <h1>Sketches</h1>
+    <div class="grid" aria-label="Sketches gallery">
+      <img src="images/Screenshot 2026-02-27 at 13.37.04.png" alt="The Silence Between Words sketch 1" />
+      <img src="images/ChatGPT Image 2026年2月27日 13_29_07.png" alt="The Silence Between Words sketch 2" />
+    </div>
+    <div class="single" aria-label="Additional sketch image">
+      <img src="images/ChatGPT Image 2026年2月27日 13_42_06.png" alt="The Silence Between Words sketch 3" />
+    </div>
+  </main>
+</body>
+</html>
