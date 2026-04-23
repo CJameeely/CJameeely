@@ -3,162 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Small Experiment</title>
-  <style>
-    @font-face {
-      font-family: "CjNavCormorant";
-      src: url("fonts/cormorantgaramond.woff2") format("woff2");
-      font-display: swap;
-    }
-
-    :root {
-      --display: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", serif;
-      --text: #ece9e2;
-      --muted: #d9d7d2;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      background:
-        linear-gradient(rgba(10, 14, 18, 0.62), rgba(10, 14, 18, 0.72)),
-        url("images/Screenshot 2026-01-25 at 21.42.07 copy.png") center/cover no-repeat fixed;
-      font-family: var(--display);
-      padding: 5rem 1rem 2rem;
-    }
-
-    .micro-nav {
-      position: fixed;
-      top: 1.2rem;
-      left: 1.5rem;
-      display: flex;
-      gap: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .micro-nav a {
-      color: #f1e7d3;
-      text-decoration: none;
-    }
-
-    main {
-      width: min(980px, 100%);
-      margin: 0 auto;
-      background: rgba(11, 15, 19, 0.56);
-      border-radius: 22px;
-      padding: clamp(1.1rem, 3vw, 2rem);
-      backdrop-filter: blur(3px);
-    }
-
-    h1 {
-      margin: 0 0 1rem;
-      font-size: clamp(2rem, 1.5rem + 2.2vw, 3rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #dac9a3;
-    }
-
-    .experiment-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-
-    .experiment-card {
-      background: rgba(14, 20, 25, 0.72);
-      border-radius: 16px;
-      padding: 0.7rem;
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .experiment-card img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      border-radius: 12px;
-      display: block;
-    }
-
-    .experiment-card h2 {
-      margin: 0;
-      font-size: 1.55rem;
-      letter-spacing: 0.06em;
-      color: #e9dec4;
-    }
-
-    .concept {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 1rem;
-    }
-
-    .open-btn {
-      justify-self: start;
-      text-decoration: none;
-      color: #0f1820;
-      background: #d7c8a7;
-      border-radius: 999px;
-      padding: 0.5rem 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 900px) {
-      body {
-        padding-top: 1rem;
-        background-attachment: scroll;
-      }
-
-      .micro-nav {
-        position: static;
-        margin-bottom: 0.7rem;
-        flex-wrap: wrap;
-      }
-    }
-  </style>
+  <title>Small Experiments | CJ Li</title>
+  <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="micro-nav" aria-label="Site navigation">
-    <a href="index.html">CJ Li</a>
-    <a href="nature-of-code.html">Nature of Code</a>
-    <a href="index.html">More</a>
-  </nav>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
 
-  <main>
-    <h1>Small Experiment</h1>
-    <section class="experiment-grid" aria-label="Small experiments gallery">
-      <article class="experiment-card">
-        <img src="images/Screenshot 2026-01-23 at 12.15.30.png" alt="Whisper experiment cover" />
-        <h2>Whisper</h2>
-        <p class="concept">Layered geometric traces rotate, drift, and react to the cursor as a soft additive field of motion.</p>
-        <a class="open-btn" href="small-experiment-whisper.html">Open</a>
-      </article>
-      <article class="experiment-card">
-        <img src="images/Screenshot 2026-01-29 at 19.37.34.png" alt="Snake experiment cover" />
-        <h2>Snake</h2>
-        <p class="concept">Autonomous glowing trails wander and collide, triggering color mutations and elastic repulsion.</p>
-        <a class="open-btn" href="small-experiment-snake.html">Open</a>
-      </article>
-      <article class="experiment-card">
-        <img src="images/Screenshot 2026-02-26 at 19.53.46.png" alt="burning hearts experiment cover" />
-        <h2>burning hearts</h2>
-        <p class="concept">Falling snow drifts through a warm dusk while layered sparks bloom into fleeting burning hearts.</p>
-        <a class="open-btn" href="small-experiment-burning-hearts.html">Open</a>
-      </article>
-      <article class="experiment-card">
-        <img src="images/Screenshot 2026-02-26 at 20.00.33.png" alt="bloom experiment cover" />
-        <h2>bloom</h2>
-        <p class="concept">Breathing floral agents drift, attract, and cluster into a cold luminous field around your cursor.</p>
-        <a class="open-btn" href="small-experiment-bloom.html">Open</a>
-      </article>
-    </section>
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li><a href="unit-1.html">Echo Maze</a></li>
+      <li><a href="unit-2.html">Self.exe</a></li>
+      <li><a href="soulmate.html">Soulmate</a></li>
+      <li><a href="unit-3.html">The Silence Between Words</a></li>
+      <li><a href="typography.html">Typography</a></li>
+      <li><a href="nature-of-code.html">Nature of Code</a></li>
+      <li><a href="small-experiment.html" class="active">Small Experiments</a></li>
+    </ul>
+
+    <div class="sidebar-bottom">
+      <a href="bio.html">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-heading">Small Experiments</div>
+
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="images/Screenshot 2026-01-23 at 12.15.30.png" alt="Whisper" />
+        <div class="gallery-card-title">Whisper</div>
+        <a class="gallery-card-link" href="small-experiment-whisper.html">Open →</a>
+      </div>
+      <div class="gallery-card">
+        <img src="images/Screenshot 2026-01-29 at 19.37.34.png" alt="Snake" />
+        <div class="gallery-card-title">Snake</div>
+        <a class="gallery-card-link" href="small-experiment-snake.html">Open →</a>
+      </div>
+      <div class="gallery-card">
+        <img src="images/Screenshot 2026-02-26 at 19.53.46.png" alt="Burning Hearts" />
+        <div class="gallery-card-title">Burning Hearts</div>
+        <a class="gallery-card-link" href="small-experiment-burning-hearts.html">Open →</a>
+      </div>
+      <div class="gallery-card">
+        <img src="images/Screenshot 2026-02-26 at 20.00.33.png" alt="Bloom" />
+        <div class="gallery-card-title">Bloom</div>
+        <a class="gallery-card-link" href="small-experiment-bloom.html">Open →</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>

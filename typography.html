@@ -1,240 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deformable Glyphs</title>
-  <style>
-    @font-face {
-      font-family: "CjGlyphCormorant";
-      src: url("fonts/cormorantgaramond.woff2") format("woff2");
-      font-display: swap;
-    }
-
-    :root {
-      --panel: rgba(251, 248, 241, 0.9);
-      --text: #2f3d48;
-      --muted: #6e7e89;
-      --accent: #b9a37f;
-      --accent-2: #3f5465;
-      --border: rgba(152, 130, 95, 0.28);
-      --shadow: 0 18px 48px rgba(38, 38, 38, 0.16);
-      --display-font: "CjGlyphCormorant", "Cormorant Garamond", "Times New Roman", serif;
-      --body-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Baskerville", Georgia, serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-      color: var(--text);
-      background-image:
-        linear-gradient(130deg, rgba(245, 241, 232, 0.8), rgba(241, 236, 226, 0.74)),
-        url("images/DSCF4935.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      font-family: var(--body-font);
-    }
-
-    body {
-      position: relative;
-      padding: 1.2rem 1rem 2rem;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 20% 25%, rgba(185, 163, 127, 0.22), transparent 46%),
-        radial-gradient(circle at 82% 78%, rgba(127, 146, 166, 0.16), transparent 50%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(248, 244, 236, 0.16) 100%);
-      z-index: 0;
-    }
-
-    .top-nav {
-      position: relative;
-      z-index: 1;
-      width: min(980px, 100%);
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      color: #324957;
-      text-decoration: none;
-      font-family: var(--display-font);
-      font-size: clamp(1.2rem, 1rem + 0.5vw, 1.55rem);
-      letter-spacing: 0.08em;
-    }
-
-    .start-mini,
-    .start-cta {
-      border: 1px solid rgba(152, 130, 95, 0.54);
-      background: rgba(252, 249, 243, 0.9);
-      color: var(--accent);
-      border-radius: 999px;
-      font-family: var(--display-font);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .start-mini {
-      padding: 0.5rem 1.1rem;
-      font-size: 0.95rem;
-    }
-
-    .intro-wrap {
-      position: relative;
-      z-index: 1;
-      width: min(780px, 100%);
-      margin: 0 auto;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: 22px;
-      padding: clamp(1.1rem, 3vw, 2.1rem);
-      backdrop-filter: blur(3px);
-    }
-
-    h1 {
-      margin: 0 0 1rem;
-      font-family: var(--display-font);
-      font-weight: 600;
-      font-size: clamp(2rem, 1.5rem + 2.6vw, 3.4rem);
-      letter-spacing: 0.06em;
-      color: var(--accent-2);
-      line-height: 1.1;
-      text-shadow: 0 2px 14px rgba(255, 255, 255, 0.36);
-    }
-
-    p {
-      margin: 0 0 1rem;
-      color: var(--text);
-      font-family: var(--body-font);
-      font-size: clamp(0.98rem, 0.93rem + 0.25vw, 1.08rem);
-      line-height: 1.72;
-      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.35);
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .cta-row {
-      margin-top: 1.4rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    .start-cta {
-      padding: 0.65rem 1.8rem;
-      font-size: 1.05rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.38);
-    }
-
-    .start-mini:hover,
-    .start-mini:focus-visible,
-    .start-cta:hover,
-    .start-cta:focus-visible {
-      background: rgba(185, 163, 127, 0.2);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(57, 52, 45, 0.2);
-      outline: none;
-    }
-
-    @media (max-width: 900px) {
-      body {
-        padding: 0.9rem 0.8rem 1.5rem;
-        background-attachment: scroll;
-      }
-
-      .intro-wrap {
-        border-radius: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 0.75rem 0.65rem 1.1rem;
-      }
-
-      .top-nav {
-        flex-wrap: wrap;
-        margin-bottom: 0.65rem;
-      }
-
-      .start-mini,
-      .start-cta {
-        width: 100%;
-      }
-
-      .intro-wrap {
-        padding: 1rem 0.9rem 1.25rem;
-      }
-
-      h1 {
-        font-size: clamp(1.75rem, 9vw, 2.25rem);
-      }
-
-      p {
-        font-size: 0.98rem;
-        line-height: 1.64;
-      }
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Typography | CJ Li</title>
+  <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="top-nav" aria-label="Typography intro navigation">
-    <a class="brand" href="index.html">CJ Li</a>
-  </header>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
 
-  <main class="intro-wrap">
-    <h1>Deformable Glyphs</h1>
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li><a href="unit-1.html">Echo Maze</a></li>
+      <li><a href="unit-2.html">Self.exe</a></li>
+      <li><a href="soulmate.html">Soulmate</a></li>
+      <li><a href="unit-3.html">The Silence Between Words</a></li>
+      <li><a href="typography.html" class="active">Typography</a></li>
+      <li><a href="nature-of-code.html">Nature of Code</a></li>
+      <li><a href="small-experiment.html">Small Experiments</a></li>
+    </ul>
 
-    <p class="muted">This project is a final design experiment created for the Typography course at NYU ITP.</p>
+    <div class="sidebar-bottom">
+      <a href="bio.html">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
 
-    <p>At its core, it explores a simple question: When does a letter stop being a letter?</p>
+  <main class="content">
+    <div class="page-heading">Deformable Glyphs</div>
 
-    <p>The interface begins with a set of black anchor points placed by the user. As these points are connected, they automatically form a closed region — a primitive glyph structure. The shape is initially stable, defined by its own boundary.</p>
+    <div class="text-block">
+      <p class="img-caption" style="margin-bottom: 16px;">A final design experiment created for the Typography course at NYU ITP.</p>
 
-    <p>After the region is formed, new white control points can be added outside of it. These external points do not belong to the letter itself. Instead, they exert influence. When dragged, they pull and distort the boundary, reshaping the form in real time.</p>
+      <p>At its core, it explores a simple question: When does a letter stop being a letter?</p>
+      <p>The interface begins with a set of black anchor points placed by the user. As these points are connected, they automatically form a closed region — a primitive glyph structure. The shape is initially stable, defined by its own boundary.</p>
+      <p>After the region is formed, new white control points can be added outside of it. These external points do not belong to the letter itself. Instead, they exert influence. When dragged, they pull and distort the boundary, reshaping the form in real time.</p>
+      <p>The letter becomes elastic. Its identity is no longer fixed by internal structure alone, but continuously negotiated by forces outside itself.</p>
+      <p>Formally, the system is minimal: black anchors define structure, white points introduce tension, and the closed polygon becomes a living surface. Conceptually, the project reflects on typography not as static geometry, but as a dynamic field of relationships — between structure and pressure, inside and outside, stability and deformation.</p>
+    </div>
 
-    <p>The letter becomes elastic. Its identity is no longer fixed by internal structure alone, but continuously negotiated by forces outside itself.</p>
-
-    <p>Formally, the system is minimal: black anchors define structure, white points introduce tension, and the closed polygon becomes a living surface. Conceptually, the project reflects on typography not as static geometry, but as a dynamic field of relationships — between structure and pressure, inside and outside, stability and deformation.</p>
-
-    <p>This work was developed as a final experiment in the Typography course at NYU ITP, where I used interaction design to question the boundaries of typographic form and authorship.</p>
-
-    <div class="cta-row">
-      <button class="start-cta" type="button" data-start>Start</button>
+    <div style="margin-top: 28px;">
+      <a class="ext-link" href="typography-play.html">Open Interactive →</a>
     </div>
   </main>
 
   <script>
-    (function () {
-      function goPlay() {
-        window.location.href = "typography-play.html";
-      }
-
-      var buttons = document.querySelectorAll("[data-start]");
-      buttons.forEach(function (btn) {
-        btn.addEventListener("click", goPlay);
-      });
-    })();
+    document.querySelector('.ext-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = 'typography-play.html';
+    });
   </script>
 </body>
 </html>

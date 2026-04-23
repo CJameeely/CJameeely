@@ -1,0 +1,471 @@
+/* ── Reset ─────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Base ──────────────────────────── */
+body {
+  font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.65;
+  background: #f7f7f5;
+  color: #555;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ───────────────────────── */
+.sidebar {
+  width: 195px;
+  min-width: 195px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 32px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: #f7f7f5;
+}
+
+.sidebar-brand {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #2a2a2a;
+  text-decoration: none;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+
+.nav-label {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-top: 16px;
+  margin-bottom: 7px;
+  display: block;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nav-list > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-list > li > a {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+  display: block;
+  padding: 3px 0 3px 12px;
+  position: relative;
+  transition: color 0.15s;
+  line-height: 1.4;
+}
+
+.nav-list > li > a::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: #ccc;
+}
+
+.nav-list > li > a:hover {
+  color: #333;
+}
+
+.nav-list > li > a.active {
+  color: #333;
+}
+
+.nav-list > li > a.active::before {
+  color: #777;
+}
+
+/* Sub-navigation within a section */
+.nav-sub {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 3px 0 6px 10px;
+}
+
+.nav-sub li a {
+  font-size: 11.5px;
+  color: #aaa;
+  text-decoration: none;
+  display: block;
+  padding: 2px 0 2px 11px;
+  position: relative;
+  transition: color 0.15s;
+  line-height: 1.4;
+}
+
+.nav-sub li a::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #ddd;
+  font-size: 9px;
+  top: 4px;
+}
+
+.nav-sub li a:hover {
+  color: #555;
+}
+
+.nav-sub li a.active {
+  color: #444;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-bottom a {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.sidebar-bottom a:hover {
+  color: #333;
+}
+
+.copyright {
+  font-size: 11px;
+  color: #ccc;
+  margin-top: 10px;
+  display: block;
+}
+
+/* ── Main Content Area ─────────────── */
+.content {
+  margin-left: 195px;
+  flex: 1;
+  padding: 44px 56px 80px;
+  min-height: 100vh;
+}
+
+/* Page heading */
+.page-heading {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 30px;
+  letter-spacing: 0.01em;
+}
+
+.page-heading em {
+  font-style: italic;
+  color: #aaa;
+  font-size: 11.5px;
+  margin-left: 5px;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  font-size: 11.5px;
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.15s;
+}
+
+.back-link:hover {
+  color: #555;
+}
+
+/* ── Text content ──────────────────── */
+.text-block {
+  max-width: 600px;
+}
+
+.text-block h2 {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #444;
+  margin: 24px 0 8px;
+  letter-spacing: 0.01em;
+}
+
+.text-block p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.text-block ul {
+  padding-left: 16px;
+  margin-bottom: 14px;
+  color: #666;
+}
+
+.text-block li {
+  margin-bottom: 6px;
+  line-height: 1.65;
+}
+
+.text-block a {
+  color: #555;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.text-block strong {
+  font-weight: 500;
+  color: #444;
+}
+
+.text-block em {
+  font-style: italic;
+}
+
+/* ── Images ────────────────────────── */
+.main-image {
+  max-width: 660px;
+  margin-bottom: 28px;
+}
+
+.main-image img {
+  width: 100%;
+  background: #e8e8e6;
+}
+
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.img-grid img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background: #e8e8e6;
+}
+
+.img-caption {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 7px;
+  line-height: 1.5;
+}
+
+/* ── Gallery grid (experiments) ────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 22px;
+  max-width: 740px;
+}
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: #e8e8e6;
+}
+
+.gallery-card-title {
+  font-size: 12px;
+  color: #666;
+  margin-top: 9px;
+}
+
+.gallery-card-link {
+  display: inline-block;
+  font-size: 11px;
+  color: #bbb;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+
+.gallery-card-link:hover {
+  color: #555;
+}
+
+/* ── Section nav (hub pages) ───────── */
+.section-nav {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 36px;
+  max-width: 380px;
+}
+
+.section-nav a {
+  font-size: 12px;
+  color: #777;
+  text-decoration: none;
+  padding: 7px 0;
+  border-bottom: 1px solid #ebebea;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-nav a:first-child {
+  border-top: 1px solid #ebebea;
+}
+
+.section-nav a:hover {
+  color: #333;
+}
+
+.section-nav a::after {
+  content: "→";
+  font-size: 11px;
+  color: #ccc;
+  margin-left: auto;
+}
+
+/* ── Video ─────────────────────────── */
+.video-wrap {
+  max-width: 660px;
+  margin-bottom: 24px;
+}
+
+.video-wrap video {
+  width: 100%;
+  background: #e8e8e6;
+}
+
+/* ── External link button ──────────── */
+.ext-link {
+  display: inline-block;
+  font-size: 11.5px;
+  color: #777;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  padding: 7px 18px;
+  transition: border-color 0.15s, color 0.15s;
+  margin-top: 10px;
+  letter-spacing: 0.01em;
+}
+
+.ext-link:hover {
+  color: #333;
+  border-color: #aaa;
+}
+
+/* ── Home page ─────────────────────── */
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 560px;
+}
+
+.home-portrait img {
+  width: 100%;
+  background: #e8e8e6;
+}
+
+.home-bio {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.8;
+}
+
+/* ── Canvas nav (interactive pages) ── */
+.canvas-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  background: rgba(247, 247, 245, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.canvas-nav a {
+  font-size: 11.5px;
+  color: #666;
+  text-decoration: none;
+  font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  transition: color 0.15s;
+}
+
+.canvas-nav a:hover {
+  color: #222;
+}
+
+/* ── Mobile ────────────────────────── */
+@media (max-width: 800px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid #e8e8e6;
+    overflow: visible;
+  }
+
+  .sidebar-bottom {
+    margin-top: 16px;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 28px 20px 60px;
+  }
+
+  .img-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .img-grid img,
+  .gallery-card img {
+    height: auto;
+    max-height: 320px;
+  }
+}

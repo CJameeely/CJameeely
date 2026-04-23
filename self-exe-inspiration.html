@@ -3,507 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Self.exe — Goals</title>
-  <style>
-    :root {
-      font-family: 'Courier New', Courier, monospace;
-      color: #141414;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('images/Screenshot 2025-06-21 at 15.29.33 copy.png') center/cover fixed;
-      color: inherit;
-      font-family: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6rem 1.5rem 4rem;
-    }
-
-    .micro-nav {
-      position: fixed;
-      top: 1.25rem;
-      left: 2rem;
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .micro-nav a {
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 0.15rem;
-      transition: border-color 0.2s ease;
-    }
-
-    .micro-nav a:hover,
-    .micro-nav a:focus-visible {
-      border-color: currentColor;
-    }
-
-    article {
-      width: min(860px, 100%);
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 28px;
-      padding: clamp(1.5rem, 4vw, 3rem);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1);
-      line-height: 1.7;
-    }
-
-    h1 {
-      margin: 0 0 0.5rem;
-      font-size: clamp(2rem, 5vw, 3rem);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-    }
-
-    p {
-      margin: 0 0 1rem;
-      font-size: 1.05rem;
-    }
-
-    h2 {
-      margin: 2rem 0 0.8rem;
-      font-size: clamp(1.3rem, 2.6vw, 1.8rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h3 {
-      margin: 1.4rem 0 0.6rem;
-      font-size: clamp(1.02rem, 2vw, 1.2rem);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    ul {
-      margin: 0 0 1.1rem;
-      padding-left: 1.3rem;
-    }
-
-    li {
-      margin-bottom: 0.55rem;
-    }
-
-    .subtitle {
-      margin: 0 0 1.5rem;
-      font-size: 0.94rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #62452e;
-    }
-
-    .goal-panel {
-      margin: 1rem 0 1.4rem;
-      padding: 1.1rem 1.2rem;
-      border-radius: 16px;
-      background: linear-gradient(140deg, rgba(98, 69, 46, 0.1), rgba(217, 184, 152, 0.08));
-      border: 1px solid rgba(98, 69, 46, 0.2);
-    }
-
-    .section {
-      margin-top: 1.2rem;
-      padding-top: 0.5rem;
-      border-top: 1px solid rgba(98, 69, 46, 0.18);
-    }
-
-    .task-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 0.7rem;
-    }
-
-    .task-card {
-      padding: 0.9rem 1rem;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(98, 69, 46, 0.15);
-    }
-
-    .task-card p:last-child,
-    .section p:last-child {
-      margin-bottom: 0;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-    }
-
-    .links a {
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-      padding-bottom: 0.2rem;
-    }
-
-    @media (max-width: 900px) {
-      .task-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-<style id="global-nav-style">
-  @font-face {
-    font-family: "CjNavCormorant";
-    src: url("fonts/cormorantgaramond.woff2") format("woff2");
-    font-display: swap;
-  }
-
-  :root {
-    --nav-font-family: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", Georgia, serif;
-    --nav-font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.9rem);
-    --nav-letter-spacing: 0.08em;
-    --nav-color: #2f2418;
-    --nav-hover-color: #5b3821;
-    --nav-shadow: 0 1px 6px rgba(255, 250, 240, 0.55);
-    --nav-hover-shadow: 0 2px 10px rgba(255, 248, 232, 0.72);
-  }
-
-  .micro-nav,
-  .site-nav {
-    font-family: var(--nav-font-family);
-    font-size: var(--nav-font-size);
-    letter-spacing: var(--nav-letter-spacing);
-    font-weight: 600;
-  }
-
-  .micro-nav a,
-  .site-nav a {
-    color: var(--nav-color) !important;
-    font-family: inherit;
-    font-size: inherit;
-    letter-spacing: inherit;
-    text-decoration-thickness: 0.06em;
-    text-underline-offset: 0.18em;
-    text-shadow: var(--nav-shadow);
-    transition: color 0.25s ease, text-shadow 0.25s ease, border-color 0.25s ease;
-  }
-
-  .micro-nav a:hover,
-  .micro-nav a:focus-visible,
-  .site-nav a:hover,
-  .site-nav a:focus-visible {
-    color: var(--nav-hover-color) !important;
-    text-shadow: var(--nav-hover-shadow);
-  }
-
-  @media (max-width: 900px) {
-    .micro-nav,
-    .site-nav {
-      font-size: clamp(1rem, 0.95rem + 0.45vw, 1.25rem);
-      letter-spacing: 0.06em;
-    }
-  }
-</style>
-
-
-
-
-
-<style id="responsive-baseline">
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: clip;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    min-width: 0;
-  }
-
-  img,
-  video,
-  canvas,
-  svg {
-    max-width: 100%;
-    height: auto;
-  }
-
-  h1, h2, h3, h4, h5, h6, p, li, a, span {
-    overflow-wrap: anywhere;
-    word-wrap: break-word;
-  }
-</style>
-<style id="responsive-handmade-override">
-  @media (max-width: 900px) {
-    body {
-      background-attachment: scroll !important;
-      padding-inline: clamp(0.75rem, 2.5vw, 1.25rem);
-    }
-
-    .micro-nav,
-    .site-nav {
-      position: static !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      width: 100%;
-      flex-wrap: wrap !important;
-      gap: clamp(0.5rem, 2vw, 0.9rem) clamp(0.75rem, 2.4vw, 1.25rem) !important;
-      align-items: center;
-      justify-content: flex-start;
-      margin-bottom: 0.6rem;
-      z-index: auto;
-    }
-
-    .micro-nav a,
-    .site-nav a {
-      display: inline-block;
-      padding: 0.2rem 0.25rem;
-      line-height: 1.35;
-    }
-
-    main,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .soulmate-text,
-    article,
-    section {
-      width: min(100%, 100%) !important;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 720px) {
-    body {
-      padding-inline: 0.85rem;
-    }
-
-    h1 { font-size: clamp(1.85rem, 7.6vw, 2.8rem) !important; }
-    h2 { font-size: clamp(1.35rem, 5.4vw, 2rem) !important; }
-    p, li { font-size: clamp(0.95rem, 3.8vw, 1rem); line-height: 1.6; }
-  }
-
-  @media (max-width: 480px) {
-    .micro-nav,
-    .site-nav {
-      gap: 0.45rem 0.7rem !important;
-    }
-
-    .micro-nav a,
-    .site-nav a {
-      padding: 0.15rem 0.2rem;
-      font-size: clamp(0.95rem, 4vw, 1.05rem);
-    }
-  }
-</style>
-<style id="global-mobile-readable-layout">
-  @media (max-width: 900px) {
-    main,
-    article,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .echo-text,
-    .self-text,
-    .soulmate-text {
-      width: min(100%, 740px) !important;
-      max-width: 740px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    main,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap {
-      grid-template-columns: 1fr !important;
-    }
-
-    .echo-images,
-    .self-images,
-    .concept-refs-grid {
-      grid-template-columns: 1fr !important;
-      justify-items: center !important;
-    }
-
-    .echo-images img,
-    .self-images img,
-    .video-wrap img,
-    article img,
-    main img {
-      display: block;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      object-position: center center;
-    }
-
-    main p,
-    main li,
-    article p,
-    article li,
-    .echo-text p,
-    .self-text p,
-    .soulmate-text p {
-      max-width: none !important;
-      width: 100% !important;
-      text-align: left !important;
-    }
-  }
-
-  @media (max-width: 720px) {
-    main,
-    article,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .echo-text,
-    .self-text,
-    .soulmate-text {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-  }
-</style>
+  <title>Self.exe | Goals</title>
+  <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="micro-nav" aria-label="Site navigation">
-    <a href="index.html">CJ Li</a>
-    <a href="unit-1.html">Echo Maze</a>
-    <a href="unit-2.html">Self.exe</a>
-    <a href="soulmate.html">Soulmate</a>
-    <a href="index.html">More</a>
-  </nav>
-  <article>
-    <div class="links">
-      <a href="unit-2.html">← Back to Self.exe</a>
-      <a href="index.html">Back to Home</a>
-    </div>
-    <h1>Goals</h1>
-    <p class="subtitle">Main Goal and Objectives</p>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
 
-    <h2>Main Goal</h2>
-    <div class="goal-panel">
-      <p>The project deliverable by the last week of classes is a presentable, working interactive installation prototype. Viewers' face, body, and proximity inputs drive a real-time visual system that translates the theory that social media shifts self-recognition from embodied familiarity toward externally validated visibility, producing fragmentation and instability, into an embodied experience of fragmentation, distortion, and gaze pressure.</p>
-      <p>Higher purpose: instead of merely understanding the concept, viewers feel how being watched and platformed reshapes selfhood, prompting reflection on online identity construction.</p>
-    </div>
-
-    <h3>Objectives</h3>
-    <ul>
-      <li>Complete visual language: implement at least 3 switchable self-fragmentation states, each with clear triggers and intent.</li>
-      <li>Clear viewer journey: viewers understand within 30 seconds that actions affect visuals; include a short label up to 120 words plus positioning and action cues.</li>
-      <li>Theory alignment: map at least 2 theoretical points such as Lacan's gaze and mirror, Goffman's performance, and exposure versus gaze effects to concrete mechanics, then document them.</li>
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li><a href="unit-1.html">Echo Maze</a></li>
+      <li>
+        <a href="unit-2.html" class="active">Self.exe</a>
+        <ul class="nav-sub">
+          <li><a href="self-exe-concept.html">Concept</a></li>
+          <li><a href="self-exe-inspiration.html" class="active">Goals</a></li>
+          <li><a href="self-exe-sketches.html">Sketches</a></li>
+          <li><a href="self-exe-process.html">Process</a></li>
+          <li><a href="self-exe-outcome.html">Outcome</a></li>
+        </ul>
+      </li>
+      <li><a href="soulmate.html">Soulmate</a></li>
+      <li><a href="unit-3.html">The Silence Between Words</a></li>
+      <li><a href="typography.html">Typography</a></li>
+      <li><a href="nature-of-code.html">Nature of Code</a></li>
+      <li><a href="small-experiment.html">Small Experiments</a></li>
     </ul>
 
-    <div class="section">
+    <div class="sidebar-bottom">
+      <a href="bio.html">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <a class="back-link" href="unit-2.html">← Self.exe</a>
+    <div class="page-heading">Goals</div>
+
+    <div class="text-block">
+      <h2>Main Goal</h2>
+      <p>The project deliverable by the last week of classes is a presentable, working interactive installation prototype. Viewers' face, body, and proximity inputs drive a real-time visual system that translates the theory that social media shifts self-recognition from embodied familiarity toward externally validated visibility, producing fragmentation and instability, into an embodied experience of fragmentation, distortion, and gaze pressure.</p>
+      <p>Higher purpose: instead of merely understanding the concept, viewers feel how being watched and platformed reshapes selfhood, prompting reflection on online identity construction.</p>
+
+      <h2>Objectives</h2>
+      <ul>
+        <li>Complete visual language: implement at least 3 switchable self-fragmentation states, each with clear triggers and intent.</li>
+        <li>Clear viewer journey: viewers understand within 30 seconds that actions affect visuals.</li>
+        <li>Theory alignment: map at least 2 theoretical points — Lacan's gaze and mirror, Goffman's performance — to concrete mechanics.</li>
+      </ul>
+
       <h2>Critical Tasks</h2>
-
-      <h3>A. System and Experience Design</h3>
       <ul>
-        <li>A1. Define the viewer journey: entry, positioning, trigger, feedback, and exit.</li>
-        <li>A2. Decide core inputs and mapping: choose primary input from face, body, or proximity, with optional secondary input from sound; define gaze pressure variables including distance threshold, dwell time, and motion intensity.</li>
-        <li>A3. Specify at least 3 visual states: State 1 fragmentation via tiling and collage, State 2 instability via delay, trails, and time slicing, State 3 platform pressure via algorithmic misalignment and reconstruction failure; define trigger conditions and transitions with crossfade, blend, and smooth thresholds.</li>
-        <li>A4. Exhibition constraints: space size assumptions, lighting sensitivity, audience flow, and safety distances.</li>
+        <li>Define the viewer journey: entry, positioning, trigger, feedback, and exit.</li>
+        <li>Decide core inputs and mapping: primary input from face, body, or proximity; define gaze pressure variables including distance threshold and dwell time.</li>
+        <li>Specify at least 3 visual states: fragmentation via tiling and collage; instability via delay and trails; platform pressure via algorithmic misalignment.</li>
+        <li>Input pipeline: camera and Kinect setup and calibration, tracking method selection, smoothing and thresholding.</li>
+        <li>User testing with at least 5 people: record comprehension, confusion points, false triggers, and tracking stability.</li>
       </ul>
 
-      <h3>B. TouchDesigner Prototype Core Build</h3>
-      <ul>
-        <li>B1. Input pipeline: camera and Kinect setup and calibration, tracking method selection, smoothing, thresholding, and lost-tracking fallback visuals.</li>
-        <li>B2. Visual engine: base self-image pipeline from capture to preprocess to mask and threshold as needed; implement 3 visual states with consistent parameter controls.</li>
-        <li>B3. Interaction logic and state machine: define variables such as proximity, dwell time, and motion amplitude; test readability of cause and effect.</li>
-        <li>B4. Performance optimization.</li>
-      </ul>
-
-      <h3>C. Installation Setup</h3>
-      <ul>
-        <li>C1. Physical layout: screen or projection placement, projector distance and angle, camera or Kinect placement relative to tracking area, mirror placement to amplify self-reflection and multiplicity.</li>
-        <li>C2. Safety and clarity: floor tape marks for tracking area and standing positions, cable management behind barriers, signage with one-sentence instructions and standing location.</li>
-      </ul>
-
-      <h3>D. Testing and Iteration</h3>
-      <ul>
-        <li>D1. User testing with at least 5 people: record comprehension, confusion points, false triggers, and tracking stability; collect one-sentence participant summaries.</li>
-        <li>D2. Refine mapping: make action to feedback more immediate and legible; adjust thresholds and smoothing to reduce jitter.</li>
-      </ul>
-
-      <h3>E. Documentation and Presentation</h3>
-      <ul>
-        <li>E1. System diagram: Input to Logic to Visual States to Output.</li>
-        <li>E2. Viewer flowchart: entry to interaction loop to exit.</li>
-        <li>E3. Evidence capture: screenshots and short clips.</li>
-        <li>E4. Theory-to-mechanic mapping page.</li>
-        <li>E5. Final write-up.</li>
-      </ul>
-    </div>
-
-    <div class="section">
       <h2>Materials, Tools, and Resources</h2>
-      <div class="task-grid">
-        <div class="task-card">
-          <h3>Hardware</h3>
-          <ul>
-            <li>Laptop or desktop capable of running TouchDesigner, GPU preferred.</li>
-            <li>Projector.</li>
-            <li>Kinect camera.</li>
-            <li>Projection screen or white wall surface.</li>
-            <li>Mirrors, 2 to 4 panels, freestanding or safely mounted.</li>
-            <li>HDMI or DisplayPort cables and adapters.</li>
-            <li>Power strip and extension cords.</li>
-            <li>Floor tape for tracking area and cable safety.</li>
-            <li>Speakers, optional.</li>
-          </ul>
-        </div>
-        <div class="task-card">
-          <h3>Software and Resources</h3>
-          <ul>
-            <li>TouchDesigner as core environment.</li>
-            <li>Notion or blog platform for documentation.</li>
-            <li>Optional image or video editor for documentation clips.</li>
-            <li>Notes on Lacan mirror stage and gaze, Goffman performance, and social media identity frameworks.</li>
-            <li>Reference artworks using mirrors, surveillance aesthetics, and self-image distortion.</li>
-            <li>Prior experiments and sketches including visual tests and interaction prototypes.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Uncertainty</h2>
-      <p>Moderate to high confidence in building the TouchDesigner prototype, with main risks concentrated in tracking robustness, exhibition lighting, and interaction legibility.</p>
-
-      <h3>Risks and Potential Delays by Task</h3>
       <ul>
-        <li>Input tracking robustness in B1: lighting conditions, background clutter, and viewer positioning may cause jitter or tracking loss. Mitigation: smoothing, thresholds, and a fallback mode that still works visually when tracking fails.</li>
-        <li>Performance bottlenecks in B4: feedback loops and high-resolution effects may drop frame rate. Mitigation: tiered resolution for preview and show, optimization of heavy TOP chains, reduced feedback intensity, and a pre-planned show mode.</li>
-        <li>Interaction readability in B3 and D2: if mapping is too abstract, viewers may not understand control. Mitigation: simplify cause and effect relationships, add subtle cues, and iterate through user testing.</li>
-        <li>Physical setup constraints in C1 and C2: space size, projector throw distance, and mirror safety may vary. Mitigation: design two layout variants for wide and narrow spaces and keep a minimal viable setup option.</li>
-        <li>Documentation time in E: documentation can expand unexpectedly. Mitigation: capture screenshots and clips continuously during development rather than at the end.</li>
-      </ul>
-
-      <h3>What I Need to Progress Smoothly</h3>
-      <ul>
-        <li>Early access to a similar lighting environment as the exhibition space, or at least testing in two contrasting lighting conditions.</li>
-        <li>Confirmed equipment availability for projector, screen, and camera or Kinect.</li>
-        <li>A small group of testers on multiple days instead of one single session.</li>
+        <li>Laptop or desktop capable of running TouchDesigner (GPU preferred)</li>
+        <li>Projector</li>
+        <li>Kinect camera</li>
+        <li>Projection screen or white wall surface</li>
       </ul>
     </div>
-  </article>
+  </main>
 </body>
 </html>

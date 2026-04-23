@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deformable Glyphs | Play</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     @font-face {
       font-family: "CjGlyphCormorant";
@@ -213,7 +214,10 @@
   </style>
 </head>
 <body>
-  <a id="back-link" href="typography.html">Back</a>
+  <nav class="canvas-nav" style="right:auto;min-width:160px;border-right:1px solid rgba(0,0,0,0.05);">
+    <a href="typography.html">← Typography</a>
+  </nav>
+  <a id="back-link" href="typography.html" style="display:none">Back</a>
   <canvas id="canvas"></canvas>
   <div id="toolbar" aria-label="Typography controls">
     <div id="toolbar-controls">

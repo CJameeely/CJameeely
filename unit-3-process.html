@@ -4,89 +4,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Silence Between Words | Process</title>
-  <style>
-    @font-face {
-      font-family: "CjNavCormorant";
-      src: url("fonts/cormorantgaramond.woff2") format("woff2");
-      font-display: swap;
-    }
-
-    :root {
-      --display: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", serif;
-      --text: #eceff1;
-      --accent: #f1e2c4;
-      --panel: rgba(18, 24, 30, 0.64);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: var(--display);
-      background:
-        linear-gradient(rgba(14, 20, 28, 0.52), rgba(14, 20, 28, 0.62)),
-        url("images/ChatGPT Image 2025年11月20日 16_49_47 copy.png") center/cover no-repeat fixed;
-      padding: 5rem 1rem 2rem;
-      display: grid;
-      place-items: center;
-    }
-
-    .micro-nav {
-      position: fixed;
-      top: 1.2rem;
-      left: 1.2rem;
-      display: flex;
-      gap: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-
-    .micro-nav a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    main {
-      width: min(820px, 100%);
-      background: var(--panel);
-      border-radius: 18px;
-      padding: clamp(1.1rem, 3vw, 2rem);
-      backdrop-filter: blur(2px);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-    }
-
-    h1 {
-      margin: 0 0 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      font-size: clamp(1.8rem, 1.4rem + 1.8vw, 2.8rem);
-    }
-
-    p {
-      margin: 0;
-      line-height: 1.7;
-      font-size: clamp(1rem, 0.96rem + 0.25vw, 1.1rem);
-    }
-
-    @media (max-width: 900px) {
-      body { padding-top: 1rem; background-attachment: scroll; }
-      .micro-nav { position: static; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    }
-  </style>
+  <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="micro-nav" aria-label="Site navigation">
-    <a href="index.html">CJ Li</a>
-    <a href="unit-3.html">The Silence Between Words</a>
-    <a href="unit-3-sketches.html">Sketches</a>
-  </nav>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
 
-  <main>
-    <h1>Process</h1>
-    <p>This page documents the iterative process behind The Silence Between Words, including visual testing, layout decisions, and how the interaction flow was refined from early drafts to final presentation.</p>
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li><a href="unit-1.html">Echo Maze</a></li>
+      <li><a href="unit-2.html">Self.exe</a></li>
+      <li><a href="soulmate.html">Soulmate</a></li>
+      <li>
+        <a href="unit-3.html" class="active">The Silence Between Words</a>
+        <ul class="nav-sub">
+          <li><a href="unit-3-concepts.html">Concepts</a></li>
+          <li><a href="unit-3-process.html" class="active">Process</a></li>
+          <li><a href="unit-3-sketches.html">Sketches</a></li>
+        </ul>
+      </li>
+      <li><a href="typography.html">Typography</a></li>
+      <li><a href="nature-of-code.html">Nature of Code</a></li>
+      <li><a href="small-experiment.html">Small Experiments</a></li>
+    </ul>
+
+    <div class="sidebar-bottom">
+      <a href="bio.html">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <a class="back-link" href="unit-3.html">← The Silence Between Words</a>
+    <div class="page-heading">Process</div>
+
+    <div class="text-block">
+      <p>This page documents the iterative process behind The Silence Between Words, including visual testing, layout decisions, and how the interaction flow was refined from early drafts to final presentation.</p>
+    </div>
   </main>
 </body>
 </html>

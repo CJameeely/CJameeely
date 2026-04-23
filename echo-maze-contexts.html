@@ -4,376 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Echo Maze | Contexts</title>
-  <style>
-    :root {
-      font-family: 'Courier New', Courier, monospace;
-      color: #f5f5f5;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: url('images/DSCF1118.JPG') center/cover fixed;
-      font-family: inherit;
-      color: inherit;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6rem 1.5rem 3rem;
-    }
-
-    .micro-nav {
-      position: fixed;
-      top: 1.25rem;
-      left: 2rem;
-      display: flex;
-      gap: 1.5rem;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .micro-nav a {
-      color: #ffffff;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 0.15rem;
-      transition: border-color 0.2s ease;
-    }
-
-    .micro-nav a:hover,
-    .micro-nav a:focus-visible {
-      border-color: currentColor;
-    }
-
-    main {
-      width: min(900px, 100%);
-      padding: clamp(1.5rem, 3vw, 3rem);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      text-align: center;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
-      width: 100%;
-    }
-
-    h1 {
-      font-size: clamp(1.6rem, 5vw, 2.6rem);
-      margin: 0;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    a.back-link {
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.85rem;
-      text-decoration: none;
-      color: #ffffff;
-      padding: 0.4rem 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 999px;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    a.back-link:hover,
-    a.back-link:focus-visible {
-      background: rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-    }
-
-    section + section {
-      margin-top: 1.5rem;
-    }
-
-    h2 {
-      margin: 0 0 0.5rem;
-      font-size: 1rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-    }
-
-    p {
-      margin: 0 0 1rem;
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-  </style>
-<style id="global-nav-style">
-  @font-face {
-    font-family: "CjNavCormorant";
-    src: url("fonts/cormorantgaramond.woff2") format("woff2");
-    font-display: swap;
-  }
-
-  :root {
-    --nav-font-family: "CjNavCormorant", "Cormorant Garamond", "Times New Roman", Georgia, serif;
-    --nav-font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.9rem);
-    --nav-letter-spacing: 0.08em;
-    --nav-color: #f3e4c7;
-    --nav-hover-color: #fff6e4;
-    --nav-shadow: 0 1px 6px rgba(0, 0, 0, 0.58);
-    --nav-hover-shadow: 0 2px 12px rgba(0, 0, 0, 0.72);
-  }
-
-  .micro-nav,
-  .site-nav {
-    font-family: var(--nav-font-family);
-    font-size: var(--nav-font-size);
-    letter-spacing: var(--nav-letter-spacing);
-    font-weight: 600;
-  }
-
-  .micro-nav a,
-  .site-nav a {
-    color: var(--nav-color) !important;
-    font-family: inherit;
-    font-size: inherit;
-    letter-spacing: inherit;
-    text-decoration-thickness: 0.06em;
-    text-underline-offset: 0.18em;
-    text-shadow: var(--nav-shadow);
-    transition: color 0.25s ease, text-shadow 0.25s ease, border-color 0.25s ease;
-  }
-
-  .micro-nav a:hover,
-  .micro-nav a:focus-visible,
-  .site-nav a:hover,
-  .site-nav a:focus-visible {
-    color: var(--nav-hover-color) !important;
-    text-shadow: var(--nav-hover-shadow);
-  }
-
-  @media (max-width: 900px) {
-    .micro-nav,
-    .site-nav {
-      font-size: clamp(1rem, 0.95rem + 0.45vw, 1.25rem);
-      letter-spacing: 0.06em;
-    }
-  }
-</style>
-
-
-
-
-
-<style id="responsive-baseline">
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: clip;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    min-width: 0;
-  }
-
-  img,
-  video,
-  canvas,
-  svg {
-    max-width: 100%;
-    height: auto;
-  }
-
-  h1, h2, h3, h4, h5, h6, p, li, a, span {
-    overflow-wrap: anywhere;
-    word-wrap: break-word;
-  }
-</style>
-<style id="responsive-handmade-override">
-  @media (max-width: 900px) {
-    body {
-      background-attachment: scroll !important;
-      padding-inline: clamp(0.75rem, 2.5vw, 1.25rem);
-    }
-
-    .micro-nav,
-    .site-nav {
-      position: static !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      width: 100%;
-      flex-wrap: wrap !important;
-      gap: clamp(0.5rem, 2vw, 0.9rem) clamp(0.75rem, 2.4vw, 1.25rem) !important;
-      align-items: center;
-      justify-content: flex-start;
-      margin-bottom: 0.6rem;
-      z-index: auto;
-    }
-
-    .micro-nav a,
-    .site-nav a {
-      display: inline-block;
-      padding: 0.2rem 0.25rem;
-      line-height: 1.35;
-    }
-
-    main,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .soulmate-text,
-    article,
-    section {
-      width: min(100%, 100%) !important;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 720px) {
-    body {
-      padding-inline: 0.85rem;
-    }
-
-    h1 { font-size: clamp(1.85rem, 7.6vw, 2.8rem) !important; }
-    h2 { font-size: clamp(1.35rem, 5.4vw, 2rem) !important; }
-    p, li { font-size: clamp(0.95rem, 3.8vw, 1rem); line-height: 1.6; }
-  }
-
-  @media (max-width: 480px) {
-    .micro-nav,
-    .site-nav {
-      gap: 0.45rem 0.7rem !important;
-    }
-
-    .micro-nav a,
-    .site-nav a {
-      padding: 0.15rem 0.2rem;
-      font-size: clamp(0.95rem, 4vw, 1.05rem);
-    }
-  }
-</style>
-<style id="global-mobile-readable-layout">
-  @media (max-width: 900px) {
-    main,
-    article,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .echo-text,
-    .self-text,
-    .soulmate-text {
-      width: min(100%, 740px) !important;
-      max-width: 740px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    main,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap {
-      grid-template-columns: 1fr !important;
-    }
-
-    .echo-images,
-    .self-images,
-    .concept-refs-grid {
-      grid-template-columns: 1fr !important;
-      justify-items: center !important;
-    }
-
-    .echo-images img,
-    .self-images img,
-    .video-wrap img,
-    article img,
-    main img {
-      display: block;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      object-position: center center;
-    }
-
-    main p,
-    main li,
-    article p,
-    article li,
-    .echo-text p,
-    .self-text p,
-    .soulmate-text p {
-      max-width: none !important;
-      width: 100% !important;
-      text-align: left !important;
-    }
-  }
-
-  @media (max-width: 720px) {
-    main,
-    article,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .echo-text,
-    .self-text,
-    .soulmate-text {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-  }
-</style>
+  <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="micro-nav" aria-label="Site navigation">
-    <a href="index.html">CJ Li</a>
-    <a href="unit-1.html">Echo Maze</a>
-    <a href="unit-2.html">Self.exe</a>
-    <a href="soulmate.html">Soulmate</a>
-    <a href="index.html">More</a>
-  </nav>
-  <main>
-    <header>
-      <h1>Echo Maze — Contexts</h1>
-      <a class="back-link" href="unit-1.html">Back to Echo Maze</a>
-    </header>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
 
-    <section>
-      <h2>Academic & Artistic References</h2>
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li>
+        <a href="unit-1.html" class="active">Echo Maze</a>
+        <ul class="nav-sub">
+          <li><a href="echo-maze-artist-statement.html">Artist Statement</a></li>
+          <li><a href="echo-maze-critical-reflection.html">Critical Reflection</a></li>
+          <li><a href="echo-maze-research-process.html">Research Process</a></li>
+          <li><a href="echo-maze-outcome.html">Outcome</a></li>
+          <li><a href="echo-maze-contexts.html" class="active">Contexts</a></li>
+        </ul>
+      </li>
+      <li><a href="unit-2.html">Self.exe</a></li>
+      <li><a href="soulmate.html">Soulmate</a></li>
+      <li><a href="unit-3.html">The Silence Between Words</a></li>
+      <li><a href="typography.html">Typography</a></li>
+      <li><a href="nature-of-code.html">Nature of Code</a></li>
+      <li><a href="small-experiment.html">Small Experiments</a></li>
+    </ul>
+
+    <div class="sidebar-bottom">
+      <a href="bio.html">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <a class="back-link" href="unit-1.html">← Echo Maze</a>
+    <div class="page-heading">Contexts</div>
+
+    <div class="text-block">
+      <h2>Academic &amp; Artistic References</h2>
       <ul>
         <li>Jacques Lacan, <em>The Mirror Stage as Formative of the I Function</em> (1949)</li>
         <li>Sherry Turkle, <em>Alone Together</em> (2011)</li>
         <li>David Wojnarowicz, <em>Arthur Rimbaud in New York</em> — fragmented identity through masks and performance.</li>
         <li>Sophie Calle, <em>Take Care of Yourself</em> — emotional labor mediated by text and technology.</li>
       </ul>
-    </section>
 
-    <section>
       <h2>Theoretical Context</h2>
       <p>Echo Maze situates itself between posthuman affect theory and media phenomenology—where machines do not simply simulate emotion, but reshape how emotion is perceived. The work asks: if empathy can be programmed, does authenticity still matter?</p>
-    </section>
+    </div>
   </main>
 </body>
 </html>

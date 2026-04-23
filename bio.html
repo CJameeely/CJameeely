@@ -3,262 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CJ Li | Artist Overview</title>
+  <title>CJ Li | About</title>
   <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
-  <style>
-    @import url('https://fonts.cdnfonts.com/css/eros');
-
-    :root {
-      font-family: 'Eros', 'Times New Roman', serif;
-      color: #000;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background-color: #eceee1;
-      background-image: url("images/DSCF1819.jpg");
-      background-size: cover;
-      background-position: center top;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header {
-      width: 100%;
-      padding: 1.5rem 2rem 0;
-      box-sizing: border-box;
-      text-align: left;
-    }
-
-    header a {
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    header a:hover,
-    header a:focus-visible {
-      text-decoration: underline;
-    }
-
-    main {
-      width: 100%;
-      max-width: 900px;
-      padding: 3rem 1.5rem 4rem;
-      box-sizing: border-box;
-    }
-
-    .bio-card {
-      background: rgba(255, 255, 255, 0.55);
-      border-radius: 18px;
-      padding: 2rem;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.12);
-      backdrop-filter: blur(5px);
-      color: #000;
-    }
-
-    .bio-card h1 {
-      margin-top: 0;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .bio-card p {
-      line-height: 1.8;
-      font-size: 1.05rem;
-      margin: 0 0 1.25rem;
-    }
-
-    .bio-card p:last-child {
-      margin-bottom: 0;
-    }
-  </style>
-
-
-
-
-<style id="responsive-baseline">
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: clip;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    min-width: 0;
-  }
-
-  img,
-  video,
-  canvas,
-  svg {
-    max-width: 100%;
-    height: auto;
-  }
-
-  h1, h2, h3, h4, h5, h6, p, li, a, span {
-    overflow-wrap: anywhere;
-    word-wrap: break-word;
-  }
-</style>
-<style id="responsive-handmade-override">
-  @media (max-width: 900px) {
-    body {
-      background-attachment: scroll !important;
-      padding-inline: clamp(0.75rem, 2.5vw, 1.25rem);
-    }
-
-    .micro-nav,
-    .site-nav {
-      position: static !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      width: 100%;
-      flex-wrap: wrap !important;
-      gap: clamp(0.5rem, 2vw, 0.9rem) clamp(0.75rem, 2.4vw, 1.25rem) !important;
-      align-items: center;
-      justify-content: flex-start;
-      margin-bottom: 0.6rem;
-      z-index: auto;
-    }
-
-    .micro-nav a,
-    .site-nav a {
-      display: inline-block;
-      padding: 0.2rem 0.25rem;
-      line-height: 1.35;
-    }
-
-    main,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .soulmate-text,
-    article,
-    section {
-      width: min(100%, 100%) !important;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 720px) {
-    body {
-      padding-inline: 0.85rem;
-    }
-
-    h1 { font-size: clamp(1.85rem, 7.6vw, 2.8rem) !important; }
-    h2 { font-size: clamp(1.35rem, 5.4vw, 2rem) !important; }
-    p, li { font-size: clamp(0.95rem, 3.8vw, 1rem); line-height: 1.6; }
-  }
-
-  @media (max-width: 480px) {
-    .micro-nav,
-    .site-nav {
-      gap: 0.45rem 0.7rem !important;
-    }
-
-    .micro-nav a,
-    .site-nav a {
-      padding: 0.15rem 0.2rem;
-      font-size: clamp(0.95rem, 4vw, 1.05rem);
-    }
-  }
-</style>
-<style id="global-mobile-readable-layout">
-  @media (max-width: 900px) {
-    main,
-    article,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .echo-text,
-    .self-text,
-    .soulmate-text {
-      width: min(100%, 740px) !important;
-      max-width: 740px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    main,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap {
-      grid-template-columns: 1fr !important;
-    }
-
-    .echo-images,
-    .self-images,
-    .concept-refs-grid {
-      grid-template-columns: 1fr !important;
-      justify-items: center !important;
-    }
-
-    .echo-images img,
-    .self-images img,
-    .video-wrap img,
-    article img,
-    main img {
-      display: block;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      object-position: center center;
-    }
-
-    main p,
-    main li,
-    article p,
-    article li,
-    .echo-text p,
-    .self-text p,
-    .soulmate-text p {
-      max-width: none !important;
-      width: 100% !important;
-      text-align: left !important;
-    }
-  }
-
-  @media (max-width: 720px) {
-    main,
-    article,
-    .echo-wrap,
-    .self-wrap,
-    .video-wrap,
-    .overview-card,
-    .process-card,
-    .echo-text,
-    .self-text,
-    .soulmate-text {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-  }
-</style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <a href="index.html">← Back to home</a>
-  </header>
-  <main>
-    <section class="bio-card">
-      <h1>CJ Li</h1>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
+
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li><a href="unit-1.html">Echo Maze</a></li>
+      <li><a href="unit-2.html">Self.exe</a></li>
+      <li><a href="soulmate.html">Soulmate</a></li>
+      <li><a href="unit-3.html">The Silence Between Words</a></li>
+      <li><a href="typography.html">Typography</a></li>
+      <li><a href="nature-of-code.html">Nature of Code</a></li>
+      <li><a href="small-experiment.html">Small Experiments</a></li>
+    </ul>
+
+    <div class="sidebar-bottom">
+      <a href="bio.html" class="active">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="page-heading">About</div>
+    <div class="text-block">
       <p>CJ Li is an interactive media artist exploring how human emotion is mirrored and translated within technological systems.</p>
       <p>Through light, image, sound, and algorithmic interaction, her work examines the relationship between artificial intelligence, social media, and self-perception.</p>
       <p>Between logic and emotion, she asks: when technology begins to feel for us, what remains real?</p>
-    </section>
+      <p>She is currently studying Interactive Media Arts at NYU Shanghai.</p>
+    </div>
   </main>
 </body>
 </html>
