@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resonant Field | CJ Li</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; }
+    canvas { display: block; position: fixed; top: 0; left: 0; z-index: 0; }
+    #nav-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      background: rgba(247, 247, 245, 0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    #nav-bar a {
+      font-size: 11.5px;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    #nav-bar a:hover { color: #222; }
+    #nav-bar span { font-size: 11.5px; color: #aaa; }
+  </style>
+</head>
+<body>
+
+  <div id="nav-bar">
+    <a href="resonant-field.html">← Resonant Field</a>
+    <span>Resonant Field</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tweakpane@3.1.10/dist/tweakpane.min.js"></script>
+
+  <script>
+    // Tweakpane v3 exposes global `Tweakpane`; destructure Pane for original-style usage
+    const { Pane } = Tweakpane;
+
+    let pane;
+    let params = {
+      speed: 0.005,
+      frequency: 0.3,
+      amplitude: 20,
+      lineWeight: 0.6,
+      heightGrowth: 1.0,
+      mouseDist: 150,
+      colorJitter: 30,
+      lineColor:       { r: 0,   g: 200, b: 160 },
+      horizontalColor: { r: 120, g: 40,  b: 180, a: 0.6 },
+      bgBrightness: 235,
+    };
+
+    let cols = 70;
+    let rows = 7;
+    let waveRows = [];
+    const NAV_H = 38;
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+
+      for (let i = 0; i < rows; i++) {
+        waveRows.push(new WaveRow(i));
+      }
+
+      setupGUI();
+    }
+
+    function draw() {
+      background(params.bgBrightness, params.bgBrightness - 5, params.bgBrightness - 20);
+      for (let row of waveRows) {
+        row.display();
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
+    class WaveRow {
+      constructor(index) {
+        this.index  = index;
+        this.padding = 30;
+      }
+
+      display() {
+        let gridW = width  - this.padding * 2;
+        let gridH = height - NAV_H - this.padding * 5;
+        let cellW = gridW / cols;
+        let cellH = gridH / rows;
+
+        for (let j = 0; j < cols; j++) {
+          let x = this.padding + j * cellW;
+          let y = NAV_H + this.padding + this.index * cellH;
+
+          let sinVal = sin(frameCount * params.speed + j * params.frequency + this.index);
+          let offset = sinVal * params.amplitude;
+
+          let d = dist(mouseX, mouseY, x, y);
+          if (d < params.mouseDist) {
+            offset *= (1 + map(d, 0, params.mouseDist, 2, 0));
+          }
+
+          push();
+          translate(x, y + offset);
+
+          let brightness = map(sinVal, -1, 1, 50, 255);
+          let r = params.lineColor.r + map(noise(j * 0.1, this.index),      0, 1, -params.colorJitter, params.colorJitter);
+          let g = params.lineColor.g + map(noise(j * 0.1, this.index + 5),  0, 1, -params.colorJitter, params.colorJitter);
+          let b = params.lineColor.b + map(noise(j * 0.1, this.index + 10), 0, 1, -params.colorJitter, params.colorJitter);
+
+          stroke(r, g, b, brightness);
+          strokeWeight(map(sinVal, -1, 1, cellW * (params.lineWeight / 2), cellW * params.lineWeight));
+
+          let heightMul    = map(this.index, 0, rows - 1, 1.0, 1.0 + params.heightGrowth);
+          let currentLineH = (cellH - 5) * heightMul;
+          line(cellW / 2, 0, cellW / 2, currentLineH);
+          pop();
+        }
+
+        this.drawHorizontalLines(cellH, gridW);
+      }
+
+      drawHorizontalLines(cellH, gridW) {
+        stroke(
+          params.horizontalColor.r,
+          params.horizontalColor.g,
+          params.horizontalColor.b,
+          params.horizontalColor.a * 255
+        );
+        strokeWeight(2);
+        noFill();
+
+        for (let lineOffset of [0.3, 0.7]) {
+          beginShape();
+          for (let x = 0; x <= gridW; x += 10) {
+            let waveX = x * 0.005 + frameCount * 0.025;
+            let yBase = NAV_H + this.padding + this.index * cellH + cellH * lineOffset;
+            vertex(this.padding + x, yBase + sin(waveX + this.index) * 15);
+          }
+          endShape();
+        }
+      }
+    }
+
+    function setupGUI() {
+      pane = new Pane();
+
+      let folderWave = pane.addFolder({ title: 'Wave Physics' });
+      folderWave.addInput(params, 'speed',     { min: 0.0,  max: 0.05, step: 0.005 });
+      folderWave.addInput(params, 'frequency', { min: 0.0,  max: 1.0,  step: 0.01  });
+      folderWave.addInput(params, 'amplitude', { min: 0,    max: 100,  step: 1     });
+
+      let folderStyle = pane.addFolder({ title: 'Visual Style' });
+      folderStyle.addInput(params, 'lineWeight',   { label: 'Thickness',       min: 0.1, max: 2.0,  step: 0.1 });
+      folderStyle.addInput(params, 'heightGrowth', { label: 'Height Growth',   min: 0.0, max: 3.0,  step: 0.1 });
+      folderStyle.addInput(params, 'colorJitter',  { label: 'Color Variation', min: 0,   max: 200,  step: 1   });
+      folderStyle.addInput(params, 'lineColor',       { label: 'Base Color' });
+      folderStyle.addInput(params, 'horizontalColor', { label: 'Wire Color'  });
+      folderStyle.addInput(params, 'bgBrightness',    { label: 'BG Bright',    min: 0, max: 255, step: 1 });
+      folderStyle.addButton({ title: 'Random System Color' }).on('click', () => {
+        params.lineColor       = { r: int(random(255)), g: int(random(255)), b: int(random(255)) };
+        params.horizontalColor = { r: int(random(255)), g: int(random(255)), b: int(random(255)), a: 0.6 };
+        pane.refresh();
+      });
+
+      let folderInteract = pane.addFolder({ title: 'Interaction' });
+      folderInteract.addInput(params, 'mouseDist', { label: 'Mouse Range', min: 0, max: 900, step: 10 });
+    }
+  </script>
+</body>
+</html>
