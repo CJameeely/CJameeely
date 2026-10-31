@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="home">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,17 +8,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="liquid" aria-hidden="true"></canvas>
   <aside class="sidebar">
     <a class="sidebar-brand" href="index.html">CJ Li</a>
 
     <span class="nav-label">Works</span>
     <ul class="nav-list">
       <li><a href="unit-1.html">Echo Maze</a></li>
-      <li><a href="unit-2.html">Self.exe</a></li>
+      <li><a href="i-dont-like-you.html">I don&rsquo;t like you</a></li>
       <li><a href="soulmate.html">Soulmate</a></li>
       <li><a href="unit-3.html">The Silence Between Words</a></li>
-      <li><a href="typography.html">Typography</a></li>
-      <li><a href="resonant-field.html">Resonant Field</a></li>
     </ul>
 
     <div class="sidebar-bottom">
@@ -43,20 +42,34 @@
 
   <main class="content">
     <div class="home-wrap">
-      <div class="home-body">
+      <section class="home-hero">
         <p class="home-bio">
           CJ Li is an interactive media artist exploring how human emotion is mirrored and translated within technological systems. Through light, image, sound, and algorithmic interaction, her work examines the relationship between artificial intelligence, social media, and self-perception.
         </p>
-        <div class="home-portrait">
-          <img src="images/IMG_9111.JPG" alt="CJ Li" />
-        </div>
-      </div>
-      <div class="home-flowers">
-        <img class="hf-1" src="images/flower-1.png" alt="" />
-        <img class="hf-2" src="images/flower-2.png" alt="" />
-        <img class="hf-3" src="images/flower-3.png" alt="" />
-      </div>
+        <a class="scroll-badge" href="#works" aria-label="Scroll to works">
+          <svg viewBox="0 0 100 100" width="96" height="96" aria-hidden="true">
+            <defs><path id="badge-circle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs>
+            <g class="scroll-badge-ring">
+              <text><textPath href="#badge-circle" textLength="236">SCROLL DOWN · SCROLL DOWN · </textPath></text>
+            </g>
+            <path d="M50 40 V60 M43 53 L50 60 L57 53" fill="none" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </a>
+      </section>
+
+      <section class="home-works" id="works">
+        <span class="works-label">Selected Works</span>
+        <ol class="works-list">
+        <li style="--i:0"><a href="unit-1.html" data-preview="images/IMG_4449 copy.JPG"><span class="works-num">01</span><span class="works-title">Echo Maze</span></a></li>
+        <li style="--i:1"><a href="i-dont-like-you.html" data-preview="images/i-dont-like-you/p-1.jpg"><span class="works-num">02</span><span class="works-title">I don&rsquo;t like you</span></a></li>
+        <li style="--i:2"><a href="soulmate.html" data-preview="images/f1f594628f46738520b0dbcef4701bd7.PNG"><span class="works-num">03</span><span class="works-title">Soulmate</span></a></li>
+        <li style="--i:3"><a href="unit-3.html" data-preview="images/ChatGPT Image 2026年2月27日 13_29_07.png"><span class="works-num">04</span><span class="works-title">The Silence Between Words</span></a></li>
+        </ol>
+      </section>
     </div>
+    <img class="works-preview" alt="" aria-hidden="true" />
   </main>
+  <script src="js/liquid.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

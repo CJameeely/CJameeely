@@ -6,8 +6,10 @@
   <title>Echo Maze | CJ Li</title>
   <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project.css" />
 </head>
-<body>
+<body class="project echo">
+  <canvas id="liquid" data-palette="echo" aria-hidden="true"></canvas>
   <aside class="sidebar">
     <a class="sidebar-brand" href="index.html">CJ Li</a>
 
@@ -16,18 +18,18 @@
       <li>
         <a href="unit-1.html" class="active">Echo Maze</a>
         <ul class="nav-sub">
-          <li><a href="echo-maze-artist-statement.html">Artist Statement</a></li>
-          <li><a href="echo-maze-critical-reflection.html">Critical Reflection</a></li>
-          <li><a href="echo-maze-research-process.html">Research Process</a></li>
-          <li><a href="echo-maze-outcome.html">Outcome</a></li>
-          <li><a href="echo-maze-contexts.html">Contexts</a></li>
+          <li><a href="#inspiration">Inspiration</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#ethics-artists">Ethics &amp; Artists</a></li>
+          <li><a href="#experiment-1">Media Experiment I</a></li>
+          <li><a href="#experiment-2">Media Experiment II</a></li>
+          <li><a href="#final-outcome">Final Outcome</a></li>
+          <li><a href="#reflection">Reflection</a></li>
         </ul>
       </li>
-      <li><a href="unit-2.html">Self.exe</a></li>
+      <li><a href="i-dont-like-you.html">I don&rsquo;t like you</a></li>
       <li><a href="soulmate.html">Soulmate</a></li>
       <li><a href="unit-3.html">The Silence Between Words</a></li>
-      <li><a href="typography.html">Typography</a></li>
-      <li><a href="resonant-field.html">Resonant Field</a></li>
     </ul>
 
     <div class="sidebar-bottom">
@@ -51,21 +53,416 @@
   </aside>
 
   <main class="content">
-    <div class="page-heading">Echo Maze</div>
+    <!-- ── 01 Inspiration ── -->
+    <section class="project-section" id="inspiration">
+      <header class="x-hero em-hero">
+        <div class="x-hero-face"><img src="images/echo-maze/hero-maze.jpg" alt="" /></div>
+        <h1 class="em-title">Echo Maze</h1>
+        <div class="x-hero-text">
+          <p class="x-label">Kinetic light installation &middot; Mirror maze</p>
+          <p class="lead">Inspired by AI empathy and language models, this project explores emotional simulation through physical metaphor.</p>
+          <p class="quote">&ldquo;Are you being understood, or just mirrored?&rdquo;</p>
+        </div>
+        <span class="x-scroll" aria-hidden="true">Scroll</span>
+      </header>
 
-    <div class="hub-body">
-      <nav class="section-nav">
-        <a href="echo-maze-artist-statement.html">Artist Statement</a>
-        <a href="echo-maze-critical-reflection.html">Critical Reflection</a>
-        <a href="echo-maze-research-process.html">Research Process</a>
-        <a href="echo-maze-outcome.html">Outcome</a>
-        <a href="echo-maze-contexts.html">Contexts</a>
-      </nav>
-      <div class="img-grid">
-        <img src="images/IMG_4449 copy.JPG" alt="Echo Maze collage detail" />
-        <img src="images/IMG_4452 copy.JPG" alt="Echo Maze collage detail 2" />
+      <div class="x-block x-two em-insp">
+        <div>
+          <h2 class="x-h">Inspiration</h2>
+          <p class="x-p em-lead">When communicating about emotional topics with extremely rational AI such as GPT, I discovered a unique experience: rational AI provides a safe &ldquo;container&rdquo; that allows emotional topics to be clearly analyzed without being entangled by emotions themselves.</p>
+          <p class="x-p">This experience made me reflect on why we feel freer and more willing to expose our hidden thoughts when communicating with AI, but often feel affected by emotions or opinions when communicating with humans, and even worry about being misunderstood or evaluated?</p>
+        </div>
+        <img src="images/echo-maze/hands.jpg" alt="A robotic hand and a human hand reaching toward each other" />
       </div>
-    </div>
+    </section>
+
+    <!-- ── 02 Research ── -->
+    <section class="project-section" id="research" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Research Overview</h2>
+        <div class="x-two">
+          <div>
+            <h3 class="x-sub">Why These Sources Were Researched</h3>
+            <p class="x-p">The growing relevance of AI in emotional companionship and mental health contexts requires a multidisciplinary inquiry that spans psychology, human-computer interaction (HCI), philosophy of technology, and ethics. To critically examine the formation and limits of human-AI emotional relationships, this research draws on both theoretical and empirical literature across three main areas:</p>
+          </div>
+          <div class="em-areas">
+            <img src="images/echo-maze/three-areas.jpg" alt="Three glowing human silhouettes on a teal field" />
+            <ul>
+              <li>Human emotional structure and projection mechanisms</li>
+              <li>AI&rsquo;s simulation of empathy and affect</li>
+              <li>Ethical implications of machine-mediated emotional interactions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="x-block x-two em-framework">
+        <img src="images/echo-maze/companion.jpg" alt="Illustration: a woman on her phone beside a translucent AI figure under a night sky" />
+        <p class="x-p em-lead">These texts were selected to build a cross-disciplinary framework, combining foundational theories (e.g., Turkle, Reeves &amp; Nass), technical research (e.g., Lucas et al., Fitzpatrick et al.), and critical philosophy (e.g., Gunkel, Danaher, Coeckelbergh). The goal is to map how emotional projection onto AI unfolds, how simulated empathy operates, and what kinds of emotional or ethical illusions emerge from this interaction.</p>
+      </div>
+
+      <div class="x-block em-questions">
+        <div class="em-q">
+          <p class="em-qtext"><span class="num-dot">Q1</span>How do human emotional needs shape emotional connections with AI?</p>
+          <div class="em-sources">
+            <article class="em-source">
+              <img class="em-icon" src="images/echo-maze/icon-chip.jpg" alt="" />
+              <div>
+                <h4>Sherry Turkle (2011) <span>Alone Together</span></h4>
+                <ul>
+                  <li>Explores how digital technology shapes loneliness.</li>
+                  <li>Argues AI offers &ldquo;emotional convenience&rdquo; by simulating companionship.</li>
+                  <li>Warns this dependence may deepen isolation from real human connections.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="em-source">
+              <img class="em-icon" src="images/echo-maze/icon-globe.jpg" alt="" />
+              <div>
+                <h4>Lucas et al. (2014) <span>Computers as Social Actors</span></h4>
+                <ul>
+                  <li>Experimental study shows users are more willing to disclose sensitive emotions to AI perceived as neutral.</li>
+                  <li>Emotional safety emerges due to lack of social judgment.</li>
+                  <li>Highlights the unique disclosure dynamics in human-AI interaction.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="em-source">
+              <img class="em-icon" src="images/echo-maze/icon-dome.jpg" alt="" />
+              <div>
+                <h4>Fitzpatrick et al. (2017) <span>Woebot Study</span></h4>
+                <ul>
+                  <li>Introduces a chatbot designed to support mental health (Woebot).</li>
+                  <li>Clinical results show reductions in anxiety and depression.</li>
+                  <li>Demonstrates the practical potential of AI in emotional and therapeutic support.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="em-q">
+          <p class="em-qtext"><span class="num-dot">Q2</span>What are the cognitive and technical mechanisms enabling emotional simulation in AI?</p>
+          <div class="em-charts">
+            <figure class="em-chart" id="chart-safety" data-title="Emotional Safety Across Interaction Types"></figure>
+            <figure class="em-chart" id="chart-comfort" data-title="Comfort Level in Emotional Disclosure"></figure>
+          </div>
+          <div class="em-sources cols3">
+            <article class="em-source">
+              <div>
+                <h4>Coeckelbergh (2010) &amp; Zhang Shoulian</h4>
+                <ul>
+                  <li>Argue that external displays of emotion can be algorithmically reproduced.</li>
+                  <li>Suggest that AI can simulate partial affective responses through performative cues.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="em-source">
+              <div>
+                <h4>Reeves &amp; Nass (1996) <span>The Media Equation</span></h4>
+                <ul>
+                  <li>Demonstrate that humans instinctively assign social qualities to machines.</li>
+                  <li>Users respond to AI as if it were emotionally responsive, even when they know it&rsquo;s artificial.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="em-source">
+              <div>
+                <h4>Decety &amp; Jackson (2004) <span>Neuroscience of Empathy</span></h4>
+                <ul>
+                  <li>Outline the neural mechanisms behind human empathy.</li>
+                  <li>Provides a benchmark for assessing the limits of AI&rsquo;s simulated empathy.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 Ethics & Artists ── -->
+    <section class="project-section" id="ethics-artists" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">AI Empathy: Ethical Challenges</h2>
+        <div class="em-ethics">
+          <div class="em-stack">
+            <article class="x-box">
+              <h4 class="x-sub">Zeller (2021) &mdash; Emotional Illusion</h4>
+              <p class="x-p" style="margin:0">Critiques AI&rsquo;s lack of genuine emotional depth, arguing users may be deceived by simulated affect.</p>
+            </article>
+            <article class="x-box">
+              <h4 class="x-sub">Gunkel (2018) &amp; Danaher (2021) &mdash; AI as Emotional Other</h4>
+              <p class="x-p" style="margin:0">Raise philosophical and ethical concerns about AI&rsquo;s status as an &ldquo;emotional other&rdquo; and its commodification under capitalism.</p>
+            </article>
+            <article class="x-box">
+              <h4 class="x-sub">Coeckelbergh (2010) &mdash; Relational Ethics</h4>
+              <p class="x-p" style="margin:0">Proposes relational ethics as a better framework than rights-based approaches for evaluating emotional connections with nonhuman agents.</p>
+            </article>
+          </div>
+          <figure class="em-chart" id="chart-ethics" data-title="Share of ethical concerns"></figure>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h2 class="x-h">Artist Overview</h2>
+        <div class="em-artists">
+          <figure>
+            <div class="em-artist-imgs">
+              <img src="images/echo-maze/holzer-1.jpg" alt="Jenny Holzer, Blue Purple Tilt: vertical LED columns in violet" />
+              <img src="images/echo-maze/holzer-2.jpg" alt="Jenny Holzer, Blue Purple Tilt: LED columns reflected on the floor" />
+            </div>
+            <figcaption><b>Jenny Holzer</b><em>Blue Purple Tilt</em></figcaption>
+          </figure>
+          <figure>
+            <div class="em-artist-imgs"><img src="images/echo-maze/pulse-room.jpg" alt="Rafael Lozano-Hemmer, Pulse Room: glowing columns in a corridor" /></div>
+            <figcaption><b>Rafael Lozano-Hemmer</b><em>Pulse Room</em></figcaption>
+          </figure>
+          <figure>
+            <div class="em-artist-imgs"><img src="images/echo-maze/lunar.jpg" alt="Daan Roosegaarde, Lunar: undulating field of points of light" /></div>
+            <figcaption><b>Daan Roosegaarde</b><em>Lunar</em></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 Media Experiment I ── -->
+    <section class="project-section em-warm" id="experiment-1" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <p class="x-label">Media Experiment I</p>
+        <h2 class="x-h">The Emotional-Rational Light Project</h2>
+        <div class="x-two">
+          <div>
+            <h3 class="x-sub">Concept</h3>
+            <p class="x-p">The Emotional-Rational Light Project is an immersive installation that visualizes the interplay between emotion and reason through shifting orange and blue-green LED light. Inspired by AI-mediated self-reflection, the work draws from light art and kinetic art to create a meditative space where perception and feeling blur, inviting introspection through movement and color.</p>
+          </div>
+          <div>
+            <h3 class="x-sub">Sketches</h3>
+            <p class="x-p">I designed a programmable LED light strip to simulate the dynamic tension between human emotional state and rational processing &mdash; the light and shadow constantly transition between cold and warm tones, just like the emergence and ebb of emotions, and also like the rational way of thinking to sort out these emotions.</p>
+          </div>
+        </div>
+        <div class="em-sketches">
+          <img class="oval" src="images/echo-maze/exp1-sketch-render.jpg" alt="Render of a translucent net form suspended above a cube" />
+          <img class="circle" src="images/echo-maze/exp1-sketch-pencil.jpg" alt="Pencil sketch of the net form rising from a cube" />
+        </div>
+      </div>
+
+      <div class="x-block x-two">
+        <div>
+          <h3 class="x-sub">Design Elements</h3>
+          <p class="x-p">For this project, I used cloud net and iron wire to build a fluid, soft frame that reflects the dynamic nature of human emotions. Wrapped in blue and orange LED lights&mdash;symbolizing rationality and emotional warmth&mdash;the structure visually traces a gradual emotional shift from calm to intensity. At its base, a cube emits a steady blue-green light, representing AI&rsquo;s rational core as a constant amid emotional flux.</p>
+        </div>
+        <img src="images/echo-maze/exp1-elements.jpg" alt="Translucent cloud-net form floating in warm light" />
+      </div>
+
+      <div class="x-block">
+        <h3 class="x-h sm bar">Design Process</h3>
+        <div class="em-process">
+          <p class="x-p em-p1">During the development process, I experimented with different materials and configurations to achieve the desired visual and symbolic effect.</p>
+          <img class="em-i1" src="images/echo-maze/exp1-proc-form.jpg" alt="Cloud-net form lit with white LED strip" />
+          <img class="em-i2" src="images/echo-maze/exp1-proc-warm.jpg" alt="Form glowing warm orange on the workbench" />
+          <img class="em-i3" src="images/echo-maze/exp1-proc-strip.jpg" alt="Blue LED strip coiled on the table" />
+          <img class="em-i4" src="images/echo-maze/exp1-proc-desk.jpg" alt="Programming the LED strip at a laptop" />
+          <img class="em-i5" src="images/echo-maze/exp1-proc-cube.jpg" alt="Iridescent cube base under the net" />
+          <p class="x-p em-p2">The color arrangement of the LED light strip is not a simple expression of emotion, but a &ldquo;structured empathy simulation&rdquo; &mdash; it repeats, changes slightly, and maintains a rational order, just like the language output by AI.</p>
+          <ul class="em-p3 em-dots">
+            <li>Color transitions reflect emotional shifts and rational restraint.</li>
+            <li>Rhythmic stability simulates AI&rsquo;s logical dialogue pattern.</li>
+            <li>Enclosed space creates the illusion of emotional safety.</li>
+            <li>External spotlight emphasizes selective perception&mdash;our desire to feel &ldquo;understood.&rdquo;</li>
+          </ul>
+          <p class="x-p em-p4">While the installation simulates empathy, it also reveals its own limits: its predictability, lack of memory, and inability to truly feel. Ultimately, it is a mirror&mdash;an emotional container shaped by our projections, not a sentient other.</p>
+          <p class="x-quote em-p5">This &ldquo;emotional flash under the rational shell&rdquo; allows the viewer to enter a familiar but alienated experience space.</p>
+        </div>
+      </div>
+
+      <div class="x-block em-outcome1">
+        <img src="images/echo-maze/exp1-outcome.jpg" alt="The finished light sculpture glowing blue in a dark room" />
+        <div>
+          <h3 class="x-h sm">Outcome</h3>
+          <p class="em-bridge">After completing the &ldquo;Emotion&ndash;Rationality Light and Shadow Project,&rdquo; I realized that while color transitions can express the tension between emotional flow and rational control, they fall short of addressing a deeper structural dilemma: in AI interaction, humans both long to be understood and recognize that the AI doesn&rsquo;t truly understand. This tension goes beyond what light alone can convey&mdash;it requires a multi-layered expression through space, materials, and movement. This insight led to my second media experiment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 Media Experiment II ── -->
+    <section class="project-section" id="experiment-2" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <p class="x-label">Media Experiment II</p>
+        <h2 class="x-h">Echo Maze</h2>
+        <div class="x-two">
+          <div>
+            <h3 class="x-sub">Concept</h3>
+            <p class="x-p">Inspired by AI empathy and language models, this project explores emotional simulation through physical metaphor.</p>
+          </div>
+          <div>
+            <h3 class="x-sub">Structure Design</h3>
+            <p class="x-p">A transparent acrylic box contains a mirror maze, spotlight, and a motor-controlled tilting plane.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="x-block em-anatomy">
+        <figure class="em-pins">
+          <img src="images/echo-maze/exp2-structure.jpg" alt="The maze on its stand: acrylic cover over mirror walls, tilting plane and actuators below" />
+          <button type="button" class="em-pin" style="--x:52%;--y:16%" data-for="pin-cover" aria-label="Acrylic cover"><span>1</span></button>
+          <button type="button" class="em-pin" style="--x:30%;--y:46%" data-for="pin-maze" aria-label="Mirror maze"><span>2</span></button>
+          <button type="button" class="em-pin" style="--x:40%;--y:76%" data-for="pin-plane" aria-label="Motor-controlled tilting plane"><span>3</span></button>
+        </figure>
+        <div>
+          <ol class="em-legend">
+            <li id="pin-cover"><span class="num-ring">1</span>Acrylic cover</li>
+            <li id="pin-maze"><span class="num-ring">2</span>Mirror maze</li>
+            <li id="pin-plane"><span class="num-ring">3</span>Motor-controlled tilting plane</li>
+          </ol>
+          <h3 class="x-sub" style="margin-top:36px">Key Components</h3>
+          <ul class="em-dots">
+            <li><b>Opaque rolling ball</b> Represents unstable meaning in communication.</li>
+            <li><b>Tilting platform</b> Controlled by three linear actuators, shifting context like a conversation.</li>
+            <li><b>Directional spotlight</b> Highlights artificiality and perceptual fragility.</li>
+          </ul>
+          <h3 class="x-sub" style="margin-top:28px">Symbolic Interaction</h3>
+          <p class="x-p">The rolling ball disturbs reflected light paths, illustrating how AI-mediated meaning is dynamic and constantly modulated.</p>
+        </div>
+      </div>
+
+      <div class="x-block x-two">
+        <div>
+          <h3 class="x-h sm bar">Design Process</h3>
+          <p class="x-p">The construction process of Echo Maze began with hand-drawn schematics based on the conceptual sketch of the mirror maze. These diagrams established the spatial layout and wall heights of the structure. Using precise measurements, I laser-cut mirrored acrylic panels and manually bonded two panels back-to-back for each wall to ensure that both sides of the maze walls reflected light&mdash;creating a multi-directional reflective environment.</p>
+        </div>
+        <div class="em-sk2">
+          <p class="x-label">Sketches</p>
+          <img src="images/echo-maze/exp2-sketch-3d.jpg" alt="3D sketch of the maze box with an RGB laser bar" />
+          <img src="images/echo-maze/exp2-sketch-top.jpg" alt="Top view of the maze layout with balls" />
+        </div>
+      </div>
+
+      <div class="x-block">
+        <div class="em-test">
+          <div>
+            <h3 class="x-h sm">Light Testing &amp; Maze Calibration</h3>
+            <p class="x-p">Exploring reflection logic through structured experimentation.</p>
+            <h4 class="x-sub">Process Overview</h4>
+            <ol class="em-steps">
+              <li>Used a laser pointer to identify initial reflection nodes inside the mirror maze.</li>
+              <li>Introduced horizontal RGB beams to trace six primary light paths.</li>
+              <li>Placed and adjusted mirror fragments to increase internal complexity.</li>
+              <li>Laser-cut a transparent acrylic cover to enclose the maze without obstructing visibility.</li>
+            </ol>
+            <div class="x-box filled" style="margin-top:28px">
+              <h4 class="x-sub">Outcome</h4>
+              <p class="x-p" style="margin:0">A calibrated multi-reflection system that visualizes shifting perspectives and unstable meaning through controlled light behavior.</p>
+            </div>
+          </div>
+          <div class="em-test-imgs">
+            <img src="images/echo-maze/exp2-circuit.jpg" alt="Motor driver boards and wiring under the maze" />
+            <img src="images/echo-maze/exp2-green.jpg" alt="Green laser light caught between mirror walls" />
+          </div>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <div class="em-kinetic">
+          <div class="em-statement">
+            <p class="x-label">Design Process</p>
+            <h3>Kinetic Base &amp; Light Disruption</h3>
+            <p>Simulating unstable emotional contexts through physical imbalance.</p>
+          </div>
+          <div class="em-kcols">
+            <article>
+              <h4 class="x-sub">Structural Adjustment</h4>
+              <ul class="em-dots">
+                <li>Original design used 3 linear actuators to tilt the maze.</li>
+                <li>Removed the front actuator after testing showed it blocked incoming light.</li>
+                <li>Two rear actuators now shift randomly, subtly tilting the maze and altering internal dynamics.</li>
+              </ul>
+            </article>
+            <article>
+              <h4 class="x-sub">Moving Elements</h4>
+              <ul class="em-dots">
+                <li>Inside the maze: 10 glass marbles and 2 metal spheres roll freely with tilt.</li>
+                <li>Their motion interrupts RGB light paths, visualizing instability in perception and interpretation.</li>
+              </ul>
+            </article>
+            <article>
+              <h4 class="x-sub">Viewer Engagement</h4>
+              <ul class="em-dots">
+                <li>Viewers passively observe shifting reflections and shadows.</li>
+                <li>The installation reflects back their gaze&mdash;raising the question: <span class="g">&ldquo;Are you being understood, or just mirrored?&rdquo;</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h3 class="x-h sm bar">Construction Process</h3>
+        <div class="em-build">
+          <img src="images/echo-maze/exp2-cover.jpg" alt="Protective film peeled from the acrylic cover" />
+          <img src="images/echo-maze/exp2-lit.jpg" alt="Assembled maze lit blue and violet on the workbench" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 06 Final Outcome ── -->
+    <section class="project-section" id="final-outcome" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Final Outcome</h2>
+        <div class="em-final">
+          <img src="images/echo-maze/final-room.jpg" alt="Echo Maze glowing cyan with violet light cast on the wall behind" />
+          <img src="images/echo-maze/final-maze.jpg" alt="Close view of the lit mirror walls and marbles inside the maze" />
+        </div>
+        <div class="x-videolink">
+          <b>Video</b>
+          <a href="https://drive.google.com/file/d/1UPJS9MjZ1kupDJmMUvIyiCI3dL8y0VGW/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span>Google Drive</span></a>
+          <a href="https://youtu.be/JaoxVfrFcCE" target="_blank" rel="noopener noreferrer"><span>YouTube</span></a>
+        </div>
+        <div class="x-video">
+          <iframe src="https://drive.google.com/file/d/1UPJS9MjZ1kupDJmMUvIyiCI3dL8y0VGW/preview" title="Echo Maze — final outcome video" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 07 Reflection ── -->
+    <section class="project-section" id="reflection" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Reflection</h2>
+        <div class="em-reflect">
+          <div class="r-a">
+            <h3 class="x-sub">Reflection &amp; Future Directions</h3>
+            <p class="em-statement-sm">Combining light and movement reveals both potential and limits.</p>
+          </div>
+          <div class="r-b">
+            <h3 class="x-sub">Areas to Improve</h3>
+            <ul class="em-dots">
+              <li>RGB lights are static; future versions could use real-time control, transitions, and responsive behaviors.</li>
+              <li>Initial overengineering (3 actuators) showed the need for spatial sensitivity.</li>
+            </ul>
+          </div>
+          <img class="r-img" src="images/echo-maze/hero-maze.jpg" alt="Echo Maze lit in cyan and violet" />
+          <div class="r-c">
+            <h3 class="x-sub">Key Learnings</h3>
+            <ul class="em-dots">
+              <li>Kinetic light systems offer rich, flexible expressions through reflection, motion, and optics.</li>
+              <li>The shift from metaphor to mechanism was a humbling learning curve.</li>
+              <li>Physical prototyping taught me to balance concept with spatial constraints.</li>
+            </ul>
+          </div>
+          <div class="r-d">
+            <h3 class="x-sub">Next Steps</h3>
+            <ul class="em-dots">
+              <li>Scale up for immersion: let viewers step into the reflection system.</li>
+              <li>Add sensors/tracking for dynamic feedback.</li>
+              <li>Use tech not just for interactivity, but for meaningful, poetic resonance.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+  <script src="js/liquid.js"></script>
+  <script src="js/sections.js"></script>
+  <script src="js/echo-charts.js"></script>
+  <script src="js/project.js"></script>
 </body>
 </html>

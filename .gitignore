@@ -1,0 +1,3 @@
+# Source PDFs for project pages (kept local)
+*.pdf
+.DS_Store

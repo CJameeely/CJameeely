@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I don't like you | CJ Li</title>
+  <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body class="project idly">
+  <canvas id="liquid" data-palette="green" aria-hidden="true"></canvas>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
+
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li><a href="unit-1.html">Echo Maze</a></li>
+      <li>
+        <a href="i-dont-like-you.html" class="active">I don't like you</a>
+        <ul class="nav-sub">
+          <li><a href="#concept">Concept</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#artistic-research">Artistic Research</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#booth-design">Booth Design</a></li>
+          <li><a href="#interaction-flow">Interaction Flow</a></li>
+          <li><a href="#final-outcome">Final Outcome</a></li>
+        </ul>
+      </li>
+      <li><a href="soulmate.html">Soulmate</a></li>
+      <li><a href="unit-3.html">The Silence Between Words</a></li>
+    </ul>
+
+    <div class="sidebar-bottom">
+    <div class="sidebar-social">
+        <a class="social-icon" href="https://www.instagram.com/cjameeely/?hl=en" target="_blank" rel="noopener noreferrer" title="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <div class="social-email-wrap">
+          <button class="social-icon" onclick="this.parentElement.classList.toggle('open')" title="Email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </button>
+          <div class="email-dropdown">
+            <span>yl11942@nyu.edu</span>
+            <span>cjameeely@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <a href="bio.html">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
+  <main class="content">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="5" cy="10" r="2"/><circle cx="19" cy="10" r="2"/><path d="M1.5 18a3.6 3.6 0 0 1 4.2-3.5M22.5 18a3.6 3.6 0 0 0-4.2-3.5"/></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3 21 8l-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></symbol>
+        <symbol id="i-grid4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></symbol>
+        <symbol id="i-mirror" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9.5 9.5a2.6 2.6 0 1 1 1.4 2.3"/><path d="M3.5 19.5c1.5-3 4.5-4.4 7-3.6 1.6.5 2.6 1.7 3 3.3"/><path d="M15.5 3c2.8 1.6 3.6 5.8 1.2 9.2-.8 1.2-2 2-3.2 2.4 1.6-2.3 2.2-6.4 2-11.6Z"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
+        <symbol id="i-eye-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6.5s2.6-3 6-3 6 3 6 3-2.6 3-6 3-6-3-6-3Z"/><circle cx="12" cy="6.5" r="1.4"/><circle cx="12" cy="13.5" r="2.4"/><path d="M6.5 21.5v-1a4 4 0 0 1 4-4h3a4 4 0 0 1 4 4v1Z"/></symbol>
+        <symbol id="i-mesh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 11h18M3 15h18M3 19h18M7 3v18M11 3v18M15 3v18M19 3v18"/></symbol>
+        <symbol id="i-curtain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 3.5h18"/><path d="M5 3.5v17M8.5 3.5v17M12 3.5v17M15.5 3.5v17M19 3.5v17"/></symbol>
+        <symbol id="i-binoculars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><circle cx="6.5" cy="16" r="4"/><circle cx="17.5" cy="16" r="4"/><path d="M3 15 5 5h3l1.5 8M21 15 19 5h-3l-1.5 8M10 13.5h4"/></symbol>
+        <symbol id="i-waves" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 3c-1.5 2 1.5 4 0 6s1.5 4 0 6 1.5 4 0 6M9 3c-1.5 2 1.5 4 0 6s1.5 4 0 6M13 3c-1.5 2 1.5 4 0 6"/><circle cx="16" cy="17" r="4"/><circle cx="16" cy="17" r="1.6"/></symbol>
+        <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7Z"/><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10"/></symbol>
+        <symbol id="i-stretch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 3c6 3 12 3 18 0-3 6-3 12 0 18-6-3-12-3-18 0 3-6 3-12 0-18Z"/></symbol>
+        <symbol id="i-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/></symbol>
+        <symbol id="i-projector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="7" width="19" height="10" rx="2"/><circle cx="15.5" cy="12" r="3"/><circle cx="7" cy="12" r="1.2"/><path d="M5 17v2M19 17v2"/></symbol>
+        <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 8.5a2 2 0 0 1 2-2h2.5l1.5-2h6l1.5 2H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="3.6"/></symbol>
+        <symbol id="i-printer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M7 8V3.5h10V8"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v6.5H7Z"/></symbol>
+        <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3" fill="currentColor"/><path d="M6.5 18a6 6 0 0 1 11 0" fill="currentColor"/></symbol>
+        <symbol id="i-down" viewBox="0 0 26 30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3v23M3 16l10 10 10-10"/></symbol>
+      </defs>
+    </svg>
+
+    <!-- ── 01 Concept ── -->
+    <section class="project-section" id="concept">
+      <header class="x-hero">
+        <div class="x-hero-face"><img src="images/i-dont-like-you/hero-face.jpg" alt="" /></div>
+        <h1 class="x-hero-title"><img src="images/i-dont-like-you/title.svg" alt="I don't like you" /></h1>
+        <div class="x-hero-text">
+          <p class="x-label">Interactive installation</p>
+          <p class="lead">This interactive project examines how social media and algorithmic gaze reshape self-recognition. As viewers move closer, the image fragments, delays, and dissolves&mdash;turning &ldquo;finding myself&rdquo; into an unstable negotiation between body, screen, and external validation.</p>
+          <p class="quote">When we see ourselves, are we seeing the self&mdash;or a system?</p>
+        </div>
+        <span class="x-scroll" aria-hidden="true">Scroll</span>
+      </header>
+
+      <div class="x-block">
+        <h2 class="x-h">Concept</h2>
+        <div class="x-concept">
+          <div>
+            <p class="x-p" style="max-width:560px">This installation borrows the photo booth format and inverts it. The machine disassembles your face into fragments and asks you to reconstruct yourself from a pool contaminated by strangers.</p>
+            <div class="x-points" style="margin-top:28px">
+              <div class="x-point">
+                <span class="num-dot">01</span>
+                <span class="icon-ring"><svg><use href="#i-people"/></svg></span>
+                <p class="x-p"><span class="g">Seeing yourself in</span> someone else&rsquo;s group photo; sliding between before and after in a photo editing app; zooming into your own face until it stops looking like you.</p>
+              </div>
+              <div class="x-point">
+                <span class="num-dot">02</span>
+                <span class="icon-ring"><svg><use href="#i-layers"/></svg></span>
+                <p class="x-p bold g">The self becomes an object in a system &mdash; cropped, moved, rearranged by others.</p>
+              </div>
+              <div class="x-point">
+                <span class="num-dot">03</span>
+                <span class="icon-ring"><svg><use href="#i-grid4"/></svg></span>
+                <p class="x-p"><span class="g">Reconstructing identity</span> from strangers&rsquo; fragments highlights how unstable and constructed the self is in digital spaces.</p>
+              </div>
+            </div>
+          </div>
+          <div class="x-renders">
+            <img src="images/i-dont-like-you/booth-render-1.jpg" alt="Early booth render: desk facing a fragmented screen" />
+            <img src="images/i-dont-like-you/booth-render-2.jpg" alt="Early installation model with screens and figures" />
+          </div>
+          <div class="x-story">
+            <div>
+              <p class="x-label">Storyboard</p>
+              <img src="images/i-dont-like-you/storyboard.jpg" alt="Pencil storyboard of a visitor facing the booth screen" />
+            </div>
+            <div class="x-story-sketch">
+              <img src="images/i-dont-like-you/sketch-hand.jpg" alt="Sketch of a raised hand gesturing at the screen" />
+              <img src="images/i-dont-like-you/sketch-bricks.jpg" alt="Sketch of a figure dissolving into fragments" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 02 Research ── -->
+    <section class="project-section" id="research" hidden>
+      <div class="x-research x-block" style="margin-top:40px">
+        <div>
+          <h2 class="x-h">Inspiration</h2>
+          <div class="x-insp">
+          <div>
+          <div class="x-insp-strip">
+            <img src="images/i-dont-like-you/insp-mirrors.jpg" alt="Faces reflected in hand mirrors" />
+            <img src="images/i-dont-like-you/insp-sphere.jpg" alt="Sphere covered in portrait photos" />
+          </div>
+          <div class="x-insp-body">
+            <p class="x-p sm">This project began with a mirror that lies and a camera that tells the truth. Front-facing photos feel like home. Rear-facing photos feel like betrayal. Social media only rewards one of them. What follows is not only a study of that gap, it is a machine built to widen it &mdash; a visitor&rsquo;s face is taken apart, mixed with strangers, and handed back as something they have to identify.</p>
+            <div class="imgs">
+              <img src="images/i-dont-like-you/insp-blend.jpg" alt="Overlapping translucent portraits" />
+              <img src="images/i-dont-like-you/insp-profile.jpg" alt="Profiles facing a mirror" />
+            </div>
+          </div>
+          </div>
+          <div class="x-box filled x-auth">
+            <h3>AUTHENTIC SELF ?</h3>
+            <p class="x-p bold" style="margin:0">When we see ourselves, are we seeing the self, or a system trained to make us recognizable to it?</p>
+          </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="x-h">Background and Research</h2>
+          <p class="x-p bold">This study explores the evolving dynamics of self-identification in the context of front-facing and rear-facing camera use, particularly under the influence of social media. It draws on key theoretical and empirical research from psychology, media studies, and sociology to construct a framework for understanding how self-recognition mechanisms are mediated and transformed in digital environments.</p>
+          <div class="x-bg-grid">
+            <div class="x-theory">
+              <div>
+                <h3 class="x-sub"><span class="num-dot">01</span>Lacan&rsquo;s Gaze</h3>
+                <div class="x-theory-row">
+                  <span class="icon-ring lg"><svg><use href="#i-mirror"/></svg><small>Mirror<br />stage</small></span>
+                  <p class="x-p sm bold">The &ldquo;<span class="g">mirror stage</span>&rdquo; &mdash; self first seen in one&rsquo;s own reflection. Front-facing cameras, <span class="g">mirror-like</span> gaze, idealized yet fragmented self. Social media identity shaped by <span class="g">external, filtered</span> selves.</p>
+                </div>
+              </div>
+              <div>
+                <h3 class="x-sub"><span class="num-dot">02</span>Gaze Effect</h3>
+                <div class="x-theory-row">
+                  <span class="icon-ring lg"><svg><use href="#i-people"/></svg><small>Validation</small></span>
+                  <p class="x-p sm bold">Awareness of others&rsquo; attention and judgment. Social media amplifies the gaze via likes, comments, and audiences. Self-presentation shifts toward <span class="g">external validation</span>.</p>
+                </div>
+              </div>
+              <div>
+                <h3 class="x-sub"><span class="num-dot">03</span>Exposure Effect</h3>
+                <div class="x-theory-row">
+                  <span class="icon-ring lg"><svg><use href="#i-eye"/></svg><small>Familiarity</small></span>
+                  <p class="x-p sm bold">Repeated mirrored images boost preference and self-acceptance. Front-facing photos match mirror views, enhancing <span class="g">familiarity</span>. Users favor mirrored (often edited) selves online.</p>
+                </div>
+              </div>
+            </div>
+            <div class="x-phone">
+              <img src="images/i-dont-like-you/phone.jpg" alt="Phone screen tiled with fragments of one face" />
+            </div>
+            <div>
+              <p class="x-question">If repeated exposure to your own mirrored image builds preference, what happens when the image handed back to you is not mirrored, not even fully yours?</p>
+              <img src="images/i-dont-like-you/mirror-vs-booth.jpg" alt="Diagram: mirrored self, front-facing and chosen, versus booth self, assembled from strangers' camera fragments" />
+              <div class="x-box filled x-conclusion">
+                <h3 class="x-h">Conclusion</h3>
+                <p class="x-p sm bold" style="margin:0">On social media, the contrast between front- and rear-facing images reveals <span class="g">shifts in self-perception</span>. Drawing on Lacan&rsquo;s mirror stage, the mere exposure effect, and the gaze effect, digital platforms normalize curated images and amplify social surveillance, turning self-recognition into performance and shaping a <span class="g">fragmented, externally validated</span> identity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 Artistic Research ── -->
+    <section class="project-section" id="artistic-research" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Artistic Research</h2>
+        <div class="x-artists">
+          <article class="x-artist">
+            <div class="x-artist-imgs">
+              <img src="images/i-dont-like-you/blas-1.jpg" alt="Zach Blas, Facial Weaponization Suite: pink amorphous mask" />
+              <img src="images/i-dont-like-you/blas-2.jpg" alt="Zach Blas, Facial Weaponization Suite: dark blue mask" />
+            </div>
+            <div>
+              <h3 class="x-sub">Zach Blas &ndash; Facial Weaponization Suite</h3>
+              <p class="x-p bold">De-characterization through obscured, composite faces resists biometric legibility &mdash; a refusal this project borrows and inverts, staying legible enough to unsettle rather than disappear.</p>
+            </div>
+          </article>
+          <article class="x-artist">
+            <div class="x-artist-imgs" style="--n:3">
+              <img src="images/i-dont-like-you/coupland-1.jpg" alt="Portrait overlaid with a facial mesh" />
+              <img src="images/i-dont-like-you/coupland-2.jpg" alt="Douglas Coupland: portrait with a painted stripe across the face" />
+              <img src="images/i-dont-like-you/coupland-3.jpg" alt="Douglas Coupland: face covered by colour blocks" />
+            </div>
+            <div>
+              <h3 class="x-sub">Douglas Coupland &ndash; Social Fragmentation Fusion</h3>
+              <p class="x-p bold">Multiple faces fused into one surface literalizes identity as collective material, not private property &mdash; the same logic this booth performs on visitors&rsquo; faces.</p>
+            </div>
+          </article>
+          <article class="x-artist">
+            <div class="x-artist-imgs wide">
+              <img src="images/i-dont-like-you/mcdonald.jpg" alt="Kyle McDonald, Social Soul: mirrored room of screens" />
+            </div>
+            <div>
+              <h3 class="x-sub">Kyle McDonald &ndash; Social Soul</h3>
+              <p class="x-p bold">Algorithmic reading of the audience as data source reframes the gaze as computational, not just interpersonal, camera stage in this piece draws directly from that reframing.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 Process ── -->
+    <section class="project-section" id="process" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Process</h2>
+        <p class="x-p" style="max-width:720px">An early prototype in TouchDesigner tested this gesture logic before the final build. The installation later re-implemented it in a browser-based stack (MediaPipe, PixiJS, Node.js) for the physical booth&rsquo;s projection and print pipeline.</p>
+        <div class="x-frags" style="margin-top:26px">
+          <img src="images/i-dont-like-you/frag-ear-l.jpg" alt="" />
+          <img src="images/i-dont-like-you/frag-eye.jpg" alt="Eye fragment" />
+          <img src="images/i-dont-like-you/frag-nose.jpg" alt="Nose fragment" />
+          <img src="images/i-dont-like-you/frag-lips.jpg" alt="Lips fragment" />
+          <img src="images/i-dont-like-you/frag-ear-r.jpg" alt="" />
+        </div>
+        <div class="x-two">
+          <div>
+            <h3 class="x-h bar green sm">Real-Time Face Deformation in TouchDesigner</h3>
+            <p class="x-p">Using TouchDesigner, I built a <span class="g">gesture-based</span> system where audiences control fragmented facial images in real time. Hand-tracking triggers displacement, dispersion, and distortion, turning familiar scrolling gestures into a reflection on <span class="g">how digital platforms fragment and reshape self-perception</span>.</p>
+            <p class="x-quote">Digital platforms transform identity into <span class="g">malleable data &mdash; observed, manipulated, and performed.</span></p>
+          </div>
+          <img src="images/i-dont-like-you/td-screens.jpg" alt="TouchDesigner screens of fragmented faces, and the artist testing with hand tracking" />
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h3 class="x-h bar green sm">A Real-Time Interactive Reconstruction</h3>
+        <div class="x-two">
+          <div class="x-td" style="grid-template-columns:1fr">
+            <img src="images/i-dont-like-you/td-grid.jpg" alt="TouchDesigner network of cropped eye and face operators" />
+            <img src="images/i-dont-like-you/td-face.jpg" alt="Live reconstruction of a face from fragments in TouchDesigner" />
+          </div>
+          <p class="x-p">I built an interactive system that <span class="g">further refines and iterates the face</span>. Viewers manipulate fragmented facial images through hand-tracking, while their own features are <span class="g">captured in real time and fed back into the loop</span>. Each gesture triggers new cycles of distortion and reconfiguration, highlighting how digital platforms continuously <span class="g">optimize and update</span> our sense of self.</p>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h3 class="x-h bar sm">Iteration through elimination</h3>
+        <div class="x-iter-wrap">
+          <div class="x-iter">
+            <div class="x-box">
+              <div class="x-iter-head"><span class="num-dot">01</span><h3 class="x-cond">Initial Output</h3></div>
+              <p class="x-p sm x-iter-intro">Four early proposals, each borrowing an existing installation vocabulary without questioning whether it fit the concept.</p>
+              <div class="x-iter-row">
+                <img src="images/i-dont-like-you/iter-1.jpg" alt="Black immersive space with projection discs" />
+                <span class="num-dot">01</span>
+                <div><h4 class="x-cond">20m&sup2; Black Immersive Space + Five Projection Heads</h4><p class="x-p sm">Too vast, it loses the sense of &ldquo;being seen.&rdquo;</p></div>
+                <span class="icon-ring"><svg><use href="#i-eye-person"/></svg></span>
+              </div>
+              <div class="x-iter-row">
+                <img src="images/i-dont-like-you/iter-2.jpg" alt="Fishnet mesh structure" />
+                <span class="num-dot">02</span>
+                <div><h4 class="x-cond">Fishnet / Mesh Structure</h4><p class="x-p sm">Strong visual impact, but conceptually disconnected.</p></div>
+                <span class="icon-ring"><svg><use href="#i-mesh"/></svg></span>
+              </div>
+              <div class="x-iter-row">
+                <img src="images/i-dont-like-you/iter-3.jpg" alt="Suspended hanging equipment" />
+                <span class="num-dot">03</span>
+                <div><h4 class="x-cond">Curtains + TD Material Route</h4><p class="x-p sm">Existing language from suspended equipment.</p></div>
+                <span class="icon-ring"><svg><use href="#i-curtain"/></svg></span>
+              </div>
+              <div class="x-iter-row">
+                <img src="images/i-dont-like-you/iter-4.jpg" alt="Two figures either side of a mirrored film panel" />
+                <span class="num-dot">04</span>
+                <div><h4 class="x-cond">Mirrored Film Solution</h4><p class="x-p sm">Existing optical method with two-way mirror.</p></div>
+                <span class="icon-ring"><svg><use href="#i-binoculars"/></svg></span>
+              </div>
+            </div>
+            <svg class="x-arrow"><use href="#i-down"/></svg>
+            <div class="x-box x-feedback">
+              <span class="icon-ring" aria-hidden="true">&ldquo;</span>
+              <div>
+                <h3 class="x-cond">Feedback</h3>
+                <p class="x-hand">The teacher&rsquo;s note was consistent across all four: the form could have served <u>any idea.</u></p>
+                <p class="x-hand" style="margin:0">Each solution borrowed a vocabulary &mdash; suspended sculpture, security netting, two-way mirror &mdash; without asking whether it was <u>this project&rsquo;s own vocabulary.</u></p>
+              </div>
+            </div>
+            <svg class="x-arrow"><use href="#i-down"/></svg>
+            <div class="x-box">
+              <div class="x-iter-head"><span class="num-dot">05</span><h3 class="x-cond">Output Two</h3></div>
+              <div class="x-output2">
+                <img src="images/i-dont-like-you/iter-5.jpg" alt="Frame draped in gauze with mirror lenses" />
+                <div><h4 class="x-cond">Gauze, Stretch Fabric &amp; Mirror Lens Frame</h4><p class="x-p sm" style="margin:0">A membrane, not a machine. Form and content aligned for the first time.</p></div>
+                <span class="icon-ring"><svg><use href="#i-waves"/></svg></span>
+              </div>
+            </div>
+          </div>
+          <p class="x-side-note">Early proposals borrowed existing installation vocabularies without questioning whether they fit the concept. Each was rejected for the same reason: the form could have served any idea.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 Booth Design ── -->
+    <section class="project-section" id="booth-design" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Booth Design</h2>
+        <div class="x-two">
+          <div>
+            <h3 class="x-sub">Structure</h3>
+            <p class="x-p">A single aluminum frame, 1000 &times; 1000 &times; 1900mm, fully exposed. No walls, no chamber &mdash; only layered gauze and stretch fabric draped across the skeleton. Mirror lenses hang within the gauze, breaking the visitor&rsquo;s reflection into fragments. Printer and controller sit in a separate external unit.</p>
+          </div>
+          <div>
+            <h3 class="x-sub">Aesthetic Reference</h3>
+            <p class="x-p">A membrane, not a housing. Layered gauze softens and refracts light with each pass &mdash; skin, not machine. Mirror lenses cut through that softness with hard, broken reflections. The visitor enters something that could be pushed aside.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <div class="x-structure">
+          <div>
+            <h3 class="x-cond" style="font-size:clamp(30px,3vw,44px);color:#fff">Structure Diagram</h3>
+            <p class="x-label" style="color:#8cf06b;font-size:15px">System diagram &amp; key components</p>
+            <img src="images/i-dont-like-you/structure.jpg" alt="Render of the aluminum frame booth draped in gauze with a projected face and external printer unit" />
+          </div>
+          <ol class="x-callouts">
+            <li><span class="num-dot">01</span><div><h4 class="x-cond">Frame Skeleton</h4><p>40&times;40mm aluminum profile, 1000 &times; 1000 &times; 1900mm, fully exposed, no panels.</p></div><span class="icon-ring"><svg><use href="#i-cube"/></svg></span></li>
+            <li><span class="num-dot">02</span><div><h4 class="x-cond">Gauze Layers</h4><p>Multiple layers of gauze, semi-transparent, naturally draped.</p></div><span class="icon-ring"><svg><use href="#i-curtain"/></svg></span></li>
+            <li><span class="num-dot">03</span><div><h4 class="x-cond">Stretch Fabric</h4><p>Stretch fabric tensioned across the top/bottom of the frame.</p></div><span class="icon-ring"><svg><use href="#i-stretch"/></svg></span></li>
+            <li><span class="num-dot">04</span><div><h4 class="x-cond">Mirror Lens Points</h4><p>Circular mirror lenses suspended within the gauze layers at varying heights.</p></div><span class="icon-ring"><svg><use href="#i-circle"/></svg></span></li>
+            <li><span class="num-dot">05</span><div><h4 class="x-cond">Top Projector</h4><p>Mounted on top, projects directly onto gauze / stretch fabric surfaces.</p></div><span class="icon-ring"><svg><use href="#i-projector"/></svg></span></li>
+            <li><span class="num-dot">06</span><div><h4 class="x-cond">Camera (Tracking)</h4><p>Front-facing toward visitor, captures for face tracking.</p></div><span class="icon-ring"><svg><use href="#i-camera"/></svg></span></li>
+            <li><span class="num-dot">07</span><div><h4 class="x-cond">Camera (Surveillance)</h4><p>Fixed position for monitoring and playback during PRINTING stage.</p></div><span class="icon-ring"><svg><use href="#i-camera"/></svg></span></li>
+            <li><span class="num-dot">08</span><div><h4 class="x-cond">Printer Unit</h4><p>Independent external unit with thermal printer + control host, connected to the main frame.</p></div><span class="icon-ring"><svg><use href="#i-printer"/></svg></span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h3 class="x-h green sm">Materials</h3>
+        <div class="x-views">
+          <figure><figcaption>Front View</figcaption><img src="images/i-dont-like-you/view-front.jpg" alt="Front view render" /></figure>
+          <figure><figcaption>Fabric &amp; Mirror Detail</figcaption><img src="images/i-dont-like-you/view-fabric.jpg" alt="Gauze and mirror lens detail" /></figure>
+          <figure><figcaption>External Unit</figcaption><img src="images/i-dont-like-you/view-external.jpg" alt="External printer cabinet" /></figure>
+          <figure><figcaption>Projection Axis</figcaption><img src="images/i-dont-like-you/view-projection.jpg" alt="Projection cone from the top projector" /></figure>
+        </div>
+        <div class="x-mats">
+          <figure><div class="x-mat-h"><b>01</b><span>Frame</span></div><img src="images/i-dont-like-you/mat-frame.jpg" alt="Aluminum profile" /><figcaption>40&times;40mm<br />aluminum profile</figcaption></figure>
+          <figure><div class="x-mat-h"><b>02</b><span>Gauze</span></div><img src="images/i-dont-like-you/mat-gauze.jpg" alt="Folded gauze" /><figcaption>layered,<br />semi-transparent</figcaption></figure>
+          <figure><div class="x-mat-h"><b>03</b><span>Stretch Fabric</span></div><img src="images/i-dont-like-you/mat-stretch.jpg" alt="Stretch fabric pulled at corners" /><figcaption>elastic,<br />tensioned across frame</figcaption></figure>
+          <figure><div class="x-mat-h"><b>04</b><span>Mirror Lens</span></div><img src="images/i-dont-like-you/mat-mirror.jpg" alt="Circular mirror lens" /><figcaption>circular,<br />suspended in gauze</figcaption></figure>
+          <figure><div class="x-mat-h"><b>05</b><span>Screen</span></div><img src="images/i-dont-like-you/mat-screen.jpg" alt="Kiosk touchscreen" /><figcaption>kiosk touchscreen,<br />standalone</figcaption></figure>
+          <div class="x-mats-break"></div>
+          <figure><div class="x-mat-h"><b>06</b><span>Camera (Tracking)</span></div><img src="images/i-dont-like-you/mat-cam-track.jpg" alt="Dome tracking camera" /><figcaption>wide-angle,<br />face + hand tracking</figcaption></figure>
+          <figure><div class="x-mat-h"><b>07</b><span>Camera (Surveillance)</span></div><img src="images/i-dont-like-you/mat-cam-surv.jpg" alt="White surveillance dome camera" /><figcaption>fixed angle,<br />printing-stage feed</figcaption></figure>
+          <figure><div class="x-mat-h"><b>08</b><span>Projector</span></div><img src="images/i-dont-like-you/mat-projector.jpg" alt="Ceiling-mounted projector" /><figcaption>top-mounted,<br />casts onto fabric</figcaption></figure>
+          <figure><div class="x-mat-h"><b>09</b><span>Printer</span></div><img src="images/i-dont-like-you/mat-printer.jpg" alt="Thermal receipt printer" /><figcaption>58mm thermal,<br />USB / CUPS</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h3 class="x-h">Building</h3>
+        <div class="x-building">
+          <img src="images/i-dont-like-you/build-1.jpg" alt="Materials on the workbench: gauze, mirror lenses, fabric" />
+          <img src="images/i-dont-like-you/build-2.jpg" alt="Gauze draped over the frame with a mirror lens" />
+          <img src="images/i-dont-like-you/build-3.jpg" alt="Screen test with face fragments" />
+          <img src="images/i-dont-like-you/build-6.jpg" alt="Frame with stretched fabric in the studio" />
+          <img src="images/i-dont-like-you/build-4.jpg" alt="Inside the frame, looking up through gauze" />
+          <img src="images/i-dont-like-you/build-5.jpg" alt="Screen reading &lsquo;Light is editing you&rsquo; with eye fragments" />
+          <img src="images/i-dont-like-you/build-7.jpg" alt="Thermal printer outputting a receipt" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 06 Interaction Flow ── -->
+    <section class="project-section" id="interaction-flow" hidden>
+      <div class="x-block x-flow" style="margin-top:40px">
+        <div class="x-flow-intro">
+          <h2>Interaction<br />Flow</h2>
+          <p class="x-label">Photo Booth System<br />&mdash; 7 States Flow</p>
+          <p>The visitor sits.<br />The system waits.<br />When a face is detected,<br />the sequence begins<br />automatically &mdash;<br />three captures,<br />one feature at a time.</p>
+          <p class="g">The visitor never presses<br />a button to start;<br />the machine decides<br />when it sees you.</p>
+        </div>
+
+        <article class="x-card">
+          <div class="x-card-h"><span class="num-ring">1</span><h3 class="x-cond">Idle</h3></div>
+          <p>Fragment pool drifts on screen; previous visitors&rsquo; faces float.</p>
+          <div class="media"><img src="images/i-dont-like-you/flow-idle.jpg" alt="Floating pool of face fragments" /></div>
+          <div class="x-dots"><i class="on"></i><i></i><i></i><i></i></div>
+        </article>
+
+        <article class="x-card">
+          <div class="x-card-h"><span class="num-ring wide">2-3-4</span><h3 class="x-cond">Capture Sequence</h3></div>
+          <p>Three captures, one feature at a time.</p>
+          <div class="x-captures">
+            <div>
+              <div class="x-card-h"><span class="num-ring">2</span><h4 class="x-cond">Eyes</h4></div>
+              <img src="images/i-dont-like-you/flow-eyes.jpg" alt="Face with eyes framed by a capture box" />
+              <div class="x-dots"><i></i><i class="on"></i><i></i><i></i></div>
+            </div>
+            <div>
+              <div class="x-card-h"><span class="num-ring">3</span><h4 class="x-cond">Nose</h4></div>
+              <img src="images/i-dont-like-you/flow-nose.jpg" alt="Nose framed by a capture box" />
+              <div class="x-dots"><i></i><i class="on"></i><i></i><i></i></div>
+            </div>
+            <div>
+              <div class="x-card-h"><span class="num-ring">4</span><h4 class="x-cond">Mouth</h4></div>
+              <img src="images/i-dont-like-you/flow-mouth.jpg" alt="Mouth framed by a capture box" />
+              <div class="x-dots"><i></i><i></i><i></i><i class="on"></i></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="x-flow-row2">
+          <article class="x-card">
+            <div class="x-card-h"><span class="num-ring">5</span><h3 class="x-cond">Float</h3></div>
+            <p>All fragments (yours + accumulated strangers&rsquo;) drift freely.</p>
+            <div class="media"><img src="images/i-dont-like-you/flow-float.jpg" alt="Your fragments drifting among strangers'" /></div>
+            <div class="x-dots"><i class="on"></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="x-card">
+            <div class="x-card-h"><span class="num-ring">6</span><h3 class="x-cond">Reassemble</h3></div>
+            <p>Visitor selects three fragments; no right answer indicated.</p>
+            <div class="media"><img src="images/i-dont-like-you/flow-reassemble.jpg" alt="Three chosen fragments assembled into a head outline" /></div>
+            <div class="x-dots"><i></i><i></i><i class="on"></i><i></i></div>
+          </article>
+          <article class="x-card">
+            <div class="x-card-h"><span class="num-ring">7</span><h3 class="x-cond">Printing</h3></div>
+            <p>Thermal printer outputs the assembled face; paper emerges from slot.</p>
+            <div class="media"><img src="images/i-dont-like-you/flow-printing.jpg" alt="Printed assembled face emerging from the printer slot" /></div>
+            <div class="x-dots"><i></i><i></i><i></i><i class="on"></i></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 07 Final Outcome ── -->
+    <section class="project-section" id="final-outcome" hidden>
+      <div style="margin-top:40px">
+        <h2 class="x-h">Final Outcome</h2>
+        <div class="x-outcome">
+          <div class="stack">
+            <img src="images/i-dont-like-you/outcome-1.jpg" alt="Screen inside the booth showing floating fragments under green light" />
+            <img src="images/i-dont-like-you/outcome-2.jpg" alt="Printed receipt of an assembled face" />
+            <img src="images/i-dont-like-you/outcome-3.jpg" alt="Mirror lens catching green projected light in the gauze" />
+          </div>
+          <div class="tall"><img src="images/i-dont-like-you/outcome-4.jpg" alt="The finished booth: aluminum frame wrapped in glowing gauze" /></div>
+        </div>
+        <a class="x-videolink" href="https://youtu.be/yZfDLP95ygk" target="_blank" rel="noopener noreferrer"><b>Video link</b><span>https://youtu.be/yZfDLP95ygk</span></a>
+        <div class="x-video">
+          <iframe src="https://www.youtube-nocookie.com/embed/yZfDLP95ygk" title="I don't like you — final outcome video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="x-reflect x-block">
+          <h2>REFLECTIONS</h2>
+          <div class="x-tester">
+            <img src="images/i-dont-like-you/icon-radar.jpg" alt="" />
+            <span class="sep"></span>
+            <div>
+              <h3><svg><use href="#i-user"/></svg>TESTER 01</h3>
+              <p>Felt the gesture space was tight, kept second-guessing whether a hand movement had registered.</p>
+              <p class="g">Suggested the interaction scale could go bigger, more room for gesture, easier to reach fragments spread further apart.</p>
+            </div>
+          </div>
+          <div class="x-tester">
+            <img src="images/i-dont-like-you/icon-eye.jpg" alt="" />
+            <span class="sep"></span>
+            <div>
+              <h3><svg><use href="#i-user"/></svg>TESTER 02</h3>
+              <p>Said the piece felt one-directional, like it only took something from them and gave nothing back.</p>
+              <p class="g">Wanted a way to leave a message, some trace beyond the fragment itself, something the next visitor could find.</p>
+            </div>
+          </div>
+          <div class="x-tester">
+            <img src="images/i-dont-like-you/icon-camera.jpg" alt="" />
+            <span class="sep"></span>
+            <div>
+              <h3><svg><use href="#i-user"/></svg>TESTER 03</h3>
+              <p>Said the printed receipt felt disconnected from the moment of being watched, the fragments alone didn&rsquo;t carry that feeling.</p>
+              <p class="g">Asked to capture the surveillance-angle image, the third-person view during printing, not just the fragments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/liquid.js"></script>
+  <script src="js/sections.js"></script>
+  <script src="js/project.js"></script>
+</body>
+</html>
