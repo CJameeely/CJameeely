@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Language Distortion | CJ Li</title>
+  <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body class="project ld">
+  <canvas id="liquid" data-palette="morandi-flow" aria-hidden="true"></canvas>
+  <aside class="sidebar">
+    <a class="sidebar-brand" href="index.html">CJ Li</a>
+
+    <span class="nav-label">Works</span>
+    <ul class="nav-list">
+      <li><a href="unit-1.html">Echo Maze</a></li>
+      <li><a href="i-dont-like-you.html">I don&rsquo;t like you</a></li>
+      <li>
+        <a href="language-distortion.html" class="active">Language Distortion</a>
+        <ul class="nav-sub">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#questions">Research Questions</a></li>
+          <li><a href="#plant-language">Plant Language</a></li>
+          <li><a href="#concept">Concept</a></li>
+          <li><a href="#structure">Structure &amp; Material</a></li>
+          <li><a href="#system">System</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#final-outcome">Final Outcome</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="sidebar-bottom">
+    <div class="sidebar-social">
+        <a class="social-icon" href="https://www.instagram.com/cjameeely/?hl=en" target="_blank" rel="noopener noreferrer" title="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <div class="social-email-wrap">
+          <button class="social-icon" onclick="this.parentElement.classList.toggle('open')" title="Email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </button>
+          <div class="email-dropdown">
+            <span>yl11942@nyu.edu</span>
+            <span>cjameeely@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <a href="bio.html">About</a>
+      <span class="copyright">© 2026</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="l-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="3.2"/></symbol>
+        <symbol id="l-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.3 9.3a2.8 2.8 0 1 1 3.9 2.6c-.8.4-1.2 1-1.2 1.9v.4"/><circle cx="12" cy="17.2" r=".6" fill="currentColor"/></symbol>
+        <symbol id="l-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12C12 7 8.5 4 3.5 4c0 5 3.5 8 8.5 8Z"/><path d="M12 14c0-4 3-6.5 8.5-6.5 0 4-3 6.5-8.5 6.5Z"/></symbol>
+        <symbol id="l-face" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M12 3c-4 0-6.5 3-6.5 7.5 0 5.5 3 10.5 6.5 10.5s6.5-5 6.5-10.5C18.5 6 16 3 12 3Z"/><path d="M8.8 10h1.6M13.6 10h1.6M12 11v3.2l-1 .6M10 17c1.3.8 2.7.8 4 0"/></symbol>
+        <symbol id="l-pose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1.8"/><path d="M12.5 6.5 10 12l3 3-1 6M10 12l-3.5 1M12 8l4 2.5 2-2M13 15l3.5 2 1 4"/></symbol>
+        <symbol id="l-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></symbol>
+        <symbol id="l-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><rect x="4" y="5" width="16" height="10.5" rx="1.2"/><path d="M2 18.5h20l-1.5-3h-17Z"/><path d="M9.6 10.2a1.5 1.5 0 1 1 0 .1M14.4 10.2a1.5 1.5 0 1 1 0 .1M11 10.25h2"/></symbol>
+        <symbol id="l-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="6" width="16" height="12" rx="1.5"/><rect x="8" y="9.5" width="5" height="5"/><path d="M6 4v2M9 4v2M12 4v2M15 4v2M18 4v2M6 18v2M9 18v2M12 18v2M15 18v2M18 18v2"/></symbol>
+      </defs>
+    </svg>
+
+    <!-- ── 01 Overview ── -->
+    <section class="project-section" id="overview">
+      <header class="x-hero ld-hero">
+        <div class="x-hero-face"><img src="images/language-distortion/hero-flower.png" alt="" /></div>
+        <h1 class="ld-title">Language<br />Distortion</h1>
+        <div class="x-hero-text">
+          <p class="x-label">Semantic Drift &middot; Interactive plant installation</p>
+          <p class="lead">In Yunnan, I couldn&rsquo;t understand the dialect spoken around me. I still understood people through their faces, voices and bodies. Semantic Drift reverses that position: three creatures that do not understand human language read the visitor instead, responding to everything their words leave out.</p>
+          <a class="ld-pill" href="https://youtu.be/bmINlqwPnbw" target="_blank" rel="noopener noreferrer">Watch the video &rarr;</a>
+        </div>
+        <span class="x-scroll" aria-hidden="true">Scroll</span>
+      </header>
+    </section>
+
+    <!-- ── 02 Background ── -->
+    <section class="project-section" id="background" hidden>
+      <div class="x-block ld-bg" style="margin-top:40px">
+        <img class="ld-crowd" src="images/language-distortion/bg-crowd.png" alt="" />
+        <div class="x-box filled ld-bg-box">
+          <h2 class="x-h">Background</h2>
+          <p class="em-lead" style="margin:0">As communication is increasingly mediated by intelligent systems, meaning becomes less stable and more dependent on technology. This work treats language distortion as both a cultural condition and something you can experience.</p>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h2 class="x-h">Artistic Research</h2>
+        <p class="ld-intro">These works explore how sound, data and the augmented body reshape perception beyond conventional communication.</p>
+        <div class="ld-mosaic">
+          <figure class="m-rinaldo"><img src="images/language-distortion/rinaldo.jpg" alt="Ken Rinaldo, Autopoiesis: hanging robotic branches among visitors" /><figcaption>Ken Rinaldo, <em>Autopoiesis</em> (2000)</figcaption></figure>
+          <figure class="m-disney"><img src="images/language-distortion/disney.jpg" alt="Disney Research, Botanicus Interacticus: orchids with blue light traces" /><figcaption>Disney Research, <em>Botanicus Interacticus</em> (2012)</figcaption></figure>
+          <figure class="m-zimoun"><img src="images/language-distortion/zimoun.jpg" alt="Zimoun: a wall of cardboard boxes with a visitor" /><figcaption>Zimoun, <em>Aesthetic Soundings</em></figcaption></figure>
+          <figure class="m-ikeda"><img src="images/language-distortion/ikeda.jpg" alt="Ryoji Ikeda, datamatics: barcode-like data field" /><figcaption>Ryoji Ikeda &ndash; <em>datamatics</em></figcaption></figure>
+          <figure class="m-stelarc"><img src="images/language-distortion/stelarc.png" alt="Stelarc with a robotic third hand" /><figcaption>Stelarc &ndash; <em>Third Hand</em> (1980)</figcaption></figure>
+          <figure class="m-bowen"><img src="images/language-distortion/bowen-wind.jpg" alt="David Bowen, Tele-Present Wind: a field of stalks on motors" /><figcaption>David Bowen, <em>Tele-Present Wind</em> (2018)</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 Research Questions ── -->
+    <section class="project-section" id="questions" hidden>
+      <div class="x-block ld-qs" style="margin-top:40px">
+        <h2 class="x-h">Research Questions</h2>
+
+        <article class="ld-q">
+          <span class="ld-qn">01</span>
+          <div>
+            <h3>Why does language inevitably distort meaning?</h3>
+            <p class="x-p">Meaning shifts with context, culture and interpretation. Distortion is not a failure but a structural condition of language. <span class="ld-cite">(Saussure, Derrida)</span></p>
+          </div>
+          <figure class="ld-paper"><img src="images/language-distortion/comm-process.jpg" alt="Diagram of the communication process: sender, message, channel, receiver, context, feedback, effect" /></figure>
+        </article>
+
+        <article class="ld-q">
+          <span class="ld-qn">02</span>
+          <div>
+            <h3>How does understanding occur beyond language?</h3>
+            <p class="x-p">When words fall short, understanding moves to gesture, rhythm, posture and tone. It happens through the body. <span class="ld-cite">(Merleau-Ponty, Mehrabian)</span></p>
+          </div>
+          <figure class="ld-mehr">
+            <figcaption>Mehrabian&rsquo;s 7-38-55 Rule (1972)</figcaption>
+            <div class="ld-bar" role="img" aria-label="Verbal content 7%, tone of voice 38%, nonverbal signals 55%">
+              <span class="seg s1" style="--w:7%" tabindex="0" data-tip="Verbal content: actual words"></span>
+              <span class="seg s2" style="--w:38%" tabindex="0" data-tip="Tone of voice: inflection and intonation"></span>
+              <span class="seg s3" style="--w:55%" tabindex="0" data-tip="Nonverbal signals: facial expressions, body language"></span>
+            </div>
+            <div class="ld-bar-labels">
+              <div style="--w:7%"><b>7%</b>Verbal content<small>Actual words</small></div>
+              <div style="--w:38%"><b>38%</b>Tone of voice<small>Inflection &amp; intonation</small></div>
+              <div style="--w:55%" class="hi"><b>55%</b>Nonverbal signals<small>Facial expressions, body language</small></div>
+            </div>
+          </figure>
+        </article>
+
+        <article class="ld-q">
+          <span class="ld-qn">03</span>
+          <div>
+            <h3>How can technology become new communicative interface?</h3>
+            <p class="x-p">Technology can translate emotion into light, movement, airflow and vibration, forming modes of expression beyond symbols. <span class="ld-cite">(Kittler)</span></p>
+          </div>
+          <img class="ld-cut" src="images/language-distortion/collage-city.png" alt="Collage of trams, cyclists and people meeting in the street" />
+        </article>
+
+        <article class="ld-q">
+          <span class="ld-qn">04</span>
+          <div>
+            <h3>What kind of spatial system can embody post-verbal communication?</h3>
+            <p class="x-p">Breathing, subtle motion and pulsing light can form a spatial grammar of emotion, felt through atmosphere and rhythm. <span class="ld-cite">(Massumi)</span></p>
+          </div>
+          <img class="ld-cut ld-orbit" src="images/language-distortion/cylinders.png" alt="Two porous, coral-like cylindrical forms" />
+        </article>
+
+        <img class="ld-hands" src="images/language-distortion/hands.png" alt="White-gloved hands marked with letters of a hand alphabet" />
+      </div>
+    </section>
+
+    <!-- ── 04 Plant Language ── -->
+    <section class="project-section" id="plant-language" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <article class="ld-q ld-q5">
+          <span class="ld-qn">05</span>
+          <div>
+            <h3>How can plants&rsquo; own non-verbal behavior become the installation&rsquo;s design language?</h3>
+            <p class="x-p">Plants already communicate without symbols, through nastic movements, water-driven shape change, and continuous non-directional drift. Grounding each mechanism in documented plant physiology keeps every gesture biologically real, not an arbitrary animation choice.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="x-block">
+        <div class="ld-lineage">
+          <div>
+            <p class="x-label">Precedent Lineage</p>
+            <ol class="ld-refs">
+              <li><b>Ken Rinaldo</b><em>Autopoiesis (2000)</em>Robotic branches that sense proximity and move without symbolic exchange.</li>
+              <li><b>David Bowen</b><em>Tele-Present Wind (2018) &middot; Plant Machete (2019)</em>A living plant&rsquo;s motion, read as data and used to drive a machine elsewhere.</li>
+              <li><b>Disney Research</b><em>Botanicus Interacticus (2012)</em>Living plant tissue made touch-interactive through embedded conductivity.</li>
+            </ol>
+          </div>
+          <div>
+            <p class="x-label">Plant Science</p>
+            <ol class="ld-refs">
+              <li><b>Forterre</b><em>Slow, fast and furious (2013, J. Exp. Botany)</em>Plants move at many speeds, all driven by water pressure.</li>
+              <li><b>Stahlberg</b><em>Phytomimetic potential of hydration motors (2009)</em>Plant hydration movements can be turned into engineered actuators.</li>
+              <li><b>Stolarz</b><em>Circumnutation as a visible plant action and reaction (2009)</em>Plants keep moving and searching, even without any stimulus.</li>
+            </ol>
+          </div>
+        </div>
+        <img class="ld-cut ld-collage" src="images/language-distortion/lineage-collage.png" alt="Collage of the precedent works and plant studies on torn paper" />
+      </div>
+
+      <div class="x-block">
+        <h2 class="x-h sm">From observation to form</h2>
+        <div class="ld-flow">
+          <div class="ld-arches">
+            <figure><img src="images/language-distortion/form-1.png" alt="Marble bust wrapped in ivy" /><figcaption>Wearable structures</figcaption></figure>
+            <figure><img src="images/language-distortion/form-2.png" alt="Cluster of translucent synthetic petals" /><figcaption>Synthetic materials</figcaption></figure>
+            <figure><img src="images/language-distortion/form-3.png" alt="Pink petals on a mechanical stem" /><figcaption>Mechanical organs</figcaption></figure>
+            <figure><img src="images/language-distortion/form-4.png" alt="White petals on a black machine base" /><figcaption>Living interface</figcaption></figure>
+          </div>
+          <div class="ld-join" aria-hidden="true"></div>
+          <p class="ld-step"><svg><use href="#l-eye"/></svg>The body leaks what language conceals.</p>
+          <div class="ld-join short" aria-hidden="true"></div>
+          <p class="ld-step"><svg><use href="#l-q"/></svg>What reads the unspoken and shows it back?</p>
+          <div class="ld-join split" aria-hidden="true"></div>
+          <div class="ld-trio">
+            <figure><figcaption>Succulent</figcaption><img src="images/language-distortion/sketch-succulent.jpg" alt="Pencil drawing of an inflatable succulent" /></figure>
+            <figure><figcaption>Flower</figcaption><img src="images/language-distortion/sketch-flower.jpg" alt="Pencil drawing of a mechanical flower" /></figure>
+            <figure><figcaption>Willow</figcaption><img src="images/language-distortion/sketch-willow.jpg" alt="Pencil drawing of a willow branch" /></figure>
+          </div>
+          <div class="ld-join merge" aria-hidden="true"></div>
+          <p class="ld-step"><svg><use href="#l-sprout"/></svg>These plants read you, and translate it back to yourself.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 Concept ── -->
+    <section class="project-section" id="concept" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Concept</h2>
+        <div class="ld-concept">
+          <img class="ld-render" src="images/language-distortion/concept-render.jpg" alt="Concept render: succulent, flower and willow forms growing from one stone base" />
+          <ol class="ld-plants">
+            <li data-plant="succulent">
+              <span class="x-label">01 &middot; Succulent</span>
+              <p>Breath as emotion. Inflation and collapse as the body&rsquo;s honest response to feeling.</p>
+            </li>
+            <li data-plant="flower">
+              <span class="x-label">02 &middot; Flower</span>
+              <p>The face opens and closes. Expression is an aperture, what it reveals is never fully in our control.</p>
+            </li>
+            <li data-plant="willow">
+              <span class="x-label">03 &middot; Willow</span>
+              <p>Posture carries weight. The way a body holds itself in space is a language that precedes speech.</p>
+            </li>
+          </ol>
+        </div>
+        <img class="ld-trio-sheet" src="images/language-distortion/sketch-trio.jpg" alt="Sketches: 01 succulents, 02 breathing plants, 03 willow-leaf plants" />
+      </div>
+    </section>
+
+    <!-- ── 06 Structure & Material ── -->
+    <section class="project-section" id="structure" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Structure study</h2>
+        <p class="ld-intro">Exploring mechanical structure through 3D-printed components and assembled prototypes.</p>
+        <div class="x-row">
+            <img style="--r:1.942" src="images/language-distortion/struct-parts.jpg" alt="3D-printed joints and servo mounts" />
+            <img style="--r:2.125" src="images/language-distortion/struct-skeleton.jpg" alt="First assembled prototype with radiating arms" />
+          </div>
+        <div class="x-row">
+            <img style="--r:0.562" src="images/language-distortion/struct-pla.jpg" alt="PLA tentacle joint prototypes in several sizes" />
+            <img style="--r:0.562" src="images/language-distortion/struct-petal.jpg" alt="Cast petal chamber in TPU and silicone" />
+            <img style="--r:1.779" src="images/language-distortion/struct-succulent.jpg" alt="Succulent leaf structure with tubing" />
+          </div>
+        <div style="height:28px"></div>
+        <ol class="ld-notes">
+          <li><span class="num-dot">01</span><div><h4>Mechanical skeleton</h4><p>3D-printed joints and servo mounts, exposed on purpose. The mechanism is part of the aesthetic.</p></div></li>
+          <li><span class="num-dot">02</span><div><h4>First assembled prototype</h4><p>Print lines retained fabrication marks as texture, not flaw.</p></div></li>
+          <li><span class="num-dot">03</span><div><h4>PLA joint prototypes</h4><p>Printed the tentacle&rsquo;s joint units in PLA. Multiple sizes, same geometry. Testing flex range and durability before final materials.</p></div></li>
+          <li><span class="num-dot">04</span><div><h4>TPU structure study</h4><p>Cast petal chambers in TPU and silicone. Testing expansion range and deflation response before finalizing the mold.</p></div></li>
+        </ol>
+      </div>
+
+      <div class="x-block">
+        <h2 class="x-h">Material study</h2>
+        <p class="ld-intro">Translucent, unpigmented. The material&rsquo;s own quality: soft, skin-adjacent, alive-looking is the visual language.</p>
+        <div class="ld-mats x-row">
+          <article style="--r:2.083">
+            <div class="x-row keep ld-mrow"><img style="--r:1.333" src="images/language-distortion/mat-ecoflex.jpg" alt="Ecoflex silicone bottle" /><img style="--r:0.75" src="images/language-distortion/mat-mold.jpg" alt="Two-part parametric mold with cast leaves" /></div>
+            <h4><span class="num-dot">01</span>Ecoflex 00-30 silicone</h4>
+            <p>Cast from a two-part parametric mold. Pneumatic cavity offset toward the front face to produce directional bending on inflation.</p>
+          </article>
+          <article style="--r:0.826">
+            <div class="x-row keep ld-mrow"><img style="--r:0.826" src="images/language-distortion/mat-copper.jpg" alt="Patinated copper wire branch held in a hand" /></div>
+            <h4><span class="num-dot">02</span>Copper wire</h4>
+            <p>5 strands, acid-patinated with vinegar and salt. Motor wire coiled along each branch &mdash; the electrical becomes the botanical.</p>
+          </article>
+          <article style="--r:1.5">
+            <div class="x-row keep ld-mrow"><img style="--r:0.75" src="images/language-distortion/mat-tpu-1.jpg" alt="Petal outline heat-sealed on TPU sheet" /><img style="--r:0.75" src="images/language-distortion/mat-tpu-2.jpg" alt="Second heat-sealed TPU petal pouch" /></div>
+            <h4><span class="num-dot">03</span>TPU fabric</h4>
+            <p>Petal outlines heat-sealed onto TPU sheet. Each pouch inflates independently, air becomes the bloom.</p>
+          </article>
+        </div>
+        <p class="x-quote ld-principle">All three materials share one visual principle: translucency over opacity, exposure over concealment. The mechanism is never hidden &mdash; wire becomes vein, tube becomes stem, print line becomes grain.</p>
+      </div>
+    </section>
+
+    <!-- ── 07 System ── -->
+    <section class="project-section" id="system" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Architecture &amp; serial protocol</h2>
+        <ol class="ld-layers">
+          <li>
+            <div class="ld-layer-h"><span class="num-dot">01</span><span class="x-label">Core brain</span><h3>Arduino (main controller)</h3></div>
+            <div class="ld-layer-b">
+              <p>Central controller running the installation. Coordinates all three recognition modules and routes serial output to each plant&rsquo;s dedicated Arduino board via USB.</p>
+              <div class="ld-tree" aria-label="Laptop connected over USB to three Arduinos">
+                <span class="node main"><svg><use href="#l-laptop"/></svg><small>USB</small></span>
+                <span class="node"><svg><use href="#l-chip"/></svg><small>Arduino #1<br />Flower</small></span>
+                <span class="node"><svg><use href="#l-chip"/></svg><small>Arduino #2<br />Succulent</small></span>
+                <span class="node"><svg><use href="#l-chip"/></svg><small>Arduino #3<br />Willow</small></span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ld-layer-h"><span class="num-dot">02</span><span class="x-label">Sensing layer</span><h3>Three input streams</h3></div>
+            <div class="ld-layer-b">
+              <p>Camera feeds face-api.js (68 facial landmarks) and MediaPipe Pose (33 keypoints simultaneously). Microphone runs Web Audio API pitch extraction + Transformers.js wav2vec2 inference every 3 seconds.</p>
+              <div class="ld-inputs">
+                <span><svg><use href="#l-face"/></svg>Face<small>68 landmarks</small></span>
+                <i>+</i>
+                <span><svg><use href="#l-pose"/></svg>Pose<small>33 keypoints</small></span>
+                <i>+</i>
+                <span><svg><use href="#l-mic"/></svg>Voice<small>pitch &amp; wav2vec2</small></span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ld-layer-h"><span class="num-dot">03</span><span class="x-label">Shared language layer</span><h3>Valence&ndash;arousal space</h3></div>
+            <div class="ld-layer-b">
+              <p>All three plants map to a continuous 2D valence&ndash;arousal plane rather than discrete emotion categories reflecting the concept that emotions are intensities, not fixed meanings.</p>
+              <div class="ld-va" role="img" aria-label="Valence-arousal plane: valence from negative to positive, arousal from low to high">
+                <span class="ld-va-blob"></span>
+                <span class="ld-va-dot" aria-hidden="true"></span>
+                <small class="t">Arousal &middot; High</small><small class="b">Low</small>
+                <small class="l">Valence &middot; Negative</small><small class="r">Positive</small>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ld-layer-h"><span class="num-dot">04</span><span class="x-label">Serial protocols</span><h3>Three Arduinos, three formats</h3></div>
+            <div class="ld-layer-b wide">
+              <p>Each plant receives a different serial message format over Web Serial API. Throttling prevents flooding; any module failure leaves the others unaffected.</p>
+              <div class="ld-protocols">
+                <article>
+                  <span class="x-label">Willow branch</span><h4>Arduino #3</h4>
+                  <code>"O,W,A,F\n"<br />0&ndash;255 each</code>
+                  <p>4 LMA dimensions via MediaPipe Pose. EMA-smoothed, z-score normalised. Continuous stream.</p>
+                </article>
+                <article>
+                  <span class="x-label">Mechanical flower</span><h4>Arduino #1</h4>
+                  <code>2 raw bytes<br />angle + step delay</code>
+                  <p>Angle driven by weighted valence score. Step delay encodes arousal speed. Ambiguity triggers tremor. 700ms throttle.</p>
+                </article>
+                <article>
+                  <span class="x-label">Succulent</span><h4>Arduino #2</h4>
+                  <code>single char<br />a/h/n/s</code>
+                  <p>Maps angry / happy / neutral / sad from wav2vec2. Controls air pump + 4 servos independently.</p>
+                </article>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="ld-layer-h"><span class="num-dot">05</span><span class="x-label">Actuators</span><h3>Three plant outputs</h3></div>
+            <div class="ld-layer-b">
+              <p>Willow: 5&times; N20 motors + 3&times; L298N drivers. Flower: 1 servo + WS2812 LED (2700K). Succulent: air pump + solenoid valve + 4 servos driving Ecoflex 00-30 silicone leaves.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── 08 Process ── -->
+    <section class="project-section" id="process" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Process</h2>
+        <div class="ld-proc">
+          <article class="ld-plant">
+            <div><h3><span class="num-dot">01</span>Mechanical Flower</h3><p class="x-p sm">Petals formed from stretch mesh tubing over the servo skeleton. Sheer and flexible enough to catch light without hiding the mechanism underneath.</p></div>
+            <div class="x-row keep">
+            <img style="--r:0.749" src="images/language-distortion/proc-flower.jpg" alt="Mechanical flower with mesh-tube petals" />
+            <img style="--r:0.75" src="images/language-distortion/proc-flower-2.jpg" alt="Close-up of a mesh petal on its servo arm" />
+            <img style="--r:0.562" src="images/language-distortion/proc-flower-3.jpg" alt="Servo wiring on the workbench" />
+          </div>
+          </article>
+          <article class="ld-plant">
+            <div><h3><span class="num-dot">02</span>Succulent</h3><p class="x-p sm ld-cap">Breadboard circuit for the pump and solenoid valve, wired to test inflation timing before the pneumatic build. The petal shown here is a resting-shape mockup, ahead of the TPU/silicone cast.</p></div>
+            <div class="x-row keep">
+            <img style="--r:0.562" src="images/language-distortion/proc-succ-1.jpg" alt="Petal outline drawn for the succulent mold" />
+            <img style="--r:1.779" src="images/language-distortion/proc-succ-2.jpg" alt="Resting-shape petal mockup" />
+            <img style="--r:0.562" src="images/language-distortion/proc-succ-3.jpg" alt="Breadboard circuit for pump and solenoid valve" />
+          </div>
+          </article>
+          <article class="ld-plant">
+            <div><h3><span class="num-dot">03</span>Willow Branch</h3><p class="x-p sm">Two mechanisms prototyped: an articulated arm and a tentacle. The tentacle won: more continuous, closer to how a branch actually bends.</p><p class="x-p sm ld-cap">A4988 driver, Arduino Uno, NEMA17 stepper &mdash; assembled and wired to cable-drive the tentacle&rsquo;s motion.</p></div>
+            <div class="x-row keep">
+            <img style="--r:1.779" src="images/language-distortion/proc-willow-1.jpg" alt="Printed tentacle prototype beside a laptop" />
+            <img style="--r:0.562" src="images/language-distortion/proc-willow-2.jpg" alt="Stepper driver wiring" />
+            <img style="--r:1.779" src="images/language-distortion/proc-willow-3.jpg" alt="Stepper motor housing for the tentacle" />
+          </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="x-block">
+        <h2 class="x-h">Prototype</h2>
+        <div class="x-row">
+            <img style="--r:0.562" src="images/language-distortion/proto-rods.jpg" alt="Aluminum rods and brackets laid out" />
+            <img style="--r:0.562" src="images/language-distortion/proto-joints.jpg" alt="Printed corner joints" />
+            <img style="--r:1.779" src="images/language-distortion/proto-frame.jpg" alt="Frame assembled on a workshop table" />
+          </div>
+        <div class="x-row">
+            <img style="--r:1.779" src="images/language-distortion/proto-flower.jpg" alt="Flower mounted inside the frame" />
+            <img style="--r:1.777" src="images/language-distortion/proto-laptop.jpg" alt="Laptop running the sensing software beside the frame" />
+            <img style="--r:1.779" src="images/language-distortion/proto-base.jpg" alt="Acrylic base plate with cut-outs" />
+          </div>
+      </div>
+    </section>
+
+    <!-- ── 09 Final Outcome ── -->
+    <section class="project-section" id="final-outcome" hidden>
+      <div class="x-block" style="margin-top:40px">
+        <h2 class="x-h">Final Outcome</h2>
+        <div class="x-row keep">
+            <img style="--r:0.562" src="images/language-distortion/final-tall.jpg" alt="The installation in its tower frame beside a laptop on a plinth" />
+            <img style="--r:1.78" src="images/language-distortion/final-wide.jpg" alt="Wide view of the installation against a bare wall" />
+          </div>
+        <div class="x-row">
+            <img style="--r:1.78" src="images/language-distortion/final-1.jpg" alt="Close-up of the mechanical flower inside the frame" />
+            <img style="--r:1.78" src="images/language-distortion/final-2.jpg" alt="Inflated succulent leaf and willow tentacle" />
+            <img style="--r:1.78" src="images/language-distortion/final-3.jpg" alt="Willow tentacle with orange-tipped mesh petals" />
+          </div>
+        <div style="height:40px"></div>
+        <div class="x-videolink">
+          <b>Video</b>
+          <a href="https://youtu.be/bmINlqwPnbw" target="_blank" rel="noopener noreferrer"><span>YouTube</span></a>
+        </div>
+        <div class="x-video">
+          <iframe src="https://www.youtube-nocookie.com/embed/bmINlqwPnbw" title="Language Distortion — final outcome video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/liquid.js"></script>
+  <script src="js/sections.js"></script>
+  <script src="js/project.js"></script>
+</body>
+</html>

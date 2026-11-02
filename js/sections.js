@@ -20,7 +20,8 @@
     }
     if (i < sections.length - 1) {
       var n = sections[i + 1].id;
-      html += '<a class="next" href="#' + n + '"><small>Next</small><span>' + label(n) + " &rarr;</span></a>";
+      html += '<a class="next" href="#' + n + '"><small>Next &middot; keep scrolling</small><span>' + label(n) +
+        ' &rarr;</span><i class="x-pull" aria-hidden="true"></i></a>';
     }
     nav.innerHTML = html;
     s.appendChild(nav);
@@ -41,7 +42,62 @@
   }
 
   window.addEventListener("hashchange", function () {
+    lockUntil = Date.now() + 1100;
+    setPull(0);
     show(location.hash.slice(1), true);
   });
+
+  // Overscroll past the end of a section to continue into the next one.
+  // The pull has to build past a threshold, so a stray flick never jumps.
+  var THRESHOLD = 360, pull = 0, lockUntil = 0, decay = 0, touchY = null;
+
+  function current() { return sections.filter(function (s) { return !s.hidden; })[0]; }
+  function atBottom() {
+    return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+  }
+  function setPull(v) {
+    pull = Math.max(0, v);
+    var s = current(), next = s && s.querySelector(".x-pager .next");
+    if (next) next.style.setProperty("--pull", Math.min(1, pull / THRESHOLD));
+  }
+  function advance() {
+    var i = sections.indexOf(current());
+    if (i < sections.length - 1) location.hash = sections[i + 1].id;
+  }
+  function push(amount) {
+    if (Date.now() < lockUntil || !atBottom()) return setPull(0);
+    var i = sections.indexOf(current());
+    if (i >= sections.length - 1) return;
+    setPull(pull + amount);
+    clearTimeout(decay);
+    decay = setTimeout(function () { setPull(0); }, 700);
+    if (pull >= THRESHOLD) advance();
+  }
+
+  window.addEventListener("wheel", function (e) {
+    if (e.deltaY > 0) push(e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY);
+    else if (e.deltaY < 0) setPull(0);
+  }, { passive: true });
+
+  window.addEventListener("touchstart", function (e) { touchY = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener("touchmove", function (e) {
+    if (touchY === null) return;
+    var y = e.touches[0].clientY;
+    push((touchY - y) * 1.6);
+    touchY = y;
+  }, { passive: true });
+  window.addEventListener("touchend", function () { touchY = null; });
+
+  document.addEventListener("keydown", function (e) {
+    if (["PageDown", "ArrowDown", " "].indexOf(e.key) === -1 || e.target.closest("input, textarea, button, iframe")) return;
+    push(THRESHOLD / 2);
+  });
+
   show(location.hash.slice(1));
+
+  // A deep link's native anchor jump would clip the section heading; start at the top
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.addEventListener("load", function () {
+    if (location.hash && !window.matchMedia("(max-width: 800px)").matches) window.scrollTo(0, 0);
+  });
 })();

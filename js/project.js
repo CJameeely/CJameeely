@@ -64,6 +64,29 @@
     });
   });
 
+  // Hover / focus tooltips for chart marks that carry data-tip
+  var tips = document.querySelectorAll("[data-tip]");
+  if (tips.length) {
+    var tip = document.createElement("div");
+    tip.className = "em-tip";
+    document.body.appendChild(tip);
+    tips.forEach(function (el) {
+      function show(x, y) {
+        tip.textContent = el.getAttribute("data-tip");
+        tip.classList.add("on");
+        var left = Math.min(x + 14, window.innerWidth - tip.offsetWidth - 8);
+        tip.style.transform = "translate(" + left + "px," + (y - tip.offsetHeight - 12) + "px)";
+      }
+      el.addEventListener("pointermove", function (e) { show(e.clientX, e.clientY); });
+      el.addEventListener("focus", function () {
+        var r = el.getBoundingClientRect();
+        show(r.left + r.width / 2, r.top);
+      });
+      el.addEventListener("pointerleave", function () { tip.classList.remove("on"); });
+      el.addEventListener("blur", function () { tip.classList.remove("on"); });
+    });
+  }
+
   // Annotated photos: a pin and its legend row highlight together
   document.querySelectorAll(".em-pin").forEach(function (pin) {
     var row = document.getElementById(pin.getAttribute("data-for"));
