@@ -5,17 +5,44 @@
 
   // Reveal blocks as they enter the viewport, staggered among siblings
   var REVEAL = [
-    ".x-h", ".x-p", ".x-sub", ".x-label", ".x-question", ".x-quote", ".x-side-note",
+    ".x-p", ".x-sub", ".x-label", ".x-question", ".x-quote", ".x-side-note",
     ".x-box", ".x-card", ".x-point", ".x-artist", ".x-iter-row", ".x-callouts li",
     ".x-views figure", ".x-mats figure", ".x-tester", ".x-pager",
     ".project-section img:not(.x-hero img):not(.x-tester img)"
   ].join(",");
 
+  // Hidden sections report the authored track list, e.g. "minmax(0, 1fr)" or "repeat(3, 1fr)"
+  function columnCount(tracks) {
+    var rep = /repeat\(\s*(\d+|auto-fill|auto-fit)/.exec(tracks);
+    if (rep) return rep[1] === "1" ? 1 : 2;
+    var depth = 0, count = 1;
+    for (var i = 0; i < tracks.length; i++) {
+      var ch = tracks[i];
+      if (ch === "(") depth++;
+      else if (ch === ")") depth--;
+      else if (/\s/.test(ch) && depth === 0 && /\S/.test(tracks[i + 1] || "")) count++;
+    }
+    return count;
+  }
+
+  // Nearest ancestor laid out as side-by-side columns, so text and the image
+  // beside it reveal together instead of each on its own trigger
+  function rowOf(el, section) {
+    for (var p = el.parentElement; p && p !== section; p = p.parentElement) {
+      var cs = getComputedStyle(p);
+      if (p.children.length < 2) continue;
+      if (cs.display.indexOf("grid") > -1 && columnCount(cs.gridTemplateColumns.trim()) > 1) return p;
+      if (cs.display.indexOf("flex") > -1 && cs.flexDirection.indexOf("row") === 0 && cs.flexWrap === "nowrap") return p;
+    }
+    return null;
+  }
+
   if (!reduced && "IntersectionObserver" in window) {
+    var groups = new Map();
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
-          e.target.classList.add("in");
+          (groups.get(e.target) || [e.target]).forEach(function (m) { m.classList.add("in"); });
           io.unobserve(e.target);
         }
       });
@@ -23,16 +50,34 @@
 
     document.querySelectorAll(".project-section").forEach(function (section) {
       var seen = new Set();
+      var perColumn = new Map();
       section.querySelectorAll(REVEAL).forEach(function (el) {
         // Skip children of something that already reveals as a unit
         for (var p = el.parentElement; p && p !== section; p = p.parentElement) {
           if (seen.has(p)) return;
         }
         seen.add(el);
-        var i = Array.prototype.indexOf.call(el.parentElement.children, el);
-        el.style.setProperty("--rv-delay", Math.min(i, 5) * 70 + "ms");
         el.classList.add("rv");
-        io.observe(el);
+
+        var row = rowOf(el, section);
+        if (!row) {
+          var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+          el.style.setProperty("--rv-delay", Math.min(i, 5) * 70 + "ms");
+          io.observe(el);
+          return;
+        }
+        // Left column first, the column beside it just after; items stacked
+        // within a column follow each other closely
+        var col = row.firstElementChild, c = 0;
+        while (col && !col.contains(el)) { col = col.nextElementSibling; c++; }
+        var n = perColumn.get(col) || 0;
+        perColumn.set(col, n + 1);
+        el.style.setProperty("--rv-delay", Math.min(c, 4) * 90 + Math.min(n, 4) * 60 + "ms");
+        if (!groups.has(row)) {
+          groups.set(row, []);
+          io.observe(row);
+        }
+        groups.get(row).push(el);
       });
     });
   }

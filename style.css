@@ -115,7 +115,7 @@ a {
 
 .nav-label {
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--faint);
   margin-bottom: var(--spacing-12);
@@ -268,31 +268,33 @@ a {
 
 /* Page heading — whisper weight */
 .page-heading {
-  font-size: clamp(40px, 5.6vw, 78px);
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: clamp(56px, 7.2vw, 103px);
+  font-weight: 400;
+  line-height: 0.8;
   color: var(--fg);
-  margin: var(--spacing-48) 0 var(--spacing-64);
-  letter-spacing: -0.02em;
-  max-width: 14ch;
+  margin: var(--spacing-48) 0 76px;
+  letter-spacing: 0.013em;
+  text-transform: uppercase;
 }
 
 .page-heading em {
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
   margin-left: var(--spacing-12);
   vertical-align: middle;
 }
 
-/* Back link */
+/* Ghost links: no fill, an underline draws in on hover */
 .back-link {
   display: inline-block;
+  padding: 5px 0;
+  border-radius: 10px;
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
   text-decoration: none;
@@ -302,6 +304,17 @@ a {
 .back-link:hover {
   color: var(--fg);
   transform: translateX(-4px);
+}
+
+.back-link,
+.text-block a {
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px;
+  transition: color var(--dur) var(--ease), transform var(--dur) var(--ease), background-size var(--dur) var(--ease);
+}
+
+.back-link:hover,
+.text-block a:hover {
+  background-size: 100% 1px;
 }
 
 .back-link + .page-heading {
@@ -316,7 +329,7 @@ a {
 .text-block h2 {
   font-size: 11px;
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--fg);
   margin: var(--section-gap) 0 var(--element-gap);
@@ -328,7 +341,8 @@ a {
 
 .text-block p {
   color: var(--fg-2);
-  line-height: 1.58;
+  font-size: 18px;
+  line-height: 1.4;
   margin-bottom: var(--element-gap);
 }
 
@@ -346,12 +360,6 @@ a {
 .text-block a {
   color: var(--fg);
   text-decoration: none;
-  border-bottom: 1px solid var(--hairline);
-  transition: border-color var(--dur) var(--ease);
-}
-
-.text-block a:hover {
-  border-color: var(--fg);
 }
 
 .text-block strong {
@@ -426,7 +434,7 @@ a {
 .gallery-card-link {
   display: inline-block;
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
   text-decoration: none;
@@ -556,34 +564,38 @@ html.home .content {
   to   { opacity: 1; transform: none; }
 }
 
-/* Rotating scroll indicator */
+/* Scroll indicator: museum-label text, bottom-right, gone once the page moves */
 .scroll-badge {
   position: absolute;
-  left: 0;
-  bottom: var(--spacing-40);
+  right: 0;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--fg);
-  display: block;
-  transition: opacity var(--dur) var(--ease);
+  text-decoration: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
 
-.scroll-badge:hover {
-  opacity: 0.6;
+.scroll-badge span {
+  display: inline-block;
+  animation: nudge 2.4s var(--ease) infinite;
 }
 
-.scroll-badge text {
-  font-family: var(--font-roobert);
-  font-size: 8.5px;
-  letter-spacing: 0.12em;
-  fill: currentColor;
+@keyframes nudge {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(4px); }
 }
 
-.scroll-badge-ring {
-  transform-origin: 50px 50px;
-  animation: spin 18s linear infinite;
-}
+.scroll-badge:hover { opacity: 0.6; }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+html.scrolled .scroll-badge {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
 }
 
 /* Works index */
@@ -596,7 +608,7 @@ html.home .content {
 
 .works-label {
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: var(--spacing-28);
@@ -625,7 +637,7 @@ html.home .content {
   display: flex;
   align-items: baseline;
   gap: var(--spacing-28);
-  padding: 18px 0;
+  padding: 30px 0 24px;
   color: var(--fg);
   text-decoration: none;
   transition: opacity var(--dur) var(--ease);
@@ -634,15 +646,16 @@ html.home .content {
 .works-num {
   flex: 0 0 24px;
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   color: var(--muted);
 }
 
 .works-title {
-  font-size: clamp(30px, 4.2vw, 60px);
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(38px, 5.2vw, 76px);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: 0.013em;
+  text-transform: uppercase;
   transition: transform var(--dur) var(--ease);
 }
 
@@ -674,25 +687,6 @@ html.home .content {
   transform: none;
 }
 
-/* Cover image that trails the cursor over the works list */
-.works-preview {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: auto;
-  z-index: 5;
-  pointer-events: none;
-  opacity: 0;
-  scale: 0.92;
-  transition: opacity 0.5s var(--ease), scale var(--dur) var(--ease);
-}
-
-.works-preview.visible {
-  opacity: 1;
-  scale: 1;
-}
-
 /* Iridescent hero backdrop — the one chromatic gesture on the site.
    Rendered by js/liquid.js; the gradient below is the no-WebGL fallback. */
 #liquid {
@@ -722,17 +716,17 @@ body.no-webgl #liquid {
 
 @media (prefers-reduced-motion: reduce) {
   html.home { scroll-behavior: auto; }
-  .scroll-badge-ring, .home-bio { animation: none; }
+  .scroll-badge span, .home-bio { animation: none; }
   *, *::before, *::after { transition-duration: 0.01s !important; }
 }
 
 .home-bio {
   max-width: 620px;
-  font-size: clamp(24px, 2.6vw, 36px);
+  font-size: clamp(24px, 2.4vw, 34px);
   font-weight: 300;
   color: var(--fg);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
 }
 
 /* ── Canvas nav (interactive pages) ── */
@@ -944,4 +938,46 @@ body.no-webgl #liquid {
   .hub-body > .img-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Type motion (js/type.js) ──────── */
+/* Each word rises out of its own mask; the block reads as one typographic mass */
+.split .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.split .w > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform var(--dur-long) var(--ease);
+  transition-delay: calc(var(--wi, 0) * 60ms);
+}
+
+.split.is-in .w > span {
+  transform: none;
+}
+
+/* Two-column intro: quiet label left, body right */
+.intro-2col {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 2fr;
+  gap: 19px;
+  max-width: 960px;
+}
+
+.intro-label {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+  padding-top: 5px;
+}
+
+@media (max-width: 800px) {
+  .intro-2col { grid-template-columns: 1fr; gap: 30px; }
 }

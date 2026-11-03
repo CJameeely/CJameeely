@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="liquid" data-palette="morandi-flow" aria-hidden="true"></canvas>
   <aside class="sidebar">
     <a class="sidebar-brand" href="index.html">CJ Li</a>
 
@@ -39,13 +40,19 @@
   </aside>
 
   <main class="content">
-    <div class="page-heading">About</div>
-    <div class="text-block">
+    <a class="back-link" href="index.html">&larr; Home</a>
+    <h1 class="page-heading">About</h1>
+    <div class="intro-2col">
+      <p class="intro-label">Interactive media artist &mdash; NYU Shanghai</p>
+      <div class="text-block">
       <p>CJ Li is an interactive media artist exploring how human emotion is mirrored and translated within technological systems.</p>
       <p>Through light, image, sound, and algorithmic interaction, her work examines the relationship between artificial intelligence, social media, and self-perception.</p>
       <p>Between logic and emotion, she asks: when technology begins to feel for us, what remains real?</p>
       <p>She is currently studying Interactive Media Arts at NYU Shanghai.</p>
+      </div>
     </div>
   </main>
+  <script src="js/liquid.js"></script>
+  <script src="js/type.js"></script>
 </body>
 </html>
