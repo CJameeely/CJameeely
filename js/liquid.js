@@ -1,6 +1,6 @@
 /* Liquid backdrop. Home page: domain-warped noise in Morandi tones (grey-green,
    sand, dusty rose) on black, seen partly through a large glass sphere.
-   <canvas data-palette="green|echo|morandi-flow|ld"> gives project pages their own flow with no sphere.
+   <canvas data-palette="green|echo|morandi-flow|ld|ruin"> gives project pages their own flow with no sphere.
    Falls back to a CSS gradient without WebGL. */
 (function () {
   var canvas = document.getElementById("liquid");
@@ -130,7 +130,9 @@
     "morandi-flow": { c1: [0.193, 0.208, 0.190], c2: [0.397, 0.364, 0.322], c3: [0.338, 0.275, 0.265], sphere: 0 },
     // Language Distortion: pale powder blue, lilac and cream, lighter than the home greens
     ld:      { c1: [0.400, 0.460, 0.540], c2: [0.600, 0.530, 0.600], c3: [0.600, 0.560, 0.470], sphere: 0 },
-    echo:    { c1: [0.024, 0.042, 0.140], c2: [0.040, 0.160, 0.215], c3: [0.130, 0.042, 0.185], sphere: 0 }
+    echo:    { c1: [0.024, 0.042, 0.140], c2: [0.040, 0.160, 0.215], c3: [0.130, 0.042, 0.185], sphere: 0 },
+    // Interactive Reconstruction of Ruins: night navy and blueprint steel
+    ruin:    { c1: [0.020, 0.045, 0.100], c2: [0.090, 0.150, 0.240], c3: [0.045, 0.075, 0.140], sphere: 0 }
   };
   var pal = palettes[canvas.getAttribute("data-palette")] || palettes.morandi;
   gl.uniform3fv(gl.getUniformLocation(prog, "uC1"), pal.c1);

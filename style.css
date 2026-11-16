@@ -635,12 +635,29 @@ html.scrolled .scroll-badge {
 
 .works-list a {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--spacing-28);
   padding: 30px 0 24px;
   color: var(--fg);
   text-decoration: none;
   transition: opacity var(--dur) var(--ease);
+}
+
+.works-preview {
+  width: clamp(96px, 14vw, 190px);
+  height: clamp(64px, 8.5vw, 116px);
+  margin-left: auto;
+  object-fit: cover;
+  opacity: 0.62;
+  filter: saturate(0.72);
+  transition: opacity var(--dur) var(--ease), filter var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.works-list a:hover .works-preview,
+.works-list a:focus-visible .works-preview {
+  opacity: 1;
+  filter: saturate(1);
+  transform: scale(1.025);
 }
 
 .works-num {
@@ -661,7 +678,7 @@ html.scrolled .scroll-badge {
 
 .works-list a::after {
   content: "→";
-  margin-left: auto;
+  margin-left: 0;
   font-size: 18px;
   color: var(--muted);
   opacity: 0;
@@ -924,6 +941,11 @@ body.no-webgl #liquid {
   .works-list a::after {
     opacity: 1;
     transform: none;
+  }
+
+  .works-preview {
+    width: 82px;
+    height: 58px;
   }
 
   .hub-body > .section-nav,

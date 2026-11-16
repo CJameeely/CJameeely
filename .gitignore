@@ -1,3 +1,5 @@
 # Source PDFs for project pages (kept local)
 *.pdf
+# Renamed copies linked from the project pages
+!pdf/*.pdf
 .DS_Store

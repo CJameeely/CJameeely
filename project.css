@@ -39,6 +39,94 @@ body.echo {
 .project-section[hidden] { display: none; }
 .project-section { animation: rise var(--dur) var(--ease) both; }
 
+/* The case study opens as an exhibition: finished work first, image-led and
+   deliberately lighter on copy. Research and process remain one step away. */
+#work > :first-child {
+  padding-top: clamp(28px, 5vh, 56px);
+}
+
+#work .x-h {
+  margin-bottom: clamp(22px, 3vw, 36px);
+}
+
+#work .x-row,
+#work .x-outcome {
+  margin-bottom: 18px;
+}
+
+#work .x-video {
+  margin-bottom: clamp(38px, 5vw, 68px);
+}
+
+/* Short notes: the two or three places on a project page that need words */
+.project-intro {
+  max-width: 760px;
+  margin: 0 0 clamp(38px, 5vw, 68px);
+  padding-left: 18px;
+  border-left: 1px solid var(--g);
+}
+
+.project-intro .x-label {
+  color: var(--g);
+  margin-bottom: 10px;
+}
+
+.project-intro > p:last-child {
+  color: var(--text);
+  font-size: clamp(18px, 1.6vw, 23px);
+  line-height: 1.42;
+}
+
+.pdf-process {
+  padding-top: clamp(56px, 8vw, 110px);
+}
+
+.x-block > .x-label + .x-row,
+.x-block > .x-label + .x-views { margin-top: 0; }
+.x-block > .x-row + .project-intro,
+.x-block > .x-row + .x-views { margin-top: clamp(38px, 5vw, 68px); }
+.x-block > .x-views + .x-row { margin-top: 12px; }
+
+.pdf-process-head {
+  max-width: 620px;
+  margin-bottom: 36px;
+}
+
+.pdf-process-head .x-h {
+  margin-bottom: 16px !important;
+}
+
+.pdf-process-head > p:last-child {
+  color: var(--dim);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.pdf-process-pages {
+  display: grid;
+  gap: clamp(28px, 5vw, 68px);
+}
+
+.pdf-process-pages figure {
+  margin: 0;
+}
+
+.pdf-process-pages img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.pdf-process-pages figcaption {
+  margin-top: 10px;
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .idly img {
   width: 100%;
   height: auto;
@@ -1482,4 +1570,55 @@ body.ld {
   .em-proc-text, .ld-plant { grid-template-columns: 1fr; gap: 18px; }
   .ld-mats.x-row { flex-direction: column; gap: 28px; }
   .ld-mats.x-row > * { width: 100%; }
+}
+
+/* ══ Interactive Reconstruction of Ruins ═══════════════ */
+/* Cold blueprint blue on night navy, from the project's own renders */
+body.ruin {
+  --g: #a9c6e8;
+  --g-line: rgba(169, 198, 232, 0.4);
+  --g-faint: rgba(169, 198, 232, 0.14);
+  --g-glow: rgba(169, 198, 232, 0.3);
+  --glass: rgba(5, 10, 20, 0.52);
+  --glass-hi: rgba(10, 18, 34, 0.66);
+}
+
+/* Links to the live system sit under the film */
+.rr-links { margin: -18px 0 clamp(38px, 5vw, 68px); }
+
+/* Pipeline metrics: one panel per measure, bars scaled to the panel's max */
+.rr-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 36px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.rr-metrics h4 {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--g);
+}
+.rr-metrics dl { margin: 0; display: grid; gap: 10px; }
+.rr-metrics dl > div { display: grid; grid-template-columns: 76px 1fr; align-items: center; gap: 10px; }
+.rr-metrics dt { font-size: 12px; color: var(--dim); }
+.rr-metrics dd { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rr-metrics dd i { display: block; height: 4px; width: calc(var(--w) * 0.62); min-width: 2px; background: var(--g); }
+
+/* Tools: short PDF notes beside their screenshots */
+.rr-tools { display: grid; gap: 28px; }
+.rr-tool { display: grid; grid-template-columns: minmax(220px, 0.34fr) 1fr; gap: 36px; align-items: start; padding-top: 24px; border-top: 1px solid var(--line); }
+.rr-tool .x-label { color: var(--g); margin-bottom: 8px; }
+.rr-tool p:last-child { margin: 0; color: var(--text); font-size: 15px; line-height: 1.45; }
+.rr-tool img { width: 100%; height: auto; display: block; }
+
+.rr-flow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--g); margin: 0 0 18px; }
+
+@media (max-width: 800px) {
+  .rr-metrics { grid-template-columns: 1fr 1fr; }
+  .rr-tool { grid-template-columns: 1fr; gap: 14px; }
 }
