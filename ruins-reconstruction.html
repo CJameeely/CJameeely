@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="project.css" />
+  <link rel="stylesheet" href="theme.css" />
 </head>
 <body class="project ruin">
   <canvas id="liquid" data-palette="ruin" aria-hidden="true"></canvas>
@@ -22,7 +23,6 @@
         <a href="ruins-reconstruction.html" class="active">Interactive Reconstruction of Ruins</a>
         <ul class="nav-sub">
           <li><a href="#work">Work</a></li>
-          <li><a href="#details">Details</a></li>
           <li><a href="#process">Process</a></li>
         </ul>
       </li>
@@ -62,15 +62,15 @@
           <a href="https://cjameeely.github.io/ai-driven-lane-reconstruction/" target="_blank" rel="noopener"><span>Website</span></a>
           <a href="https://cjameeely.github.io/ai-driven-lane-reconstruction/web/system.html?guide=1" target="_blank" rel="noopener"><span>Demo</span></a>
         </div>
-        <div class="project-intro">
-          <p class="x-label">An AI-assisted system for rebuilding heritage architecture after disaster</p>
-          <p>It reads the ruin, infers what is missing, and grows a new structure in a style the user chooses, marking what is observed, inferred or imagined. The first case is a fire-damaged shikumen lane in Shanghai, where one ruin becomes three repairs.</p>
+        <div class="lay-chapter">
+          <div><p class="x-label">An AI-assisted system for rebuilding heritage architecture after disaster</p></div>
+          <p class="lay-statement">One ruin becomes three repairs.</p>
         </div>
-        <div class="x-row keep">
-          <img style="--r:0.75" src="images/ruins/hero.jpg" alt="Point-line reconstruction of a shikumen rising from its burned brick walls" />
-          <img style="--r:1.188" src="images/ruins/final-lane.jpg" alt="One ruin, three repairs: the burned lane split into before, Almond, Ban and Shikumen" />
+        <div class="lay-offset" style="--a:1fr;--b:1.55fr">
+          <div><img src="images/ruins/hero.jpg" alt="Point-line reconstruction of a shikumen rising from its burned brick walls" /></div>
+          <div><img src="images/ruins/final-lane.jpg" alt="One ruin, three repairs: the burned lane split into before, Almond, Ban and Shikumen" /></div>
         </div>
-        <div class="x-row">
+        <div class="x-row" style="margin-top:12px">
           <img style="--r:1.668" src="images/ruins/ui-upload.jpg" alt="Web system: upload evidence of the damaged building and a style reference" />
           <img style="--r:1.668" src="images/ruins/ui-grammars.jpg" alt="Web system: one ruin, three grammars to choose from" />
           <img style="--r:1.668" src="images/ruins/ui-result.jpg" alt="Web system: the reconstructed lane with evidence and coverage readings" />
@@ -78,162 +78,7 @@
       </div>
     </section>
 
-    <!-- ── 02 Details ── -->
-    <section class="project-section" id="details" hidden>
-      <div class="x-block" style="margin-top:40px">
-        <div class="project-intro">
-          <p class="x-label">Background &middot; Shikumen lanes, Shanghai</p>
-          <p>This project began with my experience volunteering at a summer camp for children from migrant families. Many live in aging shikumen lanes, where everyday hardship sits beside local history. Their brick-and-timber structure makes fire a constant risk.</p>
-        </div>
-        <div class="x-row">
-          <img style="--r:2.716" src="images/ruins/bg-camp.jpg" alt="Children at the summer camp sitting on the floor in a circle" />
-          <img style="--r:0.75" src="images/ruins/bg-lane-1.jpg" alt="Looking up at the eaves of an old shikumen lane" />
-          <img style="--r:0.75" src="images/ruins/bg-lane-2.jpg" alt="Washing hung between buildings in a shikumen lane" />
-        </div>
-        <div class="project-intro">
-          <p class="x-label">First-hand interviews</p>
-          <p>Can ordinary people participate in deciding how a destroyed building returns?</p>
-        </div>
-        <div class="x-row">
-          <img style="--r:3.003" src="images/ruins/interviews.jpg" alt="Interview diagram: resident, conservation expert, architect and young public, each with a different view of repair" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <div class="project-intro">
-          <p class="x-label">Concept &middot; AI reconstruction tool</p>
-          <p>A system that reads a ruin and a reference image, reconstructs spatial function first, then grows a new structure from the fracture. Each repair shows how confident it is.</p>
-        </div>
-        <div class="x-row">
-          <img style="--r:3.253" src="images/ruins/concept-flow.jpg" alt="System flow: upload ruin, read evidence, choose reference, grammar skeleton, visualization, then four scenes from ruin to lilong" />
-        </div>
-        <div class="x-row">
-          <img style="--r:1.631" src="images/ruins/layers.jpg" alt="Epistemic layers: high evidence mostly observed, medium partly inferred from type, low evidence mostly imagined" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <p class="x-label">Environment &middot; Fire memory</p>
-        <div class="x-row">
-          <img style="--r:1.648" src="images/ruins/damage-flow.jpg" alt="Damage visualization: reference, extract damage, quantify, visualize" />
-        </div>
-        <div class="x-row keep">
-          <figure style="--r:1.333"><img src="images/ruins/dmg-trace.jpg" alt="Particle study: trace" /><figcaption>Trace</figcaption></figure>
-          <figure style="--r:1.333"><img src="images/ruins/dmg-void.jpg" alt="Particle study: void" /><figcaption>Void</figcaption></figure>
-          <figure style="--r:1.333"><img src="images/ruins/dmg-ash.jpg" alt="Particle study: ash" /><figcaption>Ash</figcaption></figure>
-        </div>
-        <div class="x-row keep">
-          <figure style="--r:1.333"><img src="images/ruins/dmg-char.jpg" alt="Particle study: char" /><figcaption>Char</figcaption></figure>
-          <figure style="--r:1.333"><img src="images/ruins/dmg-smoke.jpg" alt="Particle study: smoke" /><figcaption>Smoke</figcaption></figure>
-          <figure style="--r:1.333"><img src="images/ruins/dmg-glow.jpg" alt="Particle study: glow" /><figcaption>Glow</figcaption></figure>
-        </div>
-      </div>
-
-      <div class="x-block">
-        <div class="project-intro">
-          <p class="x-label">Visualization &middot; Almond, Paper Tube, Shikumen</p>
-          <p>The same burned shikumen is repaired with three references. Each row follows one style through the pipeline: model in Rhino, growth in Grasshopper, and final visualization on the web.</p>
-        </div>
-        <div class="x-row">
-          <img style="--r:2.362" src="images/ruins/pipeline.jpg" alt="Pipeline for three references: reference, molecule, ruin, zones, skeleton, 50% and 100% growth" />
-        </div>
-        <div class="rr-metrics" role="group" aria-label="Pipeline output per reference style">
-          <div><h4>Points</h4><dl><div><dt>Almond</dt><dd><i style="--w:100%"></i>272,649</dd></div><div><dt>Paper Tube</dt><dd><i style="--w:6.1%"></i>16,542</dd></div><div><dt>Shikumen</dt><dd><i style="--w:41.1%"></i>112,000</dd></div></dl></div>
-          <div><h4>Skeleton length</h4><dl><div><dt>Almond</dt><dd><i style="--w:100%"></i>8,386 m</dd></div><div><dt>Paper Tube</dt><dd><i style="--w:19.5%"></i>1,633 m</dd></div><div><dt>Shikumen</dt><dd><i style="--w:76.5%"></i>6,413 m</dd></div></dl></div>
-          <div><h4>Elements</h4><dl><div><dt>Almond</dt><dd><i style="--w:100%"></i>180,962</dd></div><div><dt>Paper Tube</dt><dd><i style="--w:4.8%"></i>8,770</dd></div><div><dt>Shikumen</dt><dd><i style="--w:34.3%"></i>62,018</dd></div></dl></div>
-          <div><h4>Coverage</h4><dl><div><dt>Almond</dt><dd><i style="--w:99%"></i>99 %</dd></div><div><dt>Paper Tube</dt><dd><i style="--w:91%"></i>91 %</dd></div><div><dt>Shikumen</dt><dd><i style="--w:61%"></i>61 %</dd></div></dl></div>
-        </div>
-      </div>
-
-      <div class="x-block">
-        <p class="x-label">Architectural styles &middot; Growth sequence</p>
-        <div class="x-row">
-          <img style="--r:4.0" src="images/ruins/styles-houses.jpg" alt="The three repaired houses: Almond, Ban and Shikumen" />
-        </div>
-        <div class="x-row">
-          <img style="--r:2.667" src="images/ruins/styles-detail.jpg" alt="Close views: organic gothic, folded tectonic, reconstructed masonry" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.778" src="images/ruins/growth.jpg" alt="Growth sequence: branching structure rising from the broken wall" />
-          <img style="--r:1.0" src="images/ruins/growth-grid.jpg" alt="Growth stages for the three styles" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <div class="project-intro">
-          <p class="x-label">Scene setting &middot; Lilong</p>
-          <p>Different sizes, one pattern. This shared rule lets the system grow from one house to a whole lane. The top row changes where the fire starts; the bottom row changes how the lane is repaired.</p>
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.0" src="images/ruins/var-1.jpg" alt="Lane variation: fire starting at the south end" />
-          <img style="--r:1.0" src="images/ruins/var-2.jpg" alt="Lane variation: fire starting in the middle row" />
-          <img style="--r:1.0" src="images/ruins/var-3.jpg" alt="Lane variation: fire starting at the west houses" />
-          <img style="--r:1.0" src="images/ruins/var-4.jpg" alt="Lane variation: fire spread across two rows" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.0" src="images/ruins/var-5.jpg" alt="Lane repair variation: shell-like growth" />
-          <img style="--r:1.0" src="images/ruins/var-6.jpg" alt="Lane repair variation: ribbed growth" />
-          <img style="--r:1.0" src="images/ruins/var-7.jpg" alt="Lane repair variation: dense branching growth" />
-          <img style="--r:1.0" src="images/ruins/var-8.jpg" alt="Lane repair variation: mixed shell and ribs" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <p class="x-label">Technical process &middot; Tools</p>
-        <div class="rr-tools">
-          <div class="rr-tool">
-            <div><p class="x-label">Rhino + Python</p><p>I built a parametric Shikumen that can be burned and rebuilt, then wrote a Python pipeline (Shapely, NumPy) that grows three grammar skeletons across six burned houses.</p></div>
-            <img src="images/ruins/tool-rhino.jpg" alt="Rhino viewports and Grasshopper sliders for the parametric shikumen" />
-          </div>
-          <div class="rr-tool">
-            <div><p class="x-label">Claude Vision</p><p>I used Claude to read the ruin photo and the reference image, and to output evidence, typology and six grammar parameters as data.</p></div>
-            <img src="images/ruins/tool-claude.jpg" alt="Structured evidence and grammar parameters returned as data" />
-          </div>
-          <div class="rr-tool">
-            <div><p class="x-label">TouchDesigner</p><p>I first tested the growth as point-lines for projection mapping.</p></div>
-            <img src="images/ruins/tool-td.jpg" alt="TouchDesigner network and point-line projection test" />
-          </div>
-          <div class="rr-tool">
-            <div><p class="x-label">Web</p><p>I built an explorable 3D lane in the browser, where the repair grows back as particles and light and can be watched from any viewpoint.</p></div>
-            <img src="images/ruins/tool-web.jpg" alt="Browser code beside the explorable 3D lane" />
-          </div>
-        </div>
-      </div>
-
-      <div class="x-block">
-        <div class="project-intro">
-          <p class="x-label">Experiment &middot; From one house to a lane</p>
-          <p class="rr-flow">Test &rarr; Map &rarr; Sequence &rarr; Frame &rarr; Film</p>
-          <p>Lane testing verifies space, models and camera movement. The results are translated into eight connected stages, each combining data, reconstruction and cinematic direction to form the final storyboard.</p>
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.778" src="images/ruins/lane-test.jpg" alt="Lane testing: the repaired houses inside the 3D lane model" />
-          <img style="--r:1.778" src="images/ruins/web-50.jpg" alt="Web view of the repair at 50% growth" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.778" src="images/ruins/story-01.jpg" alt="Opening screen of the web system over the dark lane" />
-          <img style="--r:1.778" src="images/ruins/story-02.jpg" alt="Upload evidence: damaged building and style reference" />
-          <img style="--r:1.778" src="images/ruins/story-03.jpg" alt="What the fire removed: missing volumes measured in the lane" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.778" src="images/ruins/story-04.jpg" alt="Fire particles burning through the row houses" />
-          <img style="--r:1.778" src="images/ruins/story-05.jpg" alt="Evidence labels over the burned lane" />
-          <img style="--r:1.778" src="images/ruins/story-06.jpg" alt="Damage readings floating above the ruin walls" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.778" src="images/ruins/story-07.jpg" alt="Translucent volumes marking what is missing" />
-          <img style="--r:1.778" src="images/ruins/story-08.jpg" alt="Branching structure growing along the lane" />
-          <img style="--r:1.778" src="images/ruins/story-09.jpg" alt="Tree-like repair rising between the walls" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.778" src="images/ruins/story-10.jpg" alt="Point-line facade of the rebuilt houses" />
-          <img style="--r:1.778" src="images/ruins/story-11.jpg" alt="The reconstructed lane from above" />
-          <img style="--r:1.778" src="images/ruins/story-12.jpg" alt="Reconstructed lane with the result panel" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 03 Process ── -->
+    <!-- ── 02 Process ── -->
     <section class="project-section" id="process" hidden>
       <div class="x-block" style="margin-top:40px">
         <h2 class="x-h">Process</h2>
@@ -242,33 +87,23 @@
           <a href="pdf/ruins-reconstruction.pdf" download><span>Download</span></a>
           <a href="pdf/ruins-reconstruction.pdf" target="_blank" rel="noopener"><span>Open</span></a>
         </div>
-        <section class="pdf-process" aria-labelledby="ruins-research-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="ruins-research-title">Research</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/ruins-research-2.jpg" alt="Background and research spread: shikumen lanes, case studies and first-hand interviews" /><figcaption>Background, case studies and interviews</figcaption></figure>
-            <figure><img src="images/pdf-process/ruins-research-3.jpg" alt="Reconstruction analysis spread: structures, epistemic layers and the AI reconstruction tool" /><figcaption>Structures, epistemic layers and concept</figcaption></figure>
-            <figure><img src="images/pdf-process/ruins-research-4.jpg" alt="Environment spread: visual references and damage visualization" /><figcaption>Fire memory and damage visualization</figcaption></figure>
-          </div>
-        </section>
-        <section class="pdf-process" aria-labelledby="ruins-building-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="ruins-building-title">Building the System</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/ruins-process-5.jpg" alt="Visualization spread: three references through the Rhino, Grasshopper and web pipeline" /><figcaption>Visualization pipeline</figcaption></figure>
-            <figure><img src="images/pdf-process/ruins-process-6.jpg" alt="Scene setting and technical process spread: lilong context, lane variations and tools" /><figcaption>Lilong context and tools</figcaption></figure>
-            <figure><img src="images/pdf-process/ruins-process-7.jpg" alt="Experiment spread: workflow, lane testing and storyboard" /><figcaption>Workflow, lane testing and storyboard</figcaption></figure>
-          </div>
-        </section>
+        <div class="pdf-spreads">
+          <p class="x-label">Research</p>
+          <figure><img src="images/pdf-process/ruins-research-2.jpg" alt="Background and research spread: shikumen lanes, case studies and first-hand interviews" /><figcaption>Background, case studies and interviews</figcaption></figure>
+          <figure><img src="images/pdf-process/ruins-research-3.jpg" alt="Reconstruction analysis spread: structures, epistemic layers and the AI reconstruction tool" /><figcaption>Structures, epistemic layers and concept</figcaption></figure>
+          <figure><img src="images/pdf-process/ruins-research-4.jpg" alt="Environment spread: visual references and damage visualization" /><figcaption>Fire memory and damage visualization</figcaption></figure>
+          <p class="x-label">Process</p>
+          <figure><img src="images/pdf-process/ruins-process-5.jpg" alt="Visualization spread: three references through the Rhino, Grasshopper and web pipeline" /><figcaption>Visualization pipeline</figcaption></figure>
+          <figure><img src="images/pdf-process/ruins-process-6.jpg" alt="Scene setting and technical process spread: lilong context, lane variations and tools" /><figcaption>Lilong context and tools</figcaption></figure>
+          <figure><img src="images/pdf-process/ruins-process-7.jpg" alt="Experiment spread: workflow, lane testing and storyboard" /><figcaption>Workflow, lane testing and storyboard</figcaption></figure>
+        </div>
       </div>
     </section>
   </main>
   <script src="js/liquid.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/sections.js"></script>
+  <script src="js/chapters.js"></script>
   <script src="js/project.js"></script>
   <script src="js/type.js"></script>
 </body>

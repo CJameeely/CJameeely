@@ -1,6 +1,6 @@
 /* Liquid backdrop. Home page: domain-warped noise in Morandi tones (grey-green,
    sand, dusty rose) on black, seen partly through a large glass sphere.
-   <canvas data-palette="green|echo|morandi-flow|ld|ruin"> gives project pages their own flow with no sphere.
+   <canvas data-palette="green|echo|morandi-flow|ld|ruin|sage|sage-home"> gives project pages their own flow with no sphere.
    Falls back to a CSS gradient without WebGL. */
 (function () {
   var canvas = document.getElementById("liquid");
@@ -27,6 +27,7 @@
     "uniform vec3 uC2;",
     "uniform vec3 uC3;",
     "uniform float uSphere;",
+    "uniform float uLight;",
 
     "float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }",
     "float noise(vec2 p) {",
@@ -83,7 +84,9 @@
     "  col *= smoothstep(1.25, 0.25, length(uv - 0.5) * 1.4);",
     "  col += (hash(gl_FragCoord.xy + fract(uTime)) - 0.5) * 0.025;",
     "  col *= 1.0 - 0.35 * uScroll;",
-    "  gl_FragColor = vec4(max(col, 0.0), 1.0);",
+    // Light mode: the same flow inverted, tinted ribbons on a white canvas
+    "  if (uLight > 0.5) col = 1.0 - col;",
+    "  gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);",
     "}"
   ].join("\n");
 
@@ -132,13 +135,18 @@
     ld:      { c1: [0.400, 0.460, 0.540], c2: [0.600, 0.530, 0.600], c3: [0.600, 0.560, 0.470], sphere: 0 },
     echo:    { c1: [0.024, 0.042, 0.140], c2: [0.040, 0.160, 0.215], c3: [0.130, 0.042, 0.185], sphere: 0 },
     // Interactive Reconstruction of Ruins: night navy and blueprint steel
-    ruin:    { c1: [0.020, 0.045, 0.100], c2: [0.090, 0.150, 0.240], c3: [0.045, 0.075, 0.140], sphere: 0 }
+    ruin:    { c1: [0.020, 0.045, 0.100], c2: [0.090, 0.150, 0.240], c3: [0.045, 0.075, 0.140], sphere: 0 },
+    // Light theme (theme.css): values are what each ribbon takes away from white,
+    // leaving pale sage, liquid silver and deep olive (#778643) ribbons
+    sage:      { c1: [0.224, 0.200, 0.310], c2: [0.180, 0.174, 0.168], c3: [0.320, 0.285, 0.442], sphere: 0, light: 1 },
+    "sage-home": { c1: [0.224, 0.200, 0.310], c2: [0.180, 0.174, 0.168], c3: [0.320, 0.285, 0.442], sphere: 1, light: 1 }
   };
   var pal = palettes[canvas.getAttribute("data-palette")] || palettes.morandi;
   gl.uniform3fv(gl.getUniformLocation(prog, "uC1"), pal.c1);
   gl.uniform3fv(gl.getUniformLocation(prog, "uC2"), pal.c2);
   gl.uniform3fv(gl.getUniformLocation(prog, "uC3"), pal.c3);
   gl.uniform1f(gl.getUniformLocation(prog, "uSphere"), pal.sphere);
+  gl.uniform1f(gl.getUniformLocation(prog, "uLight"), pal.light ? 1 : 0);
 
   // The fluid is soft by nature, so render below native resolution
   var SCALE = 0.5;

@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="project.css" />
+  <link rel="stylesheet" href="theme.css" />
 </head>
 <body class="project echo">
   <canvas id="liquid" data-palette="echo" aria-hidden="true"></canvas>
@@ -19,7 +20,6 @@
         <a href="unit-1.html" class="active">Echo Maze</a>
         <ul class="nav-sub">
           <li><a href="#work">Work</a></li>
-          <li><a href="#details">Details</a></li>
           <li><a href="#process">Process</a></li>
         </ul>
       </li>
@@ -56,67 +56,18 @@
         <div class="x-video">
           <iframe src="https://www.youtube-nocookie.com/embed/JaoxVfrFcCE?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=JaoxVfrFcCE&amp;playsinline=1&amp;rel=0" title="Echo Maze — final outcome video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
         </div>
-        <div class="project-intro">
-          <p class="x-label">Kinetic light installation &middot; Mirror maze</p>
-          <p>Echo Maze uses moving marbles, mirrored walls, and shifting light to explore a simple question: does AI understand emotion, or only reflect it back to us?</p>
+        <div class="lay-chapter">
+          <div><p class="x-label">Kinetic light installation &middot; Mirror maze</p></div>
+          <p class="lay-statement">Does AI understand emotion, or only reflect it back to us?</p>
         </div>
-        <div class="x-row keep em-final-row">
-          <img style="--r:0.751" src="images/echo-maze/final-room.jpg" alt="Echo Maze glowing cyan with violet light cast on the wall behind" />
-          <img style="--r:1.332" src="images/echo-maze/final-maze.jpg" alt="Close view of the lit mirror walls and marbles inside the maze" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 02 Details ── -->
-    <section class="project-section" id="details" hidden>
-      <div class="x-block em-anatomy" style="margin-top:40px">
-        <figure class="em-pins">
-          <img src="images/echo-maze/exp2-structure.jpg" alt="The maze on its stand: acrylic cover over mirror walls, tilting plane and actuators below" />
-          <button type="button" class="em-pin" style="--x:52%;--y:16%" data-for="pin-cover" aria-label="Acrylic cover"><span>1</span></button>
-          <button type="button" class="em-pin" style="--x:30%;--y:46%" data-for="pin-maze" aria-label="Mirror maze"><span>2</span></button>
-          <button type="button" class="em-pin" style="--x:40%;--y:76%" data-for="pin-plane" aria-label="Motor-controlled tilting plane"><span>3</span></button>
-        </figure>
-        <div>
-          <div class="project-intro">
-          <p class="x-label">Interaction &middot; Unstable meaning</p>
-          <p>Two actuators tilt the maze at random, so glass marbles and metal spheres roll between the mirror walls and cut through the light. The reflections never settle: meaning shifts each time the context moves, the way it does in a conversation with AI.</p>
-        </div>
-          <ol class="em-legend">
-            <li id="pin-cover"><span class="num-ring">1</span>Acrylic cover</li>
-            <li id="pin-maze"><span class="num-ring">2</span>Mirror maze</li>
-            <li id="pin-plane"><span class="num-ring">3</span>Motor-controlled tilting plane</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="x-block">
-        <div class="project-intro">
-          <p class="x-label">Technique &middot; Light calibration</p>
-          <p>Every wall is two laser-cut mirrored acrylic panels bonded back to back, so light reflects from both sides. Six RGB light paths were traced by hand with a laser pointer, and a third actuator was removed after testing showed it blocked the incoming beam.</p>
-        </div>
-        <div class="x-row keep">
-          <img style="--r:0.75" src="images/echo-maze/exp2-green.jpg" alt="Green laser light caught between mirror walls" />
-          <img style="--r:0.75" src="images/echo-maze/exp2-circuit.jpg" alt="Motor driver boards and wiring under the maze" />
-          <img style="--r:0.75" src="images/echo-maze/exp2-lit.jpg" alt="Assembled maze lit blue and violet on the workbench" />
-          <img style="--r:0.75" src="images/echo-maze/exp2-cover.jpg" alt="Protective film peeled from the acrylic cover" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.54" src="images/echo-maze/exp2-sketch-3d.jpg" alt="3D sketch of the maze box with an RGB laser bar" />
-          <img style="--r:0.95" src="images/echo-maze/exp2-sketch-top.jpg" alt="Top view of the maze layout with balls" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <p class="x-label">Earlier study &middot; The Emotional-Rational Light Project</p>
-        <div class="x-row keep">
-          <img style="--r:0.75" src="images/echo-maze/exp1-outcome.jpg" alt="The finished light sculpture glowing blue in a dark room" />
-          <img style="--r:1.075" src="images/echo-maze/exp1-elements.jpg" alt="Translucent cloud-net form floating in warm light" />
-          <img style="--r:0.75" src="images/echo-maze/exp1-proc-warm.jpg" alt="Form glowing warm orange on the workbench" />
+        <div class="lay-offset" style="--a:1fr;--b:1.4fr">
+          <div><img src="images/echo-maze/final-room.jpg" alt="Echo Maze glowing cyan with violet light cast on the wall behind" /></div>
+          <div><img src="images/echo-maze/final-maze.jpg" alt="Close view of the lit mirror walls and marbles inside the maze" /></div>
         </div>
       </div>
     </section>
 
-    <!-- ── 03 Process ── -->
+    <!-- ── 02 Process ── -->
     <section class="project-section" id="process" hidden>
       <div class="x-block" style="margin-top:40px">
         <h2 class="x-h">Process</h2>
@@ -125,31 +76,21 @@
           <a href="pdf/echo-maze.pdf" download><span>Download</span></a>
           <a href="pdf/echo-maze.pdf" target="_blank" rel="noopener"><span>Open</span></a>
         </div>
-        <section class="pdf-process" aria-labelledby="echo-research-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="echo-research-title">Research</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/echo-research-2.jpg" alt="Echo Maze research spread about AI empathy and emotional projection" /><figcaption>AI empathy and emotional projection</figcaption></figure>
-            <figure><img src="images/pdf-process/echo-research-3.jpg" alt="Echo Maze research spread about ethics and artistic references" /><figcaption>Ethics and artistic references</figcaption></figure>
-          </div>
-        </section>
-        <section class="pdf-process" aria-labelledby="echo-building-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="echo-building-title">Building Echo Maze</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/echo-process-4.jpg" alt="Echo Maze PDF spread showing the first light and material experiment" /><figcaption>Light and material study</figcaption></figure>
-            <figure><img src="images/pdf-process/echo-process-5.jpg" alt="Echo Maze PDF spread showing mirror maze construction and calibration" /><figcaption>Maze construction and calibration</figcaption></figure>
-          </div>
-        </section>
+        <div class="pdf-spreads">
+          <p class="x-label">Research</p>
+          <figure><img src="images/pdf-process/echo-research-2.jpg" alt="Echo Maze research spread about AI empathy and emotional projection" /><figcaption>AI empathy and emotional projection</figcaption></figure>
+          <figure><img src="images/pdf-process/echo-research-3.jpg" alt="Echo Maze research spread about ethics and artistic references" /><figcaption>Ethics and artistic references</figcaption></figure>
+          <p class="x-label">Process</p>
+          <figure><img src="images/pdf-process/echo-process-4.jpg" alt="Echo Maze PDF spread showing the first light and material experiment" /><figcaption>Light and material study</figcaption></figure>
+          <figure><img src="images/pdf-process/echo-process-5.jpg" alt="Echo Maze PDF spread showing mirror maze construction and calibration" /><figcaption>Maze construction and calibration</figcaption></figure>
+        </div>
       </div>
     </section>
   </main>
   <script src="js/liquid.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/sections.js"></script>
+  <script src="js/chapters.js"></script>
   <script src="js/project.js"></script>
   <script src="js/type.js"></script>
 </body>

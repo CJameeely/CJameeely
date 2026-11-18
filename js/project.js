@@ -8,6 +8,7 @@
     ".x-p", ".x-sub", ".x-label", ".x-question", ".x-quote", ".x-side-note",
     ".x-box", ".x-card", ".x-point", ".x-artist", ".x-iter-row", ".x-callouts li",
     ".x-views figure", ".x-mats figure", ".x-tester", ".x-pager",
+    ".lay-num", ".lay-statement", ".lay-text > p", ".lay-cap > p",
     ".project-section img:not(.x-hero img):not(.x-tester img)"
   ].join(",");
 

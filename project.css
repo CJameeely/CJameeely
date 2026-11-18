@@ -1622,3 +1622,275 @@ body.ruin {
   .rr-metrics { grid-template-columns: 1fr 1fr; }
   .rr-tool { grid-template-columns: 1fr; gap: 14px; }
 }
+
+/* ── Phones ── */
+@media (max-width: 600px) {
+  /* Long titles (e.g. RECONSTRUCTION) must fit the column word by word */
+  .x-h { font-size: clamp(30px, 9vw, 46px); line-height: 0.88; margin-bottom: 30px; }
+  .x-h.sm { font-size: clamp(24px, 7vw, 34px); }
+  .project-intro { padding-left: 14px; }
+  .project-intro > p:last-child { font-size: 17px; }
+  /* Rows of four or more break into pairs so images stay legible */
+  .x-row:has(> :nth-child(4)) { flex-wrap: wrap; row-gap: 6px; }
+  .x-row:has(> :nth-child(4)) > * { flex: 0 0 calc(50% - 3px); }
+  .x-block { margin-bottom: 80px; }
+  .rr-metrics { grid-template-columns: 1fr; }
+  .rr-links { margin-top: -12px; }
+}
+
+/* ══ Editorial layouts ═══════════════ */
+/* Text and images set side by side, offset and staggered instead of one
+   stacked column. Every layout folds to a single column on phones. */
+.lay { margin-bottom: clamp(88px, 11vw, 160px); }
+.lay > * + * { margin-top: clamp(28px, 3.5vw, 48px); }
+.lay img { width: 100%; height: auto; display: block; }
+
+.lay-num {
+  display: block;
+  font-size: clamp(44px, 4.6vw, 68px);
+  font-weight: 300;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: var(--g);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 22px;
+}
+
+/* Split: media beside its text; .rev puts the text on the left */
+.lay-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(240px, 1fr);
+  gap: clamp(32px, 4.5vw, 76px);
+  align-items: start;
+}
+.lay-split.rev { grid-template-columns: minmax(240px, 1fr) minmax(0, 1.55fr); }
+.lay-text { position: sticky; top: 56px; padding-top: 6px; }
+.lay-text .x-label { color: var(--g); }
+.lay-text p:not(.x-label):not(.rr-flow) {
+  color: var(--text);
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.5;
+}
+.lay-media { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.lay-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* Chapter: label on a narrow column, the sentence set large beside it */
+.lay-chapter {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.4fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.lay-chapter .x-label { color: var(--g); }
+.lay-statement {
+  max-width: 27em;
+  font-size: clamp(21px, 2.1vw, 31px);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+#work .lay-chapter { margin: 0 0 clamp(38px, 5vw, 68px); }
+
+/* Margin: a caption column that holds still while the content scrolls */
+.lay-margin {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.3fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+.lay-cap { position: sticky; top: 56px; }
+.lay-cap .x-label { color: var(--g); }
+.lay-cap p:not(.x-label) { font-size: 14px; line-height: 1.5; color: var(--dim); }
+.lay-body { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+
+/* Offset: two columns, the second dropped lower */
+.lay-offset {
+  display: grid;
+  grid-template-columns: minmax(0, var(--a, 1.3fr)) minmax(0, var(--b, 1fr));
+  gap: clamp(14px, 2vw, 28px);
+  align-items: start;
+}
+.lay-offset > * { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.lay-offset > :nth-child(2) { padding-top: var(--drop, clamp(48px, 9vw, 140px)); }
+.lay-offset .x-label { color: var(--g); margin-bottom: 4px; }
+
+/* Stagger: a checkered grid, alternate pieces sitting lower */
+.lay-stagger {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 28px clamp(12px, 1.6vw, 22px);
+  align-items: start;
+  padding-bottom: 56px;
+}
+.lay-stagger > figure { margin: 0; }
+.lay-stagger > :nth-child(even) { transform: translateY(56px); }
+.lay-stagger figcaption {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.lay-stagger figcaption b { font-weight: 400; color: var(--g); }
+
+@media (max-width: 1024px) {
+  .lay-text, .lay-cap { top: 84px; }
+}
+
+@media (max-width: 800px) {
+  .lay-split,
+  .lay-split.rev,
+  .lay-chapter,
+  .lay-margin { grid-template-columns: 1fr; }
+  .lay-split > .lay-text { order: -1; }
+  .lay-text, .lay-cap { position: static; }
+  .lay-stagger { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-bottom: 32px; }
+  .lay-stagger > :nth-child(even) { transform: translateY(32px); }
+  .lay-num { margin-bottom: 14px; }
+}
+
+@media (max-width: 600px) {
+  .lay-offset { grid-template-columns: 1fr; }
+  .lay-offset > :nth-child(2) { padding-top: 0; }
+  .lay-statement { font-size: 20px; }
+}
+
+/* ── Borrowed moves: inset photo, hairline pause, chapter index, scroll rail ── */
+/* A short rule opens each statement, a typographic pause before the words */
+.lay-statement::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  margin-right: 16px;
+  vertical-align: 0.32em;
+  background: var(--g);
+}
+
+/* Chapter index: numbered row at the top of a section (js/chapters.js) */
+.lay-index {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 0 clamp(16px, 3vw, 48px);
+  margin: 0 0 clamp(56px, 7vw, 96px);
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.lay-index a {
+  display: block;
+  padding: 14px 0 16px;
+  border-top: 1px solid transparent;
+  margin-top: -1px;
+  text-decoration: none;
+  color: var(--dim);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.lay-index b {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--g);
+}
+.lay-index span {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+.lay-index a:hover,
+.lay-index a.on { color: #fff; border-top-color: var(--g); }
+
+/* Scroll rail: vertical SCROLL label, a line that fills, chapter ticks */
+.x-rail {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.x-rail-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.x-rail-line { position: relative; width: 1px; height: 120px; background: var(--line); }
+.x-rail-line i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--g);
+  transform-origin: top;
+  transform: scaleY(var(--p, 0));
+}
+.x-rail ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; pointer-events: auto; }
+.x-rail a {
+  position: relative;
+  display: block;
+  padding: 3px 0;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--dim);
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur) var(--ease);
+}
+.x-rail a span {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  white-space: nowrap;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transform: translate(6px, -50%);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  pointer-events: none;
+}
+.x-rail a:hover span { opacity: 1; transform: translate(0, -50%); }
+.x-rail a:hover,
+.x-rail a.on { color: var(--g); }
+
+/* Ghost pills point onward */
+.x-videolink a span::after { content: " \2192"; }
+.x-videolink a[download] span::after { content: " \2193"; }
+
+@media (max-width: 1024px) {
+  .x-rail { display: none; }
+}
+@media (max-width: 600px) {
+  .lay-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lay-statement::before { width: 24px; margin-right: 10px; }
+}
+
+/* Process: the research spreads, each at full width; tap to open */
+#process .x-h { margin-bottom: 24px; }
+.pdf-spreads { display: grid; gap: clamp(28px, 4vw, 56px); margin-top: 40px; }
+.pdf-spreads figure { margin: 0; }
+.pdf-spreads img { width: 100%; height: auto; border: 1px solid var(--line); }
+.pdf-spreads figcaption {
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.pdf-spreads > .x-label { color: var(--g); margin: clamp(24px, 4vw, 48px) 0 -8px; padding-top: 18px; border-top: 1px solid var(--line); }
+.pdf-spreads > .x-label:first-child { margin-top: 0; }

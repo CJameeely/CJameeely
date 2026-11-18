@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="project.css" />
+  <link rel="stylesheet" href="theme.css" />
 </head>
 <body class="project ld">
   <canvas id="liquid" data-palette="ld" aria-hidden="true"></canvas>
@@ -21,7 +22,6 @@
         <a href="language-distortion.html" class="active">Language Distortion</a>
         <ul class="nav-sub">
           <li><a href="#work">Work</a></li>
-          <li><a href="#details">Details</a></li>
           <li><a href="#process">Process</a></li>
         </ul>
       </li>
@@ -69,15 +69,15 @@
         <div class="x-video">
           <iframe src="https://www.youtube-nocookie.com/embed/bmINlqwPnbw?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=bmINlqwPnbw&amp;playsinline=1&amp;rel=0" title="Language Distortion — final outcome video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
         </div>
-        <div class="project-intro">
-          <p class="x-label">Responsive installation &middot; Robotic plants</p>
-          <p>Language Distortion translates facial expression, voice, and posture into plant-like movement, exploring how understanding can happen before or beyond words.</p>
+        <div class="lay-chapter">
+          <div><p class="x-label">Responsive installation &middot; Robotic plants</p></div>
+          <p class="lay-statement">Understanding that happens before or beyond words.</p>
         </div>
-        <div class="x-row keep">
-          <img style="--r:0.562" src="images/language-distortion/final-tall.jpg" alt="The installation in its tower frame beside a laptop on a plinth" />
-          <img style="--r:1.78" src="images/language-distortion/final-wide.jpg" alt="Wide view of the installation against a bare wall" />
+        <div class="lay-offset" style="--a:0.85fr;--b:1.6fr">
+          <div><img src="images/language-distortion/final-tall.jpg" alt="The installation in its tower frame beside a laptop on a plinth" /></div>
+          <div><img src="images/language-distortion/final-wide.jpg" alt="Wide view of the installation against a bare wall" /></div>
         </div>
-        <div class="x-row">
+        <div class="x-row" style="margin-top:12px">
           <img style="--r:1.78" src="images/language-distortion/final-1.jpg" alt="Close-up of the mechanical flower inside the frame" />
           <img style="--r:1.78" src="images/language-distortion/final-2.jpg" alt="Inflated succulent leaf and willow tentacle" />
           <img style="--r:1.78" src="images/language-distortion/final-3.jpg" alt="Willow tentacle with orange-tipped mesh petals" />
@@ -85,74 +85,7 @@
       </div>
     </section>
 
-    <!-- ── 02 Details ── -->
-    <section class="project-section" id="details" hidden>
-      <div class="x-block" style="margin-top:40px">
-        <div class="project-intro">
-          <p class="x-label">Interaction &middot; Three plants, three channels</p>
-          <p>Each plant reads one channel of the visitor and ignores the words. The flower opens and closes with facial expression, the succulent inflates and collapses with the emotion in the voice, and the willow bends with posture.</p>
-        </div>
-        <div class="x-row">
-          <img style="--r:1.5" src="images/language-distortion/concept-render.jpg" alt="Concept render: succulent, flower and willow forms growing from one stone base" />
-        </div>
-        <div class="x-row">
-          <img style="--r:1.773" src="images/language-distortion/sketch-trio.jpg" alt="Sketches: 01 succulents, 02 breathing plants, 03 willow-leaf plants" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <p class="x-label">01 &middot; Mechanical flower</p>
-        <div class="x-row keep">
-          <img style="--r:0.749" src="images/language-distortion/proc-flower.jpg" alt="Mechanical flower with mesh-tube petals" />
-          <img style="--r:0.75" src="images/language-distortion/proc-flower-2.jpg" alt="Close-up of a mesh petal on its servo arm" />
-          <img style="--r:0.562" src="images/language-distortion/proc-flower-3.jpg" alt="Servo wiring on the workbench" />
-        </div>
-      </div>
-      <div class="x-block">
-        <p class="x-label">02 &middot; Succulent</p>
-        <div class="x-row keep">
-          <img style="--r:0.562" src="images/language-distortion/proc-succ-1.jpg" alt="Petal outline drawn for the succulent mold" />
-          <img style="--r:1.779" src="images/language-distortion/proc-succ-2.jpg" alt="Resting-shape petal mockup" />
-          <img style="--r:0.562" src="images/language-distortion/proc-succ-3.jpg" alt="Breadboard circuit for pump and solenoid valve" />
-        </div>
-      </div>
-      <div class="x-block">
-        <p class="x-label">03 &middot; Willow branch</p>
-        <div class="x-row keep">
-          <img style="--r:1.779" src="images/language-distortion/proc-willow-1.jpg" alt="Printed tentacle prototype beside a laptop" />
-          <img style="--r:0.562" src="images/language-distortion/proc-willow-2.jpg" alt="Stepper driver wiring" />
-          <img style="--r:1.779" src="images/language-distortion/proc-willow-3.jpg" alt="Stepper motor housing for the tentacle" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <div class="project-intro">
-          <p class="x-label">Technique &middot; Emotion as position, not label</p>
-          <p>Face landmarks, body pose and voice are analysed live in the browser and placed in a continuous valence&ndash;arousal space instead of being sorted into words. Three Arduinos receive that reading over serial and turn it into servo, air-pump and motor movement.</p>
-        </div>
-        <div class="x-row">
-          <img style="--r:1.942" src="images/language-distortion/struct-parts.jpg" alt="3D-printed joints and servo mounts" />
-          <img style="--r:2.125" src="images/language-distortion/struct-skeleton.jpg" alt="First assembled prototype with radiating arms" />
-        </div>
-        <div class="x-row">
-          <img style="--r:0.562" src="images/language-distortion/struct-pla.jpg" alt="PLA tentacle joint prototypes in several sizes" />
-          <img style="--r:0.562" src="images/language-distortion/struct-petal.jpg" alt="Cast petal chamber in TPU and silicone" />
-          <img style="--r:1.779" src="images/language-distortion/struct-succulent.jpg" alt="Succulent leaf structure with tubing" />
-        </div>
-        <div class="x-row">
-          <img style="--r:0.562" src="images/language-distortion/proto-rods.jpg" alt="Aluminum rods and brackets laid out" />
-          <img style="--r:0.562" src="images/language-distortion/proto-joints.jpg" alt="Printed corner joints" />
-          <img style="--r:1.779" src="images/language-distortion/proto-frame.jpg" alt="Frame assembled on a workshop table" />
-        </div>
-        <div class="x-row">
-          <img style="--r:1.779" src="images/language-distortion/proto-flower.jpg" alt="Flower mounted inside the frame" />
-          <img style="--r:1.777" src="images/language-distortion/proto-laptop.jpg" alt="Laptop running the sensing software beside the frame" />
-          <img style="--r:1.779" src="images/language-distortion/proto-base.jpg" alt="Acrylic base plate with cut-outs" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 03 Process ── -->
+    <!-- ── 02 Process ── -->
     <section class="project-section" id="process" hidden>
       <div class="x-block" style="margin-top:40px">
         <h2 class="x-h">Process</h2>
@@ -161,31 +94,21 @@
           <a href="pdf/language-distortion.pdf" download><span>Download</span></a>
           <a href="pdf/language-distortion.pdf" target="_blank" rel="noopener"><span>Open</span></a>
         </div>
-        <section class="pdf-process" aria-labelledby="language-research-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="language-research-title">Research</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/language-research-2.jpg" alt="Language Distortion research spread about post-verbal communication and artistic references" /><figcaption>Communication and artistic references</figcaption></figure>
-            <figure><img src="images/pdf-process/language-research-3.jpg" alt="Language Distortion research spread about plant behavior and concept development" /><figcaption>Plant behavior and concept development</figcaption></figure>
-          </div>
-        </section>
-        <section class="pdf-process" aria-labelledby="language-building-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="language-building-title">Building Language Distortion</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/language-process-4.jpg" alt="Language Distortion PDF spread showing structure, materials, and system architecture" /><figcaption>Structure, materials, and system</figcaption></figure>
-            <figure><img src="images/pdf-process/language-process-5.jpg" alt="Language Distortion PDF spread showing mechanisms and prototype assembly" /><figcaption>Mechanisms and prototype assembly</figcaption></figure>
-          </div>
-        </section>
+        <div class="pdf-spreads">
+          <p class="x-label">Research</p>
+          <figure><img src="images/pdf-process/language-research-2.jpg" alt="Language Distortion research spread about post-verbal communication and artistic references" /><figcaption>Communication and artistic references</figcaption></figure>
+          <figure><img src="images/pdf-process/language-research-3.jpg" alt="Language Distortion research spread about plant behavior and concept development" /><figcaption>Plant behavior and concept development</figcaption></figure>
+          <p class="x-label">Process</p>
+          <figure><img src="images/pdf-process/language-process-4.jpg" alt="Language Distortion PDF spread showing structure, materials, and system architecture" /><figcaption>Structure, materials, and system</figcaption></figure>
+          <figure><img src="images/pdf-process/language-process-5.jpg" alt="Language Distortion PDF spread showing mechanisms and prototype assembly" /><figcaption>Mechanisms and prototype assembly</figcaption></figure>
+        </div>
       </div>
     </section>
   </main>
   <script src="js/liquid.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/sections.js"></script>
+  <script src="js/chapters.js"></script>
   <script src="js/project.js"></script>
   <script src="js/type.js"></script>
 </body>

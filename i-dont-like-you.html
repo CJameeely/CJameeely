@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="images/pfavico.ico" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="project.css" />
+  <link rel="stylesheet" href="theme.css" />
 </head>
 <body class="project idly">
   <canvas id="liquid" data-palette="green" aria-hidden="true"></canvas>
@@ -78,9 +79,9 @@
         <div class="x-video">
           <iframe src="https://www.youtube-nocookie.com/embed/yZfDLP95ygk?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=yZfDLP95ygk&amp;playsinline=1&amp;rel=0" title="I don't like you — final outcome video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
         </div>
-        <div class="project-intro">
-          <p class="x-label">Interactive installation &middot; Computer vision</p>
-          <p>I don&rsquo;t like you turns the photo booth into a machine that fragments the visitor&rsquo;s face, mixes it with strangers, and asks them to rebuild an unstable image of themselves.</p>
+        <div class="lay-chapter">
+          <div><p class="x-label">Interactive installation &middot; Computer vision</p></div>
+          <p class="lay-statement">A photo booth that fragments your face and asks you to rebuild it.</p>
         </div>
         <div class="x-outcome">
           <div class="stack">
@@ -95,63 +96,46 @@
 
     <!-- ── 02 Details ── -->
     <section class="project-section" id="details" hidden>
-      <div class="x-block" style="margin-top:40px">
-        <div class="project-intro">
-          <p class="x-label">Interaction &middot; Seven states</p>
-          <p>The visitor never presses start: the booth begins on its own when it detects a face. It captures eyes, nose and mouth one at a time, releases them into a pool of strangers&rsquo; fragments, and prints whatever face the visitor reassembles.</p>
+      <div class="lay" style="margin-top:40px">
+        <div class="lay-chapter">
+          <div><span class="lay-num">01</span><p class="x-label">Interaction &middot; Seven states</p></div>
+          <p class="lay-statement">The visitor never presses start: the booth begins on its own when it detects a face.</p>
         </div>
-        <div class="x-row keep">
-          <figure style="--r:0.841"><img src="images/i-dont-like-you/flow-idle.jpg" alt="Floating pool of face fragments" /><figcaption>1 &middot; Idle</figcaption></figure>
-          <figure style="--r:0.696"><img src="images/i-dont-like-you/flow-eyes.jpg" alt="Face with eyes framed by a capture box" /><figcaption>2 &middot; Eyes</figcaption></figure>
-          <figure style="--r:0.666"><img src="images/i-dont-like-you/flow-nose.jpg" alt="Nose framed by a capture box" /><figcaption>3 &middot; Nose</figcaption></figure>
-          <figure style="--r:0.662"><img src="images/i-dont-like-you/flow-mouth.jpg" alt="Mouth framed by a capture box" /><figcaption>4 &middot; Mouth</figcaption></figure>
-        </div>
-        <div class="x-row keep">
-          <figure style="--r:1.22"><img src="images/i-dont-like-you/flow-float.jpg" alt="Your fragments drifting among strangers'" /><figcaption>5 &middot; Float</figcaption></figure>
-          <figure style="--r:1.708"><img src="images/i-dont-like-you/flow-reassemble.jpg" alt="Three chosen fragments assembled into a head outline" /><figcaption>6 &middot; Reassemble</figcaption></figure>
-          <figure style="--r:1.3"><img src="images/i-dont-like-you/flow-printing.jpg" alt="Printed assembled face emerging from the printer slot" /><figcaption>7 &middot; Printing</figcaption></figure>
+        <div class="lay-stagger" style="--cols:4">
+            <figure><img src="images/i-dont-like-you/flow-idle.jpg" alt="Floating pool of face fragments" /><figcaption><b>1</b>Idle</figcaption></figure>
+            <figure><img src="images/i-dont-like-you/flow-eyes.jpg" alt="Face with eyes framed by a capture box" /><figcaption><b>2</b>Eyes</figcaption></figure>
+            <figure><img src="images/i-dont-like-you/flow-nose.jpg" alt="Nose framed by a capture box" /><figcaption><b>3</b>Nose</figcaption></figure>
+            <figure><img src="images/i-dont-like-you/flow-mouth.jpg" alt="Mouth framed by a capture box" /><figcaption><b>4</b>Mouth</figcaption></figure>
+            <figure><img src="images/i-dont-like-you/flow-float.jpg" alt="Your fragments drifting among strangers'" /><figcaption><b>5</b>Float</figcaption></figure>
+            <figure><img src="images/i-dont-like-you/flow-reassemble.jpg" alt="Three chosen fragments assembled into a head outline" /><figcaption><b>6</b>Reassemble</figcaption></figure>
+            <figure><img src="images/i-dont-like-you/flow-printing.jpg" alt="Printed assembled face emerging from the printer slot" /><figcaption><b>7</b>Printing</figcaption></figure>
         </div>
       </div>
 
-      <div class="x-block">
-        <div class="project-intro">
-          <p class="x-label">Technique &middot; Real-time face tracking</p>
-          <p>Face and hand tracking cut features out of the live camera feed and let gestures move them, so the visitor&rsquo;s own face becomes material inside the loop. The system was prototyped in TouchDesigner, then rebuilt as a browser stack (MediaPipe, PixiJS, Node.js) that drives the projection and the thermal printer.</p>
-        </div>
-        <div class="x-frags">
-          <img src="images/i-dont-like-you/frag-ear-l.jpg" alt="" />
-          <img src="images/i-dont-like-you/frag-eye.jpg" alt="Eye fragment" />
-          <img src="images/i-dont-like-you/frag-nose.jpg" alt="Nose fragment" />
-          <img src="images/i-dont-like-you/frag-lips.jpg" alt="Lips fragment" />
-          <img src="images/i-dont-like-you/frag-ear-r.jpg" alt="" />
-        </div>
-        <div class="x-row">
-          <img style="--r:2.174" src="images/i-dont-like-you/td-screens.jpg" alt="TouchDesigner screens of fragmented faces, and the artist testing with hand tracking" />
-        </div>
-        <div class="x-row keep">
-          <img style="--r:1.23" src="images/i-dont-like-you/td-grid.jpg" alt="TouchDesigner network of cropped eye and face operators" />
-          <img style="--r:1.611" src="images/i-dont-like-you/td-face.jpg" alt="Live reconstruction of a face from fragments in TouchDesigner" />
-        </div>
-      </div>
-
-      <div class="x-block">
-        <p class="x-label">Booth &middot; Aluminum frame, gauze, stretch fabric, mirror lenses</p>
-        <div class="x-views">
-          <figure><figcaption>Front View</figcaption><img src="images/i-dont-like-you/view-front.jpg" alt="Front view render" /></figure>
-          <figure><figcaption>Fabric &amp; Mirror Detail</figcaption><img src="images/i-dont-like-you/view-fabric.jpg" alt="Gauze and mirror lens detail" /></figure>
-          <figure><figcaption>External Unit</figcaption><img src="images/i-dont-like-you/view-external.jpg" alt="External printer cabinet" /></figure>
-          <figure><figcaption>Projection Axis</figcaption><img src="images/i-dont-like-you/view-projection.jpg" alt="Projection cone from the top projector" /></figure>
-        </div>
-        <div class="x-row">
-          <img style="--r:1.0" src="images/i-dont-like-you/build-1.jpg" alt="Materials on the workbench: gauze, mirror lenses, fabric" />
-          <img style="--r:0.75" src="images/i-dont-like-you/build-2.jpg" alt="Gauze draped over the frame with a mirror lens" />
-          <img style="--r:1.54" src="images/i-dont-like-you/build-3.jpg" alt="Screen test with face fragments" />
-          <img style="--r:0.562" src="images/i-dont-like-you/build-7.jpg" alt="Thermal printer outputting a receipt" />
-        </div>
-        <div class="x-row">
-          <img style="--r:1.778" src="images/i-dont-like-you/build-4.jpg" alt="Inside the frame, looking up through gauze" />
-          <img style="--r:0.811" src="images/i-dont-like-you/build-5.jpg" alt="Screen reading &lsquo;Light is editing you&rsquo; with eye fragments" />
-          <img style="--r:0.75" src="images/i-dont-like-you/build-6.jpg" alt="Frame with stretched fabric in the studio" />
+      <div class="lay">
+        <div class="lay-margin">
+          <div class="lay-cap">
+            <span class="lay-num">02</span>
+            <p class="x-label">Booth</p>
+            <p>Aluminum frame, gauze, stretch fabric, mirror lenses</p>
+          </div>
+          <div class="lay-body">
+            <div class="lay-offset" style="--a:1fr;--b:1fr;--drop:72px">
+              <div>
+                <img src="images/i-dont-like-you/build-1.jpg" alt="Materials on the workbench: gauze, mirror lenses, fabric" />
+                <img src="images/i-dont-like-you/build-3.jpg" alt="Screen test with face fragments" />
+                <img src="images/i-dont-like-you/build-4.jpg" alt="Inside the frame, looking up through gauze" />
+              </div>
+              <div>
+                <img src="images/i-dont-like-you/build-2.jpg" alt="Gauze draped over the frame with a mirror lens" />
+                <img src="images/i-dont-like-you/build-5.jpg" alt="Screen reading &lsquo;Light is editing you&rsquo; with eye fragments" />
+              </div>
+            </div>
+            <div class="x-row">
+              <img style="--r:0.75" src="images/i-dont-like-you/build-6.jpg" alt="Frame with stretched fabric in the studio" />
+              <img style="--r:0.562" src="images/i-dont-like-you/build-7.jpg" alt="Thermal printer outputting a receipt" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -165,31 +149,20 @@
           <a href="pdf/i-dont-like-you.pdf" download><span>Download</span></a>
           <a href="pdf/i-dont-like-you.pdf" target="_blank" rel="noopener"><span>Open</span></a>
         </div>
-        <section class="pdf-process" aria-labelledby="idly-research-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="idly-research-title">Research</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/idly-research-2.jpg" alt="Project research spread about mirrored images, social gaze, and self-recognition" /><figcaption>Social gaze and self-recognition</figcaption></figure>
-            <figure><img src="images/pdf-process/idly-research-3.jpg" alt="Project artistic research and concept development spread" /><figcaption>Artistic research and concept</figcaption></figure>
-          </div>
-        </section>
-        <section class="pdf-process" aria-labelledby="idly-building-title">
-          <header class="pdf-process-head">
-            <p class="x-label">Selected spreads</p>
-            <h3 class="x-h sm" id="idly-building-title">Building the Booth</h3>
-          </header>
-          <div class="pdf-process-pages">
-            <figure><img src="images/pdf-process/idly-process-4.jpg" alt="Project PDF spread showing the real-time system and booth structure" /><figcaption>System and booth design</figcaption></figure>
-            <figure><img src="images/pdf-process/idly-process-5.jpg" alt="Project PDF spread showing booth building and interaction flow" /><figcaption>Assembly and interaction testing</figcaption></figure>
-          </div>
-        </section>
+        <div class="pdf-spreads">
+          <p class="x-label">Research</p>
+          <figure><img src="images/pdf-process/idly-research-2.jpg" alt="Project research spread about mirrored images, social gaze, and self-recognition" /><figcaption>Social gaze and self-recognition</figcaption></figure>
+          <figure><img src="images/pdf-process/idly-research-3.jpg" alt="Project artistic research and concept development spread" /><figcaption>Artistic research and concept</figcaption></figure>
+          <p class="x-label">Process</p>
+          <figure><img src="images/pdf-process/idly-process-4.jpg" alt="Project PDF spread showing the real-time system and booth structure" /><figcaption>System and booth design</figcaption></figure>
+        </div>
       </div>
     </section>
   </main>
   <script src="js/liquid.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/sections.js"></script>
+  <script src="js/chapters.js"></script>
   <script src="js/project.js"></script>
   <script src="js/type.js"></script>
 </body>

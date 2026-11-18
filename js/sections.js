@@ -33,12 +33,9 @@
     links.forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("href") === "#" + target.id);
     });
-    // On narrow screens the sub-nav sits above the content, so jump to it
-    if (fromNav && window.matchMedia("(max-width: 800px)").matches) {
-      target.scrollIntoView();
-    } else {
-      window.scrollTo(0, 0);
-    }
+    // Section tabs stay reachable (sidebar, or the sticky top bar on narrow
+    // screens), so every switch starts the new section from its top
+    window.scrollTo(0, 0);
   }
 
   window.addEventListener("hashchange", function () {
